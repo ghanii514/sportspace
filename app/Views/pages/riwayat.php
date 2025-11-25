@@ -23,3 +23,4 @@
 </div>
 
 <?= $this->endSection(); ?>
+<?= $this->renderSection('layout/footer') ?>

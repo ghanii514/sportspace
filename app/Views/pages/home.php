@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->include('layout/template'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -91,4 +91,5 @@
     </div>
 </div>
 
-<?= $this->endSection(); ?>
+<?= $this->renderSection('content') ?>
+<?= $this->include('layout/footer') ?>

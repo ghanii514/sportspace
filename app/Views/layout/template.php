@@ -1,3 +1,5 @@
+
+<?php helper('auth');?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -35,7 +37,7 @@
             </div>
         </div>
         <div class="auth-area">
-            <?php if (session()->get('logged_in')) : ?>
+            <?php if (isset(user()->id)) : ?>
 
                 <a href="/profile" class="signup-link">
                     Hi, <?= esc(session()->get('username')); ?>
@@ -44,46 +46,11 @@
                 <a href="/logout" class="login-prompt">Logout</a>
 
             <?php else : ?>
-                <a href="/register" class="signup-link">Sign Up</a>
-                <a href="/login" class="login-prompt">Already have account?</a>
+                <a href="/auth/register" class="btn btn-primary signup-link">Daftar</a>
+                <a href="/auth/login" class="login-prompt">Login</a>
             <?php endif; ?>
         </div>       
 
     </nav>
-    <?= $this->renderSection('promo_banner'); ?>
-    <main>
-        <?= $this->renderSection('content'); ?>
-    </main>
-
-</main>
-
-    <footer>
-        <div class="footer-container">
-            
-            <div class="footer-col-copyright">
-                &copy; <?= date('Y'); ?> SportSpace.com
-            </div>
-
-            <div class="footer-col-links">
-                <div class="link-row">
-                    <a href="/tentang">Tentang kami</a>
-                    <a href="/bantuan">Bantuan</a>
-                    <a href="/hubungi">Hubungi kami</a>
-                </div>
-                <div class="link-row">
-                    <a href="/kebijakan">Kebijakan & Privasi</a>
-                    <a href="/syarat">Syarat & Ketentuan</a>
-                </div>
-            </div>
-
-            <div class="footer-col-social">
-                <span>Ikuti kami</span>
-                <a href="https://instagram.com" target="_blank" class="bi bi-instagram"></a>
-                <a href="https://facebook.com" target="_blank" class="bi bi-facebook"></a>
-            </div>
-
-        </div>
-    </footer>
     
-</body>
-</html>
+
