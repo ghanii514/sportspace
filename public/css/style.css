@@ -687,3 +687,84 @@ footer {
         order: -1;
     }
 }
+/* =================================
+   HALAMAN RIWAYAT BOOKING
+   ================================= */
+
+.riwayat-title {
+    font-size: 2em;
+    font-weight: 800;
+    color: #000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* TABS */
+.riwayat-tabs {
+    display: flex;
+    justify-content: center; /* Posisi di tengah */
+    gap: 20px; /* Jarak antar tab */
+    margin-bottom: 50px;
+}
+
+.tab-btn {
+    flex: 1; /* Agar lebar tombol seimbang */
+    max-width: 300px; /* Batas lebar maksimal */
+    padding: 15px 0;
+    border: none;
+    background-color: #d0fcdb; /* Hijau sangat muda (Inactive) */
+    color: #000;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 0; /* Kotak siku sesuai mockup? Atau mau rounded? */
+    /* Jika mau rounded seperti di mockup (sedikit): */
+    border-radius: 5px; 
+}
+
+.tab-btn.active {
+    background-color: #b5f1cc; /* Hijau sedikit lebih gelap (Active) */
+    /* Anda bisa sesuaikan kode warna ini agar pas dengan mockup */
+    border: 2px solid #b5f1cc; 
+}
+
+.tab-btn:hover {
+    background-color: #b5f1cc;
+}
+
+/* EMPTY STATE (Kucing & Teks) */
+.riwayat-empty-state {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.empty-img {
+    width: 250px; /* Sesuaikan ukuran gambar */
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.empty-text {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.btn-cari-lapangan {
+    display: inline-block;
+    background-color: #d0fcdb; /* Hijau muda background tombol */
+    color: #000;
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 12px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.btn-cari-lapangan:hover {
+    background-color: #b5f1cc;
+}

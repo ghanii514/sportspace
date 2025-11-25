@@ -29,3 +29,4 @@ $routes->get('/search', 'Field::search');
 $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1');
 $routes->post('booking/process', 'Booking::process');
 
+$routes->get('/riwayat', 'Riwayat::index');
