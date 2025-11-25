@@ -30,3 +30,6 @@ $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1');
 $routes->post('booking/process', 'Booking::process');
 
 $routes->get('/riwayat', 'Riwayat::index');
+
+$routes->post('booking/summary', 'Booking::summary'); 
+$routes->post('booking/save', 'Booking::save');

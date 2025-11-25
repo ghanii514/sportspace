@@ -768,3 +768,288 @@ footer {
 .btn-cari-lapangan:hover {
     background-color: #b5f1cc;
 }
+
+/* =================================
+   HALAMAN FORM BOOKING
+   ================================= */
+.booking-page-container {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.booking-page-title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.booking-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Info Lapangan */
+.booking-field-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.booking-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.booking-details h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.4em;
+    color: #333;
+}
+
+.field-type {
+    margin: 0 0 5px 0;
+    color: #777;
+    font-size: 0.9em;
+}
+
+.field-price-tag {
+    margin: 0;
+    color: #2ECC71;
+    font-weight: 700;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.col-half {
+    flex: 1;
+}
+
+/* Total Price Area */
+.total-price-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.total-amount {
+    font-weight: 800;
+    color: #2ECC71;
+    font-size: 1.3em;
+}
+
+/* Tombol Submit */
+.btn-booking-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #2ECC71;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-booking-submit:hover {
+    background-color: #25a25a;
+}
+
+/* =================================
+   HALAMAN DETAIL & BOOKING (NEW)
+   ================================= */
+
+/* Container utama halaman detail */
+.detail-page-container {
+    margin-top: 40px; /* Jarak dari header */
+    margin-bottom: 60px; /* Jarak dari footer */
+}
+
+/* Kartu Pembungkus Konten Putih */
+.detail-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* Bayangan halus */
+    border: 1px solid #f0f0f0;
+}
+
+/* Judul & Teks */
+.detail-title {
+    font-size: 2em;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.detail-address {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+/* Gambar Utama */
+.detail-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    background-color: #eee;
+}
+
+/* Bagian Deskripsi */
+.detail-description h4 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.detail-description p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- GRID SLOT WAKTU --- */
+.booking-section {
+    margin-top: 40px;
+    background-color: #f9fdfa; /* Hijau sangat pudar untuk area booking */
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #e0f8e9;
+}
+
+.booking-section h4 {
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Kotak Slot Jam */
+.slot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Kolom */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.slot-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.slot-item:hover {
+    border-color: #39E07A;
+    color: #39E07A;
+}
+
+/* Slot Terpilih (Warna Hijau SportSpace) */
+.slot-item.selected {
+    background-color: #39E07A;
+    color: #000; /* Teks Hitam */
+    border-color: #39E07A;
+    box-shadow: 0 4px 10px rgba(57, 224, 122, 0.3);
+}
+
+/* Responsif untuk Slot (di HP jadi 2 kolom) */
+@media (max-width: 600px) {
+    .slot-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- RINGKASAN HARGA --- */
+.price-summary {
+    border-top: 2px dashed #ddd;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.summary-row.total {
+    font-size: 1.4em;
+    font-weight: 800;
+    color: #333;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.total-green {
+    color: #2ECC71; /* Hijau teks harga */
+}
+
+/* Tombol Booking Besar */
+.btn-booking-large {
+    display: block;
+    width: 100%;
+    background-color: #39E07A;
+    color: #000;
+    font-weight: 800;
+    text-align: center;
+    padding: 18px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.2em;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-booking-large:hover {
+    background-color: #2ecc71;
+}
