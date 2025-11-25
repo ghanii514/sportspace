@@ -1,0 +1,689 @@
+/* =================================
+   RESET & GLOBAL STYLING
+   ================================= */
+html {
+    height: 100%; /* Untuk sticky footer */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6; /* Latar belakang abu-abu muda */
+    color: #333; /* Warna teks default */
+    min-height: 100%; /* Untuk sticky footer */
+    display: flex; /* Untuk sticky footer */
+    flex-direction: column; /* Untuk sticky footer */
+}
+
+main {
+    flex-grow: 1; /* Kunci untuk sticky footer */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+/* =================================
+   NAVBAR (HEADER)
+   ================================= */
+.navbar {
+    background-color: #39E07A; /* Warna hijau */
+    padding: 10px 3%; 
+    color: #000000; /* FONT HITAM */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* <--- SHADOW SUDAH KEMBALI */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+/* === KOLOM KIRI: LOGO === */
+.logo-area {
+    flex-basis: 25%;
+    font-size: 1.8em; 
+    font-weight: 800;
+    color: #000000;
+    text-decoration: none;
+    line-height: 1;
+}
+
+/* === KOLOM TENGAH: SEARCH + NAV === */
+.search-nav-area {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 20px 12px 50px;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Nav menu TEPAT DI BAWAH search */
+.nav-menu {
+    margin-top: 8px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin: 0 15px; 
+}
+
+.nav-menu li a {
+    color: #000000;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.nav-menu li a:hover {
+    opacity: 0.7;
+}
+
+/* === KOLOM KANAN: AUTH === */
+.auth-area {
+    flex-basis: 25%;
+    text-align: right;
+}
+
+.auth-area a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    line-height: 1.3;
+}
+
+.auth-area .signup-link {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.auth-area .login-prompt {
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+
+/* =================================
+   KATEGORI (HOMEPAGE)
+   ================================= */
+.categories {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.category-item:hover {
+    transform: scale(1.1);
+}
+
+.category-item .icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #e0f8e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.category-item .icon-circle img {
+    width: 30px;
+    height: 30px;
+}
+
+.category-item span {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* =================================
+   REKOMENDASI (HOMEPAGE)
+   ================================= */
+.recommendation-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.field-list {
+    display: grid;
+    /* 3 kolom di layar besar (sesuai mockup) */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Jarak antar kartu */
+}
+
+/* Ini untuk membuatnya responsif */
+@media (max-width: 992px) {
+    /* 2 kolom di layar tablet */
+    .field-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    /* 1 kolom di layar HP */
+    .field-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.field-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.field-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.field-card-content {
+    padding: 15px;
+}
+
+.field-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.field-card p {
+    margin: 0 0 15px 0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.field-card .price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2ECC71;
+    margin-bottom: 15px;
+}
+
+.field-card .booking-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2ECC71;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+}
+
+.field-card .booking-btn:hover {
+    background-color: #25a25a;
+}
+
+/* =================================
+   REKOMENDASI PROMO (HOMEPAGE)
+   ================================= */
+
+.promo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Jarak antar banner promo */
+}
+
+.promo-card-horizontal {
+    display: block;
+    position: relative; /* Kunci untuk text overlay */
+    border-radius: 15px;
+    overflow: hidden; /* Agar gambar tidak keluar dari border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.promo-card-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.promo-card-horizontal img {
+    width: 100%;
+    display: block;
+    /* Sedikit menggelapkan gambar agar teks lebih jelas */
+    filter: brightness(0.8); 
+}
+
+.promo-banner-area {
+    background-color: #73ffa9;
+    padding: 30px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.promo-text-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    color: white;
+    /* Bayangan teks agar mudah dibaca */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.promo-text-overlay h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.8em;
+    font-weight: 800;
+}
+
+.promo-text-overlay p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+/* =================================
+   HALAMAN AUTH (LOGIN & REGISTER)
+   ================================= */
+body.auth-page {
+    background-color: #f4f7f6;
+}
+
+.auth-page-content {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.auth-subtitle {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.auth-form-card {
+    background-color: #B5F1CC;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.auth-form-inner label {
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.auth-form-inner input[type="username"],
+.auth-form-inner input[type="email"],
+.auth-form-inner input[type="password"] {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    font-size: 1em;
+    box-sizing: border-box;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.btn-submit-green {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #39E07A;
+    color: #000;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-submit-green:hover {
+    background-color: #2ECC71;
+}
+
+.validation-errors {
+    color: #8B0000;
+    background: #ffcccb;
+    border: 1px solid #8B0000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.validation-errors ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.flash-msg {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9em;
+}
+.flash-msg.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+.flash-msg.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+.auth-redirect-link {
+    text-align: center;
+    margin-top: 25px;
+}
+.auth-redirect-link a {
+    color: #333;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.auth-redirect-link a:hover {
+    opacity: 0.7;
+}
+
+.auth-page footer {
+    background: transparent;
+    color: #000;
+    margin-top: 20px;
+}
+
+/* =================================
+   HALAMAN PROFIL PENGGUNA
+   ================================= */
+.profile-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-title {
+    font-size: 2em;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 4px solid #f0f0f0;
+}
+
+.profile-pic-edit {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.profile-pic-edit:hover {
+    color: #2ECC71;
+}
+
+.profile-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #333;
+}
+
+.profile-email {
+    font-size: 1em;
+    color: #777;
+}
+
+.profile-menu {
+    padding: 15px 0;
+}
+
+.profile-menu-section {
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-menu-section:last-child {
+    border-bottom: none;
+}
+
+.menu-title {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.menu-item {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    padding: 12px 0;
+    transition: color 0.2s;
+}
+
+.menu-item:hover {
+    color: #2ECC71;
+}
+
+.profile-buttons {
+    padding: 30px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-ganti-akun,
+.btn-logout {
+    display: block;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-ganti-akun {
+    background-color: #39E07A;
+    color: #000; /* <--- SUDAH DIPERBAIKI */
+}
+
+.btn-logout {
+    background-color: #39E07A;
+    color: #000;
+}
+
+.btn-ganti-akun:hover {
+    background-color: #25a25a;
+}
+    
+.btn-logout:hover {
+    background-color: #2ECC71;
+}
+
+/* =================================
+   FOOTER (DESAIN MOCKUP BARU)
+   ================================= */
+footer {
+    background-color: #f0fcf4;
+    padding: 30px 0;
+    color: #555;
+    border-top: 1px solid #e0e0e0;
+    margin-top: auto; /* Kunci Sticky Footer */
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-col-copyright {
+    font-weight: 600;
+    color: #333;
+}
+
+.footer-col-links {
+    text-align: center;
+}
+
+.link-row {
+    margin-bottom: 8px;
+}
+
+.link-row:last-child {
+    margin-bottom: 0;
+}
+
+.link-row a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.link-row a:hover {
+    color: #2ECC71;
+}
+
+.footer-col-social {
+    font-weight: 600;
+    color: #333;
+}
+
+.footer-col-social span {
+    margin-right: 10px;
+}
+
+.footer-col-social a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: 700;
+}
+
+/* === RESPONSIVE UNTUK HP === */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-col-links {
+        order: -1;
+    }
+}
