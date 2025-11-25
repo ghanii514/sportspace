@@ -14,12 +14,21 @@ $routes->get('/lapangan/tambah', 'Field::tambah'); // Rute untuk menampilkan for
 $routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (menyimpan)
 
 // Rute Autentikasi
-$routes->get('/login', 'Auth::login');
-$routes->post('/login', 'Auth::authLogin');
-$routes->get('/register', 'Auth::register');
-$routes->post('/register', 'Auth::saveRegister');
-$routes->get('/logout', 'Auth::logout');
+$routes->group('auth', function ($routes) {
+    $routes->get('login', function () {
+        return view('auth/login');
+    });
+    $routes->get('register', function () {
+        return view('auth/register');
+    });
+    $routes->get('forgot', function () {
+        return view('auth/forgot');
+    });
 
+});
+
+
+//==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
 $routes->get('/profile', 'User::profile');
 $routes->post('/profile/update-picture', 'User::updateProfilePicture');
