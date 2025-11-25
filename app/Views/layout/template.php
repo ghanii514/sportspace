@@ -46,8 +46,8 @@
                 <a href="/logout" class="login-prompt">Logout</a>
 
             <?php else : ?>
-                <a href="/auth/register" class="btn btn-primary signup-link">Daftar</a>
-                <a href="/auth/login" class="login-prompt">Login</a>
+                <a href="/register" class="btn btn-primary signup-link">Daftar</a>
+                <a href="/login" class="login-prompt">Login</a>
             <?php endif; ?>
         </div>       
 

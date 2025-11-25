@@ -1,40 +1,49 @@
-<?= $this->extend($config->viewLayout) ?>
-<?= $this->section('main') ?>
+<?= $this->include('layout/template') ?>
+<?= $this->section('content'); ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 offset-sm-3">
+<div class="auth-page-content">
 
-            <div class="card">
-                <h2 class="card-header"><?=lang('Auth.forgotPassword')?></h2>
-                <div class="card-body">
+    <h2 class="auth-title"><?= lang('Auth.forgotPassword') ?></h2>
+    <p class="auth-subtitle">Reset your account password</p>
 
-                    <?= view('Myth\Auth\Views\_message_block') ?>
+    <div class="auth-form-card">
 
-                    <p><?=lang('Auth.enterEmailForInstructions')?></p>
+        <!-- Notifikasi Myth Auth -->
+        <?= view('Myth\Auth\Views\_message_block') ?>
 
-                    <form action="<?= url_to('forgot') ?>" method="post">
-                        <?= csrf_field() ?>
+        <p><?= lang('Auth.enterEmailForInstructions') ?></p>
 
-                        <div class="form-group">
-                            <label for="email"><?=lang('Auth.emailAddress')?></label>
-                            <input type="email" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"
-                                   name="email" aria-describedby="emailHelp" placeholder="<?=lang('Auth.email')?>">
-                            <div class="invalid-feedback">
-                                <?= session('errors.email') ?>
-                            </div>
-                        </div>
+        <form action="<?= url_to('forgot') ?>" method="post" class="auth-form-inner">
+            <?= csrf_field() ?>
 
-                        <br>
+            <!-- Email -->
+            <label for="email" style="color:white;"><?= lang('Auth.emailAddress') ?></label>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   class="<?= session('errors.email') ? 'is-invalid' : '' ?>"
+                   placeholder="<?= lang('Auth.email') ?>">
 
-                        <button type="submit" class="btn btn-primary btn-block"><?=lang('Auth.sendInstructions')?></button>
-                    </form>
-
+            <?php if (session('errors.email')) : ?>
+                <div class="validation-errors">
+                    <?= session('errors.email') ?>
                 </div>
-            </div>
+            <?php endif; ?>
 
+            <button type="submit" class="btn-submit-green"> <?= lang('Auth.sendInstructions') ?> </button>
+        </form>
+
+        <div class="auth-bottom-links">
+            <p>
+                <a href="<?= url_to('login') ?>" style="color:#a7f3d0;">← Back to Login</a>
+            </p>
         </div>
+
     </div>
+
 </div>
 
-<?= $this->endSection() ?>
+
+
+<?= $this->renderSection('main') ?>
+<?= $this->include('layout/footer') ?>

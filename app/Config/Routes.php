@@ -13,20 +13,6 @@ $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1'); // Halaman detail l
 $routes->get('/lapangan/tambah', 'Field::tambah'); // Rute untuk menampilkan form
 $routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (menyimpan)
 
-// Rute Autentikasi
-$routes->group('auth', function ($routes) {
-    $routes->get('login', function () {
-        return view('auth/login');
-    });
-    $routes->get('register', function () {
-        return view('auth/register');
-    });
-    $routes->get('forgot', function () {
-        return view('auth/forgot');
-    });
-
-});
-
 
 //==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');

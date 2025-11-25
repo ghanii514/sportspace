@@ -1,74 +1,66 @@
-<?= $this->extend($config->viewLayout) ?>
-<?= $this->section('main') ?>
+<?= $this->include('layout/template') ?>
+<?= $this->section('content'); ?>
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-6 offset-sm-3">
+<div class="auth-page-content">
+    <h2 class="auth-title">SIGN IN</h2>
+    <p class="auth-subtitle">SportSpace Account</p>
 
-			<div class="card">
-				<h2 class="card-header"><?=lang('Auth.loginTitle')?></h2>
-				<div class="card-body">
+    <div class="auth-form-card">
 
-					<?= view('Myth\Auth\Views\_message_block') ?>
+        <!-- Pesan dari MythAuth -->
+        <?= view('Myth\Auth\Views\_message_block') ?>
 
-					<form action="<?= url_to('login') ?>" method="post">
-						<?= csrf_field() ?>
+        <form action="<?= url_to('login') ?>" method="post" class="auth-form-inner">
+            <?= csrf_field() ?>
 
-<?php if ($config->validFields === ['email']): ?>
-						<div class="form-group">
-							<label for="login"><?=lang('Auth.email')?></label>
-							<input type="email" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>"
-								   name="login" placeholder="<?=lang('Auth.email')?>">
-							<div class="invalid-feedback">
-								<?= session('errors.login') ?>
-							</div>
-						</div>
-<?php else: ?>
-						<div class="form-group">
-							<label for="login"><?=lang('Auth.emailOrUsername')?></label>
-							<input type="text" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>"
-								   name="login" placeholder="<?=lang('Auth.emailOrUsername')?>">
-							<div class="invalid-feedback">
-								<?= session('errors.login') ?>
-							</div>
-						</div>
-<?php endif; ?>
+            <label for="login">E-mail atau Username</label>
+            <input type="text"
+                   name="login"
+                   id="login"
+                   value="<?= old('login') ?>"
+                   class="<?= session('errors.login') ? 'is-invalid' : '' ?>">
 
-						<div class="form-group">
-							<label for="password"><?=lang('Auth.password')?></label>
-							<input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.password')?>">
-							<div class="invalid-feedback">
-								<?= session('errors.password') ?>
-							</div>
-						</div>
+            <?php if (session('errors.login')) : ?>
+                <div class="validation-errors">
+                    <?= session('errors.login') ?>
+                </div>
+            <?php endif; ?>
 
-<?php if ($config->allowRemembering): ?>
-						<div class="form-check">
-							<label class="form-check-label">
-								<input type="checkbox" name="remember" class="form-check-input" <?php if (old('remember')) : ?> checked <?php endif ?>>
-								<?=lang('Auth.rememberMe')?>
-							</label>
-						</div>
-<?php endif; ?>
+            <label for="password">Password</label>
+            <input type="password"
+                   name="password"
+                   id="password"
+                   class="<?= session('errors.password') ? 'is-invalid' : '' ?>">
 
-						<br>
+            <?php if (session('errors.password')) : ?>
+                <div class="validation-errors">
+                    <?= session('errors.password') ?>
+                </div>
+            <?php endif; ?>
 
-						<button type="submit" class="btn btn-primary btn-block"><?=lang('Auth.loginAction')?></button>
-					</form>
+            <?php if ($config->allowRemembering): ?>
+                <div class="remember-area">
+                    <input type="checkbox" name="remember" id="remember"
+                        <?= old('remember') ? 'checked' : '' ?>>
+                    <label for="remember">Ingat Saya</label>
+                </div>
+            <?php endif; ?>
 
-					<hr>
+            <button type="submit" class="btn-submit-green">Login</button>
+        </form>
 
-<?php if ($config->allowRegistration) : ?>
-					<p><a href="<?= url_to('register') ?>"><?=lang('Auth.needAnAccount')?></a></p>
-<?php endif; ?>
-<?php if ($config->activeResetter): ?>
-					<p><a href="<?= url_to('forgot') ?>"><?=lang('Auth.forgotYourPassword')?></a></p>
-<?php endif; ?>
-				</div>
-			</div>
+        <div class="auth-bottom-links">
+            <?php if ($config->allowRegistration): ?>
+                <p><a href="<?= url_to('register') ?>">Belum punya akun?</a></p>
+            <?php endif; ?>
 
-		</div>
-	</div>
+            <?php if ($config->activeResetter): ?>
+                <p><a href="<?= url_to('forgot') ?>">Lupa Password?</a></p>
+            <?php endif; ?>
+        </div>
+
+    </div>
 </div>
 
-<?= $this->renderSection('main'); ?>
+<?= $this->renderSection('main') ?>
+<?= $this->include('layout/footer') ?>

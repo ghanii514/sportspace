@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->include('layout/template'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -125,4 +125,4 @@
     }
 </script>
 
-<?= $this->endSection('content'); ?>
+<?= $this->renderSection('content'); ?>
