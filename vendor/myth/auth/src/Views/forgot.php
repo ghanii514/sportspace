@@ -4,7 +4,7 @@
 <div class="auth-page-content">
 
     <h2 class="auth-title"><?= lang('Auth.forgotPassword') ?></h2>
-    <p class="auth-subtitle">Reset your account password</p>
+    <p class="auth-subtitle">Reset Password Akun Anda</p>
 
     <div class="auth-form-card">
 
@@ -35,7 +35,7 @@
 
         <div class="auth-bottom-links">
             <p>
-                <a href="<?= url_to('login') ?>" style="color:#a7f3d0;">← Back to Login</a>
+                <a href="<?= url_to('login') ?>" style="color:#a7f3d0;">← Kembali ke Halaman Login</a>
             </p>
         </div>
 
