@@ -16,7 +16,7 @@ $routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (
 
 //==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
-$routes->get('/profile', 'User::profile');
+$routes->get('/profile', 'User::index');
 $routes->post('/profile/update-picture', 'User::updateProfilePicture');
 
 $routes->get('/search', 'Field::search');
