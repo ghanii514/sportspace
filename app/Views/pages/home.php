@@ -9,8 +9,8 @@
             Rekomendasi Promosi
         </h2>
         <div class="promo-list">
-            <?php if (!empty($promos)) : ?>
-                <?php foreach ($promos as $promo) : ?>
+            <?php if (!empty($promo)) : ?>
+                <?php foreach ($promo as $promo) : ?>
                     <a href="#" class="promo-card-horizontal">
                         <img src="/img/promo/<?= esc($promo['image'] ?? 'default.jpg'); ?>" alt="<?= esc($promo['title'] ?? $promo['promo']); ?>">
                         <div class="promo-text-overlay">
