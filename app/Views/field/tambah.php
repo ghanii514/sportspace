@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?> <?= $this->section('content'); ?>
+<?= $this->include('layout/template'); ?> <?= $this->section('content'); ?>
 
 <div class="container" style="max-width: 800px;"> <h2 class="recommendation-title">Tambah Data Lapangan Baru</h2>
 
@@ -45,4 +45,5 @@
     </form>
 </div>
 
-<?= $this->endSection(); ?>
+<?= $this->renderSection('content'); ?>
+<?= $this->include('layout/footer'); ?>
