@@ -45,7 +45,7 @@
 
             <?php else : ?>
                 <a href="/register" class="signup-link">Sign Up</a>
-                <a href="/login" class="login-prompt">Already have account?</a>
+                <a href="/login" class="login-prompt">Sudah punya akun?</a>
             <?php endif; ?>
         </div>       
 

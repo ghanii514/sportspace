@@ -286,61 +286,79 @@ a {
 }
 
 /* =================================
-   REKOMENDASI PROMO (HOMEPAGE)
+   REKOMENDASI PROMO (HOMEPAGE) - TAMPILAN BANNER LEBAR
    ================================= */
 
+/* Container list promo - Ubah jadi blok vertikal */
 .promo-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Jarak antar banner promo */
+    display: block; /* Promo akan menumpuk secara vertikal */
+    margin-top: 20px;
 }
 
+/* Kartu Promo - Ukuran LEBAR PENUH & Tinggi Disesuaikan */
 .promo-card-horizontal {
-    display: block;
-    position: relative; /* Kunci untuk text overlay */
-    border-radius: 15px;
-    overflow: hidden; /* Agar gambar tidak keluar dari border */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: block; /* Agar link mengambil lebar penuh */
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+    
+    width: 100%; /* Lebar penuh */
+    height: 130px; /* Tinggi banner (sesuaikan jika perlu) */
+    margin-bottom: 20px; /* Jarak antar banner */
 }
 
 .promo-card-horizontal:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px); /* Efek angkat sedikit saat hover */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
+/* Gambar Promo - Menyesuaikan kotak banner */
 .promo-card-horizontal img {
     width: 100%;
-    display: block;
-    /* Sedikit menggelapkan gambar agar teks lebih jelas */
-    filter: brightness(0.8); 
+    height: 100%;
+    object-fit: cover; /* Biar gambar tetap memenuhi kotak tanpa ruang kosong */
+    filter: brightness(0.6); /* Sedikit lebih gelap biar teks putih jelas */
 }
 
-.promo-banner-area {
-    background-color: #73ffa9;
-    padding: 30px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Teks Overlay - Posisi ke kiri bawah */
 .promo-text-overlay {
     position: absolute;
-    bottom: 20px;
-    left: 25px;
+    bottom: 20px; /* Jarak dari bawah */
+    left: 30px;  /* Jarak dari kiri */
+    right: 30px; /* Batas kanan teks */
     color: white;
-    /* Bayangan teks agar mudah dibaca */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    pointer-events: none; /* Agar tidak menghalangi klik pada link */
 }
 
 .promo-text-overlay h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.8em;
+    margin: 0;
+    font-size: 1.8em; /* Ukuran judul lebih besar */
     font-weight: 800;
+    line-height: 1.2;
 }
 
 .promo-text-overlay p {
-    margin: 0;
-    font-size: 1.1em;
+    margin-top: 5px;
+    font-size: 1.1em; /* Ukuran deskripsi sedikit lebih besar */
     font-weight: 500;
+}
+
+/* Responsif untuk layar kecil jika teks terlalu besar */
+@media (max-width: 768px) {
+    .promo-text-overlay h3 {
+        font-size: 1.4em;
+    }
+    .promo-text-overlay p {
+        font-size: 0.9em;
+    }
+    .promo-text-overlay {
+        left: 20px;
+        right: 20px;
+        bottom: 15px;
+    }
 }
 
 /* =================================
@@ -390,8 +408,8 @@ body.auth-page {
     margin-bottom: 10px;
 }
 
-.auth-form-inner input[type="username"],
 .auth-form-inner input[type="email"],
+.auth-form-inner input[type="text"],
 .auth-form-inner input[type="password"] {
     width: 100%;
     padding: 15px 20px;
@@ -1052,4 +1070,122 @@ footer {
 
 .btn-booking-large:hover {
     background-color: #2ecc71;
+}
+
+/* =================================
+   PAGINATION, IKLAN, & SPONSOR
+   ================================= */
+
+/* 1. Styling Pagination */
+.pagination-wrapper {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+}
+
+.pagination li a {
+    display: block;
+    padding: 10px 18px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.pagination li a:hover {
+    background-color: #39E07A; /* Hijau SportSpace */
+    color: #fff;
+    border-color: #39E07A;
+}
+
+.pagination li.active a {
+    background-color: #39E07A;
+    color: #fff;
+    border-color: #39E07A;
+}
+
+/* 2. Styling Space Iklan (Banner Gambar) */
+.ad-space-banner {
+    width: 100%;
+    margin: 50px 0;
+    text-align: center; /* Agar gambar di tengah */
+}
+
+.ad-label {
+    display: block;
+    text-align: center; /* Atau 'center' jika mau di tengah */
+    font-size: 0.85em; /* Ukuran font agak kecil */
+    color: #999; /* Warna abu-abu soft biar ga mencolok */
+    margin-bottom: 5px; /* Jarak antara tulisan dan gambar */
+    text-transform: uppercase; /* Huruf besar semua biar rapi */
+    letter-spacing: 1px; /* Jarak antar huruf */
+    font-weight: 600;
+}
+
+.ad-space-banner a {
+    display: block; /* Agar link membungkus gambar */
+    transition: transform 0.3s;
+}
+
+.ad-space-banner a:hover {
+    transform: scale(1.02); /* Efek zoom sedikit saat di-hover */
+}
+
+.ad-space-banner img {
+    width: 30%; /* Lebar menyesuaikan container */
+    max-height: 300px; /* Tinggi maksimal agar tidak terlalu besar */
+    object-fit: contain; /* Agar gambar tidak gepeng */
+    border-radius: 15px; /* Sudut melengkung */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Bayangan halus */
+    background-color: #f8f9fa;
+}
+
+.ad-content {
+    text-align: center;
+    color: #777;
+}
+
+/* 3. Styling Sponsorship */
+.sponsorship-section {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.sponsor-title {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Agar turun ke bawah di HP */
+    gap: 40px; /* Jarak antar logo */
+}
+
+.sponsor-logos img {
+    height: 50px; /* Tinggi logo seragam */
+    object-fit: contain;
+    filter: grayscale(100%); /* Efek hitam putih agar elegan */
+    opacity: 0.6;
+    transition: all 0.3s;
+}
+
+.sponsor-logos img:hover {
+    filter: grayscale(0%); /* Berwarna saat di-hover */
+    opacity: 1;
+    transform: scale(1.1);
 }
