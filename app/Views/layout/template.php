@@ -37,19 +37,19 @@
             </div>
         </div>
         <div class="auth-area">
-            <?php if (isset(user()->id)) : ?>
+            <?php if (logged_in()) : ?>
 
                 <a href="/profile" class="signup-link">
-                    Hi, <?= esc(session()->get('username')); ?>
+                    Hi, <?= esc(user()->username); ?>
                 </a>
 
                 <a href="/logout" class="login-prompt">Logout</a>
 
             <?php else : ?>
-                <a href="/register" class="btn btn-primary signup-link">Daftar</a>
-                <a href="/login" class="login-prompt">Login</a>
+                <a href="<?= url_to('register') ?>" class="signup-link">Sign Up</a>
+                <a href="<?= url_to('login') ?>" class="login-prompt">Already have account?</a>
             <?php endif; ?>
-        </div>       
+        </div>    
 
     </nav>
     

@@ -2,8 +2,6 @@
 
 <?= $this->section('content'); ?>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <div class="container detail-page-container">
     
     <?php if(session()->getFlashdata('success')): ?>
@@ -30,6 +28,7 @@
 
         <div class="booking-section">
             <h4>Pilih Jadwal Booking</h4>
+            <p class="text-muted small">Klik jam <b>Mulai</b>, lalu klik jam <b>Selesai</b>.</p>
 
             <form action="/booking/summary" method="post" id="bookingForm">
                 <?= csrf_field() ?>
@@ -38,19 +37,20 @@
                 <input type="hidden" name="jam_mulai" id="inputJamMulai">
                 <input type="hidden" name="jam_selesai" id="inputJamSelesai">
 
-                <div class="mb-4 text-center">
-                    <label style="font-weight: 600; display:block; margin-bottom: 8px;">Pilih Tanggal Main</label>
-                    <input type="date" name="tanggal" class="form-control" style="max-width: 300px; margin: 0 auto;" required>
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <label style="font-weight: 600; display:block; margin-bottom: 10px;">Pilih Tanggal Main</label>
+                    <input type="date" name="tanggal" required 
+                           style="display: block; width: 100%; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; text-align: center;">
                 </div>
 
                 <div class="slot-grid">
                     <?php 
                     $jam_buka = 8; 
-                    $jam_tutup = 23; // Sampai jam 11 malam
-                    for ($i = $jam_buka; $i < $jam_tutup; $i++): 
+                    $jam_tutup = 23; 
+                    for ($i = $jam_buka; $i <= $jam_tutup; $i++): // Saya ubah jadi <= agar jam tutup muncul sbg batas akhir
                         $timeLabel = sprintf("%02d.00", $i);
                     ?>
-                        <div class="slot-item" data-jam="<?= $i ?>" onclick="selectSlot(this)">
+                        <div class="slot-item" id="slot-<?= $i ?>" data-jam="<?= $i ?>" onclick="selectSlot(this)">
                             <?= $timeLabel ?>
                         </div>
                     <?php endfor; ?>
@@ -71,57 +71,106 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn-booking-large">BOOKING SEKARANG</button>
+                <button type="button" onclick="submitForm()" class="btn-booking-large">BOOKING SEKARANG</button>
 
             </form>
-        </div> </div> </div>
+        </div> 
+    </div> 
+</div>
 
 <script>
-    // Ambil harga dari PHP
     const hargaPerJam = <?= $field['harga'] ?? $field['price_per_hour'] ?>;
-    let selectedSlots = [];
+    
+    // Variabel untuk menyimpan Start dan End
+    let startHour = null;
+    let endHour = null;
 
     function selectSlot(element) {
         const jam = parseInt(element.getAttribute('data-jam'));
 
-        // Cek apakah slot sudah dipilih (Toggle)
-        if (selectedSlots.includes(jam)) {
-            // Hapus dari array
-            selectedSlots = selectedSlots.filter(j => j !== jam);
-            element.classList.remove('selected');
-        } else {
-            // Tambah ke array
-            selectedSlots.push(jam);
-            element.classList.add('selected');
+        // 1. Jika belum ada yang dipilih (Klik Pertama -> Set Start)
+        if (startHour === null) {
+            startHour = jam;
+            highlightSlots(); // Update tampilan
+        } 
+        // 2. Jika Start sudah ada, tapi End belum (Klik Kedua -> Set End)
+        else if (endHour === null) {
+            if (jam > startHour) {
+                // Normal: Klik jam yang lebih besar (Misal Start 9, Klik 11)
+                endHour = jam;
+            } else if (jam < startHour) {
+                // Koreksi: Klik jam yang lebih kecil (Misal Start 11, Klik 9) -> Tukar posisi
+                endHour = startHour;
+                startHour = jam;
+            } else {
+                // Klik jam yang sama -> Batalkan pilihan
+                startHour = null;
+            }
+            highlightSlots();
+        } 
+        // 3. Jika Start dan End sudah ada (Klik Ketiga -> Reset ulang)
+        else {
+            startHour = jam;
+            endHour = null;
+            highlightSlots();
         }
+
         updateBookingInfo();
     }
 
+    function highlightSlots() {
+        // Hapus semua seleksi dulu
+        document.querySelectorAll('.slot-item').forEach(el => {
+            el.classList.remove('selected');
+        });
+
+        // Jika hanya Start yang dipilih
+        if (startHour !== null && endHour === null) {
+            const el = document.getElementById('slot-' + startHour);
+            if(el) el.classList.add('selected');
+        }
+
+        // Jika Start DAN End sudah dipilih (RANGE)
+        if (startHour !== null && endHour !== null) {
+            for (let i = startHour; i <= endHour; i++) {
+                const el = document.getElementById('slot-' + i);
+                if(el) el.classList.add('selected');
+            }
+        }
+    }
+
     function updateBookingInfo() {
-        const durasi = selectedSlots.length;
-        const total = durasi * hargaPerJam;
+        let durasi = 0;
+        let total = 0;
 
-        // Update Text Tampilan
-        document.getElementById('displayDurasi').innerText = durasi;
-        document.getElementById('displayTotal').innerText = total.toLocaleString('id-ID');
-
-        // Update Input Hidden (untuk dikirim ke server)
-        document.getElementById('inputTotalHarga').value = total;
-
-        if (selectedSlots.length > 0) {
-            // Urutkan jam agar rapi (misal klik 10 lalu 8 -> jadi 8, 10)
-            selectedSlots.sort((a, b) => a - b);
+        // Hitung Durasi: End - Start
+        if (startHour !== null && endHour !== null) {
+            durasi = endHour - startHour;
+            total = durasi * hargaPerJam;
             
-            // Format untuk MySQL: Start = jam pertama, End = jam terakhir + 1
-            let start = selectedSlots[0] + ":00:00"; 
-            let end = (selectedSlots[selectedSlots.length - 1] + 1) + ":00:00";
-            
-            document.getElementById('inputJamMulai').value = start;
-            document.getElementById('inputJamSelesai').value = end;
+            // Format MySQL Time
+            let startStr = startHour < 10 ? "0" + startHour + ":00:00" : startHour + ":00:00";
+            let endStr = endHour < 10 ? "0" + endHour + ":00:00" : endHour + ":00:00";
+
+            document.getElementById('inputJamMulai').value = startStr;
+            document.getElementById('inputJamSelesai').value = endStr;
         } else {
+            // Reset jika belum lengkap
             document.getElementById('inputJamMulai').value = "";
             document.getElementById('inputJamSelesai').value = "";
         }
+
+        document.getElementById('displayDurasi').innerText = durasi;
+        document.getElementById('displayTotal').innerText = total.toLocaleString('id-ID');
+        document.getElementById('inputTotalHarga').value = total;
+    }
+
+    function submitForm() {
+        if (startHour === null || endHour === null) {
+            alert("Harap pilih jam mulai dan jam selesai (minimal 1 jam durasi).");
+            return;
+        }
+        document.getElementById('bookingForm').submit();
     }
 </script>
 

@@ -13,7 +13,7 @@
 
     <div class="riwayat-empty-state">
         
-        <img src="/img/cat_mascot.png" alt="Belum ada riwayat" class="empty-img">
+        <img src="/img/icons/riwayat.png" alt="Belum ada riwayat" class="empty-img">
         
         <h3 class="empty-text">Anda Belum Memiliki Riwayat</h3>
         
