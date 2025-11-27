@@ -21,8 +21,9 @@
 
             <div class="footer-col-social">
                 <span>Ikuti kami</span>
-                <a href="https://instagram.com" target="_blank" class="bi bi-instagram"></a>
-                <a href="https://facebook.com" target="_blank" class="bi bi-facebook"></a>
+                <br>
+                <a href="https://instagram.com"  class="bi bi-instagram"></a>
+                <a href="https://facebook.com"  class="bi bi-facebook"></a>
             </div>
 
         </div>

@@ -36,6 +36,7 @@ class Booking extends BaseController
             'title' => 'Ringkasan Pemesanan',
             'field' => $field,
             'booking_data' => [
+                'venue_id' => $venueId,
                 'tanggal' => $tanggal,
                 'jam_mulai' => $jamMulai,
                 'jam_selesai' => $jamSelesai,
@@ -60,15 +61,18 @@ class Booking extends BaseController
     {
         // INI PROSES SIMPAN KE DATABASE (FINAL)
         $bookingModel = new BookingModel();
-        
+
+        $time_end = $this->request->getPost('selesai');
+        $time_start = $this->request->getPost('mulai');
         $data = [
-            'user_id' => 1, // Ganti dengan session()->get('id') nanti
-            'venue_id' => $this->request->getPost('venue_id'),
-            'booking_date' => $this->request->getPost('booking_date'),
-            'start_time' => $this->request->getPost('start_time'),
-            'end_time' => $this->request->getPost('end_time'),
-            'total_price' => $this->request->getPost('total_price'),
-            'status' => 'confirmed' // Langsung confirmed atau pending bayar
+            'name' => $this->request->getPost('username') ,
+            'user_id' => $this->request->getPost('id_user') ,
+            'venue_id' => $this->request->getPost('venue_id') ,
+            'booking_date' => $this->request->getPost('jadwal') ,
+            'start_time' => $time_start ,
+            'end_time' => $time_end,
+            'total_price' => $this->request->getPost('total') ,
+            'status' => "Success" ,
         ];
 
         $bookingModel->save($data);
