@@ -39,8 +39,7 @@
 
                 <div style="text-align: center; margin-bottom: 30px;">
                     <label style="font-weight: 600; display:block; margin-bottom: 10px;">Pilih Tanggal Main</label>
-                    <input type="date" name="tanggal" required 
-                           style="display: block; width: 100%; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; text-align: center;">
+                    <input type="date" name="tanggal" style="display: block; width: 100%; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; text-align: center;">
                 </div>
 
                 <div class="slot-grid">
