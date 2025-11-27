@@ -28,3 +28,6 @@ $routes->get('/riwayat', 'Riwayat::index');
 
 $routes->post('booking/summary', 'Booking::summary'); 
 $routes->post('booking/save', 'Booking::save');
+
+$routes->get('/ganti-akun', 'GantiAkun::index');
+$routes->get('/ganti-akun/tambah', 'GantiAkun::tambah');

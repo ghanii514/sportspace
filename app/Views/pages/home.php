@@ -100,3 +100,4 @@
 
 </div> 
 <?= $this->renderSection('content'); ?>
+<?= $this->include('layout/footer'); ?>

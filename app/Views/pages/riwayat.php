@@ -23,4 +23,4 @@
 </div>
 
 <?= $this->renderSection('content'); ?>
-<?= $this->renderSection('layout/footer') ?>
+<?= $this->include('layout/footer') ?>
