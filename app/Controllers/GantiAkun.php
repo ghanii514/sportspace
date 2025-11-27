@@ -2,36 +2,61 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+use Myth\Auth\Entities\User;
+
 class GantiAkun extends BaseController
 {
     public function index()
     {
-        // Load helper auth agar fungsi logged_in() dan user_id() jalan
         helper(['auth']);
         
         $data = [
             'title' => 'Ganti Akun',
-            // Kita kirim ID user yang sedang login saat ini
             'currentUserId' => logged_in() ? user_id() : null
         ];
 
-        // Memanggil view 'user/ganti_akun'
         return view('user/ganti_akun', $data);
     }
 
     public function tambah()
     {
-        // 1. Logout pakai Myth:Auth
         $auth = service('authentication');
         if ($auth->check()) {
             $auth->logout();
         }
 
-        // 2. [TAMBAHAN] Hancurkan Session CI4 secara paksa
-        // Ini memastikan browser benar-benar lupa siapa user ini
         session()->destroy();
 
-        // 3. Paksa Redirect ke halaman Login
         return redirect()->to('/login');
+    }
+
+    public function switchAction()
+    {
+        $targetEmail = $this->request->getGet('email');
+
+        if (!$targetEmail) {
+            return redirect()->back();
+        }
+
+        $userModel = new UserModel();
+        
+        $userData = $userModel->where('email', $targetEmail)->first();
+
+        if ($userData) {
+            $auth = service('authentication');
+
+            if ($auth->check()) {
+                $auth->logout();
+            }
+
+            $userEntity = new User($userData); 
+
+            $auth->login($userEntity);
+
+            return redirect()->to('/');
+        } else {
+            return redirect()->to('/login')->with('error', 'Akun tidak ditemukan.');
+        }
     }
 }

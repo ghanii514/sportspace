@@ -31,3 +31,4 @@ $routes->post('booking/save', 'Booking::save');
 
 $routes->get('/ganti-akun', 'GantiAkun::index');
 $routes->get('/ganti-akun/tambah', 'GantiAkun::tambah');
+$routes->get('/ganti-akun/switch', 'GantiAkun::switchAction');
