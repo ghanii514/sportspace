@@ -1,4 +1,5 @@
-<?= $this->extend('layout/template'); ?> <?= $this->section('content'); ?>
+<?= $this->include('layout/template'); ?>
+<?= $this->section('content'); ?>
 
 <div class="container">
     
@@ -86,4 +87,5 @@
     }
 </script>
 
-<?= $this->endSection(); ?>
+<?= $this->renderSection('content'); ?>
+<?= $this->include('layout/footer'); ?>

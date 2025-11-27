@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->include('layout/template'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -33,4 +33,7 @@
         <?php endif; ?>
     </div>
 
-</div> <?= $this->endSection(); ?>
+</div> 
+
+<?= $this->renderSection('content'); ?>
+<?= $this->include('layout/footer'); ?>

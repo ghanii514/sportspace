@@ -16,7 +16,7 @@ $routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (
 
 //==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
-$routes->get('/profile', 'User::profile');
+$routes->get('/profile', 'User::index');
 $routes->post('/profile/update-picture', 'User::updateProfilePicture');
 
 $routes->get('/search', 'Field::search');
@@ -28,3 +28,7 @@ $routes->get('/riwayat', 'Riwayat::index');
 
 $routes->post('booking/summary', 'Booking::summary'); 
 $routes->post('booking/save', 'Booking::save');
+
+$routes->get('/ganti-akun', 'GantiAkun::index');
+$routes->get('/ganti-akun/tambah', 'GantiAkun::tambah');
+$routes->get('/ganti-akun/switch', 'GantiAkun::switchAction');
