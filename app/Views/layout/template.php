@@ -61,7 +61,7 @@
                 username: "<?= esc(user()->username) ?>",
                 email: "<?= esc(user()->email) ?>",
                 // Pastikan path gambarnya benar
-                image: "/img/users/<?= esc(user()->profile_picture ?? 'default_profile.jpg') ?>" 
+                image: "/img/user/<?= esc(user()->profile_picture ?? 'default_profile.jpg') ?>" 
             };
 
             // 2. Ambil data lama dari memori browser

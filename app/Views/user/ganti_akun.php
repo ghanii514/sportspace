@@ -133,36 +133,27 @@
 </div>
 
 <script>
-    // 1. Ambil ID User saat ini dari PHP
+
     const currentUserId = <?= json_encode($currentUserId); ?>;
     
-    // 2. Ambil data lama dari LocalStorage
     let savedAccounts = JSON.parse(localStorage.getItem('sportspace_accounts') || '[]');
 
-    // ============================================================
-    // [FIX] KITA INJECT DATA USER SAAT INI LANGSUNG DARI PHP
-    // Agar tidak perlu nunggu refresh atau nunggu script footer jalan
-    // ============================================================
     <?php if (logged_in()) : ?>
         const currentUserNow = {
             id: "<?= user()->id ?>",
             username: "<?= esc(user()->username) ?>",
             email: "<?= esc(user()->email) ?>",
-            image: "/img/users/<?= esc(user()->profile_picture ?? 'default_profile.jpg') ?>"
+            image: "/img/user/<?= esc(user()->profile_picture ?? 'default_profile.jpg') ?>"
         };
 
-        // Cek apakah user ini sudah ada di list?
+
         const existingIdx = savedAccounts.findIndex(acc => acc.id == currentUserNow.id);
 
         if (existingIdx > -1) {
-            // Kalau ada, update datanya (siapa tau ganti foto)
             savedAccounts[existingIdx] = currentUserNow;
         } else {
-            // Kalau belum ada (LOGIN BARU), masukkan paksa ke array sekarang juga!
             savedAccounts.push(currentUserNow);
         }
-
-        // Update localStorage biar sinkron
         localStorage.setItem('sportspace_accounts', JSON.stringify(savedAccounts));
     <?php endif; ?>
     // ============================================================
@@ -176,13 +167,9 @@
         listContainer.innerHTML = '<div style="padding:20px; text-align:center; color:#999;">Belum ada riwayat akun.</div>';
     } else {
         savedAccounts.forEach(acc => {
-            // Cek akun aktif (bandingkan ID)
-            // Gunakan '==' agar aman (string vs int)
             const isActive = (currentUserId && acc.id == currentUserId); 
             const activeClass = isActive ? 'active' : '';
-            
-            // Link Logic: Jika aktif -> diam (#). Jika tidak -> ke login prefill.
-            const linkAction = isActive ? '#' : '/login?prefill_email=' + encodeURIComponent(acc.email); 
+            const linkAction = isActive ? '#' : '/ganti-akun/switch?email=' + encodeURIComponent(acc.email); 
 
             const html = `
                 <a href="${linkAction}" class="account-item ${activeClass}" onclick="handleSwitch(event, ${isActive})">
