@@ -9,6 +9,5 @@ class PromoModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = ['promo', 'deskripsi', 'image', 'promo_code'];
 
-    // Menggunakan timestamps
     protected $useTimestamps = true;
 }

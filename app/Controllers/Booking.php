@@ -9,27 +9,23 @@ class Booking extends BaseController
 {
     public function summary()
     {
-        // 1. Ambil data yang dikirim dari form detail
         $name = $this->request->getPost("name");
         $venueId = $this->request->getPost('venue_id');
         $tanggal = $this->request->getPost('tanggal');
-        $jamMulai = $this->request->getPost('jam_mulai'); // Format "08:00:00"
-        $jamSelesai = $this->request->getPost('jam_selesai'); // Format "10:00:00"
+        $jamMulai = $this->request->getPost('jam_mulai'); 
+        $jamSelesai = $this->request->getPost('jam_selesai'); 
         
-        // 2. Ambil Info Lapangan dari Database agar valid
         $fieldModel = new FieldModel();
         $field = $fieldModel->find($venueId);
 
-        // 3. Hitung Durasi (Logika PHP agar aman)
         $start = strtotime($jamMulai);
         $end = strtotime($jamSelesai);
         $diff = $end - $start;
-        $durasi = $diff / (60 * 60); // Konversi detik ke jam
+        $durasi = $diff / (60 * 60); 
 
-        // 4. Hitung Total Biaya
         $hargaSewa = $durasi * $field['harga'];
-        $biayaLayanan = 2000; // Contoh biaya admin
-        $diskon = 0; // Nanti bisa dikembangin pakai logika promo
+        $biayaLayanan = 2000; 
+        $diskon = 0; 
         $totalBayar = $hargaSewa + $biayaLayanan - $diskon;
 
         $data = [
@@ -46,7 +42,6 @@ class Booking extends BaseController
                 'diskon' => $diskon,
                 'total_bayar' => $totalBayar
             ],
-            // Data User Dummy (Nanti ganti pakai session user login)
             'user' => [
                 'nama' => 'Budi Santoso',
                 'email' => 'budisantoso03@gmail.com',
@@ -59,7 +54,6 @@ class Booking extends BaseController
 
     public function save()
     {
-        // INI PROSES SIMPAN KE DATABASE (FINAL)
         $bookingModel = new BookingModel();
 
         $time_end = $this->request->getPost('selesai');

@@ -46,7 +46,7 @@
                     <?php 
                     $jam_buka = 8; 
                     $jam_tutup = 23; 
-                    for ($i = $jam_buka; $i <= $jam_tutup; $i++): // Saya ubah jadi <= agar jam tutup muncul sbg batas akhir
+                    for ($i = $jam_buka; $i <= $jam_tutup; $i++): 
                         $timeLabel = sprintf("%02d.00", $i);
                     ?>
                         <div class="slot-item" id="slot-<?= $i ?>" data-jam="<?= $i ?>" onclick="selectSlot(this)">
@@ -80,34 +80,28 @@
 <script>
     const hargaPerJam = <?= $field['harga'] ?? $field['price_per_hour'] ?>;
     
-    // Variabel untuk menyimpan Start dan End
+    
     let startHour = null;
     let endHour = null;
 
     function selectSlot(element) {
         const jam = parseInt(element.getAttribute('data-jam'));
 
-        // 1. Jika belum ada yang dipilih (Klik Pertama -> Set Start)
         if (startHour === null) {
             startHour = jam;
-            highlightSlots(); // Update tampilan
+            highlightSlots(); 
         } 
-        // 2. Jika Start sudah ada, tapi End belum (Klik Kedua -> Set End)
         else if (endHour === null) {
             if (jam > startHour) {
-                // Normal: Klik jam yang lebih besar (Misal Start 9, Klik 11)
                 endHour = jam;
             } else if (jam < startHour) {
-                // Koreksi: Klik jam yang lebih kecil (Misal Start 11, Klik 9) -> Tukar posisi
                 endHour = startHour;
                 startHour = jam;
             } else {
-                // Klik jam yang sama -> Batalkan pilihan
                 startHour = null;
             }
             highlightSlots();
         } 
-        // 3. Jika Start dan End sudah ada (Klik Ketiga -> Reset ulang)
         else {
             startHour = jam;
             endHour = null;
@@ -118,18 +112,15 @@
     }
 
     function highlightSlots() {
-        // Hapus semua seleksi dulu
         document.querySelectorAll('.slot-item').forEach(el => {
             el.classList.remove('selected');
         });
 
-        // Jika hanya Start yang dipilih
         if (startHour !== null && endHour === null) {
             const el = document.getElementById('slot-' + startHour);
             if(el) el.classList.add('selected');
         }
 
-        // Jika Start DAN End sudah dipilih (RANGE)
         if (startHour !== null && endHour !== null) {
             for (let i = startHour; i <= endHour; i++) {
                 const el = document.getElementById('slot-' + i);
@@ -142,19 +133,16 @@
         let durasi = 0;
         let total = 0;
 
-        // Hitung Durasi: End - Start
         if (startHour !== null && endHour !== null) {
             durasi = endHour - startHour;
             total = durasi * hargaPerJam;
             
-            // Format MySQL Time
             let startStr = startHour < 10 ? "0" + startHour + ":00:00" : startHour + ":00:00";
             let endStr = endHour < 10 ? "0" + endHour + ":00:00" : endHour + ":00:00";
 
             document.getElementById('inputJamMulai').value = startStr;
             document.getElementById('inputJamSelesai').value = endStr;
         } else {
-            // Reset jika belum lengkap
             document.getElementById('inputJamMulai').value = "";
             document.getElementById('inputJamSelesai').value = "";
         }

@@ -166,7 +166,6 @@
 
     <div class="container">
     
-        <!-- LEFT SECTION -->
         <div class="box left-box">
             <h2>Detail Kontak</h2>
             <p><?= user()->username ?><br>
@@ -203,7 +202,6 @@
         
         
         
-        <!-- RIGHT SECTION -->
         <div class="box right-box">
             <h2>Ringkasan Pesanan</h2>
             
@@ -244,5 +242,5 @@
         <p class="safe">Pembayaran aman dan terenkripsi</p>
     </div>
 </form>
-<!-- MAIN CONTENT -->
+
 <?= $this->include('layout/footer') ?>
