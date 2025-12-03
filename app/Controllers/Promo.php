@@ -13,7 +13,6 @@ class Promo extends BaseController
     }
     public function showPromo()
     {
-        //
         $data['promo'] = $this->PromoModel->findAll();
         return view('promo/index' , $data);
     }

@@ -9,20 +9,40 @@ class Booking extends BaseController
 {
     public function summary()
     {
+<<<<<<< HEAD
         $name = $this->request->getPost("name");
         $venueId = $this->request->getPost('venue_id');
         $tanggal = $this->request->getPost('tanggal');
         $jamMulai = $this->request->getPost('jam_mulai'); 
+=======
+        if (!logged_in()) {
+            session()->setFlashdata('error', 'Silakan login terlebih dahulu untuk melakukan booking.');
+            return redirect()->to('/login');
+        }
+        
+        $name = $this->request->getPost("name");
+        $venueId = $this->request->getPost('venue_id');
+        $tanggal = $this->request->getPost('tanggal');
+        $jamMulai = $this->request->getPost('jam_mulai');
+>>>>>>> bca3344cbcec1ae11085a016de1ee129d58402ae
         $jamSelesai = $this->request->getPost('jam_selesai'); 
         
         $fieldModel = new FieldModel();
         $field = $fieldModel->find($venueId);
 
+<<<<<<< HEAD
+=======
+       
+>>>>>>> bca3344cbcec1ae11085a016de1ee129d58402ae
         $start = strtotime($jamMulai);
         $end = strtotime($jamSelesai);
         $diff = $end - $start;
         $durasi = $diff / (60 * 60); 
 
+<<<<<<< HEAD
+=======
+      
+>>>>>>> bca3344cbcec1ae11085a016de1ee129d58402ae
         $hargaSewa = $durasi * $field['harga'];
         $biayaLayanan = 2000; 
         $diskon = 0; 

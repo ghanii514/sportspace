@@ -28,7 +28,6 @@ class User extends BaseController
         return view('user/profile', $data);
     }
 
-    // === FUNGSI UPDATE FOTO ===
     public function updateProfilePicture()
     {
         if (!logged_in()) {
@@ -37,7 +36,10 @@ class User extends BaseController
 
         $userId = user_id(); 
 
+<<<<<<< HEAD
        
+=======
+>>>>>>> bca3344cbcec1ae11085a016de1ee129d58402ae
         $oldUser = $this->userModel->find($userId);
 
         $rules = [
@@ -73,7 +75,6 @@ class User extends BaseController
             $newName = $img->getRandomName();
             $img->move(ROOTPATH . 'public/img/users', $newName);
             
-            // Update database
             $this->userModel->update($userId, [
                 'profile_picture' => $newName
             ]);
