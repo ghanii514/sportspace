@@ -14,7 +14,7 @@ class Home extends BaseController
             'title'  => 'Home | SportSpace',
             'fields' => $fieldModel->paginate(6), 
             'pager'  => $fieldModel->pager, 
-            'promos' => $promoModel->orderBy('created_at', 'DESC')->findAll(3)
+            'promos' => $promoModel->orderBy('id', 'DESC')->findAll(3)
         ];
         
         return view('pages/home', $data);

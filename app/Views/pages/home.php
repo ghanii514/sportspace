@@ -129,25 +129,33 @@
         <h2 class="recommendation-title" style="color: #000; margin-bottom: 20px;">
             Rekomendasi Promosi
         </h2>
+        
         <div class="promo-list">
-            <?php if (!empty($promo)): ?>
-                <?php foreach ($promo as $promo): ?>
-                    <a href="#" class="promo-card-horizontal">
-                        <img src="/img/promo/<?= esc($promo['image'] ?? 'default.jpg'); ?>"
-                            alt="<?= esc($promo['title'] ?? $promo['promo']); ?>">
+            <?php if (!empty($promos)): ?>
+                
+                <?php foreach ($promos as $row): ?>
+                    <a href="/promo" class="promo-card-horizontal">
+                        
+                        <img src="/img/promo/<?= esc($row['image'] ?? 'default.jpg'); ?>" 
+                             alt="<?= esc($row['promo']); ?>">
+                        
                         <div class="promo-text-overlay">
-                            <h3><?= esc($promo['title'] ?? $promo['promo']); ?></h3>
-                            <p><?= esc($promo['description'] ?? $promo['deskripsi']); ?></p>
+                            <h3><?= esc($row['promo']); ?></h3>
+                            
+                            <p><?= esc(substr($row['deskripsi'], 0, 100)) ?>...</p>
                         </div>
                     </a>
                 <?php endforeach; ?>
+
             <?php else: ?>
-                <p style="color: #000;">Belum ada promo yang tersedia saat ini.</p>
+                <div style="padding: 20px; color: #555;">
+                    Belum ada promo yang tersedia saat ini.
+                </div>
             <?php endif; ?>
         </div>
     </div>
 </div>
-<?= $this->renderSection('content'); ?>
+<?= $this->endSection(); ?>
 
 <div class="hero-slider">
 </div>
