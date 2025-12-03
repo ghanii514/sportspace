@@ -286,27 +286,27 @@ a {
 }
 
 /* =================================
-   REKOMENDASI PROMO (HOMEPAGE) - TAMPILAN BANNER LEBAR
+   REKOMENDASI PROMO (HOMEPAGE) 
    ================================= */
 
 /* Container list promo - Ubah jadi blok vertikal */
 .promo-list {
-    display: block; /* Promo akan menumpuk secara vertikal */
+    display: block; 
     margin-top: 20px;
 }
 
-/* Kartu Promo - Ukuran LEBAR PENUH & Tinggi Disesuaikan */
+
 .promo-card-horizontal {
-    display: block; /* Agar link mengambil lebar penuh */
+    display: block; 
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     
-    width: 100%; /* Lebar penuh */
-    height: 130px; /* Tinggi banner (sesuaikan jika perlu) */
-    margin-bottom: 20px; /* Jarak antar banner */
+    width: 100%; 
+    height: 130px; 
+    margin-bottom: 20px; 
 }
 
 .promo-card-horizontal:hover {
@@ -1235,4 +1235,3 @@ footer {
     font-weight: bold;
     cursor: pointer;
 }
-
