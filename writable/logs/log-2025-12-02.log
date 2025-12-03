@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ERROR - 2025-12-02 15:30:40 --> mysqli_sql_exception: Table 'sportspace.lapangan' doesn't exist in D:\web\sportspace\sportspace\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
 Stack trace:
 #0 D:\web\sportspace\sportspace\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
@@ -76,6 +77,16 @@ CRITICAL - 2025-12-02 15:44:16 --> ErrorException: Attempt to read property "use
 in APPPATH\Views\booking\checkout.php on line 172.
  1 APPPATH\Views\booking\checkout.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "username" on null', 'D:\\web\\sportspace\\sportspace\\app\\Views\\booking\\checkout.php', 172)
  2 SYSTEMPATH\View\View.php(226): include('D:\\web\\sportspace\\sportspace\\app\\Views\\booking\\checkout.php')
+=======
+DEBUG - 2025-12-02 22:13:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:14:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:14:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-02 22:14:13 --> ErrorException: Attempt to read property "username" on null
+[Method: POST, Route: booking/summary]
+in APPPATH\Views\booking\checkout.php on line 172.
+ 1 APPPATH\Views\booking\checkout.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "username" on null', 'C:\\xampp\\htdocs\\sportspace\\sportspace\\app\\Views\\booking\\checkout.php', 172)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\sportspace\\sportspace\\app\\Views\\booking\\checkout.php')
+>>>>>>> aac3dcfec525f18d6e4163842091acc48206c9f1
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('booking/checkout', [], true)
  5 APPPATH\Controllers\Booking.php(57): view('booking/checkout', [...])
@@ -85,6 +96,7 @@ in APPPATH\Views\booking\checkout.php on line 172.
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 12 SYSTEMPATH\rewrite.php(44): require_once('D:\\web\\sportspace\\sportspace\\public\\index.php')
 DEBUG - 2025-12-02 15:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-02 15:44:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -107,3 +119,27 @@ WARNING - 2025-12-02 17:31:11 --> [DEPRECATED] Creation of dynamic property App\
 DEBUG - 2025-12-02 17:31:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-02 17:31:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-02 17:31:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\sportspace\\sportspace\\public\\index.php')
+DEBUG - 2025-12-02 22:14:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:14:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:14:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:15:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:15:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:15:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:16:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:16:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:16:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:16:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:17:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:17:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:17:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:17:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-02 22:17:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> aac3dcfec525f18d6e4163842091acc48206c9f1

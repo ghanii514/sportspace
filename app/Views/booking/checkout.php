@@ -7,7 +7,6 @@
         color: #000;
     }
 
-    /* NAVBAR */
     .navbar {
         display: flex;
         align-items: center;
@@ -47,13 +46,11 @@
         cursor: pointer;
     }
 
-    /* TITLE */
     .title {
         margin-left: 40px;
         margin-top: 30px;
     }
 
-    /* MAIN CONTENT */
     .container {
         display: flex;
         gap: 20px;
@@ -159,14 +156,13 @@
         margin: 0 5px;
     }
 </style>
-<!-- TITLE -->
+
 <h1 class="title">Pemesanan</h1>
 
 <form action="<?= base_url('/booking/save') ?>" method="post">
 
     <div class="container">
     
-        <!-- LEFT SECTION -->
         <div class="box left-box">
             <h2>Detail Kontak</h2>
             <p><?= user()->username ?><br>
@@ -203,7 +199,6 @@
         
         
         
-        <!-- RIGHT SECTION -->
         <div class="box right-box">
             <h2>Ringkasan Pesanan</h2>
             

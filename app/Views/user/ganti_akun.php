@@ -156,10 +156,7 @@
         }
         localStorage.setItem('sportspace_accounts', JSON.stringify(savedAccounts));
     <?php endif; ?>
-    // ============================================================
-
-
-    // 3. Render Tampilan (Sama seperti sebelumnya)
+    
     const listContainer = document.getElementById('accountListContainer');
     listContainer.innerHTML = ''; 
 
