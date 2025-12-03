@@ -10,7 +10,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/', 'Home::index'); // Halaman utama
 $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1'); // Halaman detail lapangan
 
-$routes->get('/lapangan/tambah', 'Field::tambah'); // Rute untuk menampilkan form
+$routes->get('/lapangan/hafizh', 'Field::tambah'); // Rute untuk menampilkan form
 $routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (menyimpan)
 
 
