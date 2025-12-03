@@ -10,7 +10,7 @@
         <form action="/profile/update-picture" method="post" enctype="multipart/form-data" id="profilePictureForm">
             <?= csrf_field(); ?>
             <div class="profile-pic-wrapper">
-                <img src="/img/user/<?= esc($user->profile_picture ?? 'default_profile.jpg'); ?>" alt="Foto Profil" class="profile-pic">
+                <img src="/img/users/<?= esc($user->profile_picture ?? 'default_profile.jpg'); ?>" alt="Foto Profil" class="profile-pic">
                 <label for="profile_picture_upload" class="profile-pic-edit">[Ubah]</label>
                 <input type="file" name="profile_picture" id="profile_picture_upload" style="display: none;" onchange="document.getElementById('profilePictureForm').submit();">
             </div>

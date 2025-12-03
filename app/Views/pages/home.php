@@ -105,6 +105,8 @@
     }
 </style>
 
+
+
 <?php if (session()->getFlashdata('success')): ?>
     <div class="modal-overlay" id="successModal">
         <div class="modal-box">
@@ -129,49 +131,59 @@
         <h2 class="recommendation-title" style="color: #000; margin-bottom: 20px;">
             Rekomendasi Promosi
         </h2>
+        
         <div class="promo-list">
-            <?php if (!empty($promo)): ?>
-                <?php foreach ($promo as $promo): ?>
-                    <a href="#" class="promo-card-horizontal">
-                        <img src="/img/promo/<?= esc($promo['image'] ?? 'default.jpg'); ?>"
-                            alt="<?= esc($promo['title'] ?? $promo['promo']); ?>">
+            <?php if (!empty($promos)): ?>
+                
+                <?php foreach ($promos as $row): ?>
+                    <a href="/promo" class="promo-card-horizontal">
+                        
+                        <img src="/img/promo/<?= esc($row['image'] ?? 'default.jpg'); ?>" 
+                             alt="<?= esc($row['promo']); ?>">
+                        
                         <div class="promo-text-overlay">
-                            <h3><?= esc($promo['title'] ?? $promo['promo']); ?></h3>
-                            <p><?= esc($promo['description'] ?? $promo['deskripsi']); ?></p>
+                            <h3><?= esc($row['promo']); ?></h3>
+                            
+                            <p><?= esc(substr($row['deskripsi'], 0, 100)) ?>...</p>
                         </div>
                     </a>
                 <?php endforeach; ?>
+
             <?php else: ?>
-                <p style="color: #000;">Belum ada promo yang tersedia saat ini.</p>
+                <div style="padding: 20px; color: #555;">
+                    Belum ada promo yang tersedia saat ini.
+                </div>
             <?php endif; ?>
         </div>
     </div>
 </div>
-<?= $this->renderSection('content'); ?>
+<?= $this->endSection(); ?>
 
 <div class="hero-slider">
 </div>
 
 <div class="container">
+    <!-- Popup Berhasil Pindah Akun -->
+
 
     <div class="categories">
-        <a href="/kategori/futsal" class="category-item">
+        <a href="/kategori?filter=futsal" class="category-item">
             <div class="icon-circle"><img src="/img/icons/futsal.png" alt="Futsal"></div>
             <span>Futsal</span>
         </a>
-        <a href="/kategori/basket" class="category-item">
+        <a href="/kategori?filter=basket" class="category-item">
             <div class="icon-circle"><img src="/img/icons/basket.png" alt="Basket"></div>
             <span>Basket</span>
         </a>
-        <a href="/kategori/badminton" class="category-item">
+        <a href="/kategori?filter=badminton" class="category-item">
             <div class="icon-circle"><img src="/img/icons/badminton.png" alt="Badminton"></div>
             <span>Badminton</span>
         </a>
-        <a href="/kategori/voli" class="category-item">
+        <a href="/kategori?filter=voli" class="category-item">
             <div class="icon-circle"><img src="/img/icons/voli.png" alt="Voli"></div>
             <span>Voli</span>
         </a>
-        <a href="/kategori/tenis" class="category-item">
+        <a href="/kategori?filter=tenis" class="category-item">
             <div class="icon-circle"><img src="/img/icons/tenis.png" alt="Tenis"></div>
             <span>Tenis</span>
         </a>
@@ -180,6 +192,8 @@
     <h2 class="recommendation-title" style="margin-top: 40px;">
         Rekomendasi Lapangan
     </h2>
+
+    
 
     <div class="field-list">
         <?php if (!empty($fields)): ?>

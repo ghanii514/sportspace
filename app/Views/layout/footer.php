@@ -13,10 +13,6 @@
                     <a href="/bantuan">Bantuan</a>
                     <a href="/hubungi">Hubungi kami</a>
                 </div>
-                <div class="link-row">
-                    <a href="/kebijakan">Kebijakan & Privasi</a>
-                    <a href="/syarat">Syarat & Ketentuan</a>
-                </div>
             </div>
 
             <div class="footer-col-social">
