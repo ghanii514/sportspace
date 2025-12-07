@@ -4122,6 +4122,10 @@ in SYSTEMPATH\View\View.php on line 449.
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\SportSpace\\SportSpace\\sportspace\\public\\index.php')
 DEBUG - 2025-11-25 15:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
+DEBUG - 2025-11-25 15:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-25 15:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 ERROR - 2025-11-25 23:36:50 --> Error connecting to the database: mysqli_sql_exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond in C:\xampp\htdocs\sportspace\sportspace\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
 Stack trace:
 #0 C:\xampp\htdocs\sportspace\sportspace\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('10.28.204.133', 'root', Object(SensitiveParameterValue), 'sportspace', 3306, '', 0)
@@ -4293,3 +4297,4 @@ DEBUG - 2025-11-25 23:53:46 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-11-25 23:57:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-11-25 23:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-11-25 23:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> 401c3551aafc485db5fa93f8630b91a89771d171

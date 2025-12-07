@@ -105,6 +105,8 @@
     }
 </style>
 
+
+
 <?php if (session()->getFlashdata('success')): ?>
     <div class="modal-overlay" id="successModal">
         <div class="modal-box">
@@ -161,25 +163,27 @@
 </div>
 
 <div class="container">
+    <!-- Popup Berhasil Pindah Akun -->
+
 
     <div class="categories">
-        <a href="/kategori/futsal" class="category-item">
+        <a href="/kategori?filter=futsal" class="category-item">
             <div class="icon-circle"><img src="/img/icons/futsal.png" alt="Futsal"></div>
             <span>Futsal</span>
         </a>
-        <a href="/kategori/basket" class="category-item">
+        <a href="/kategori?filter=basket" class="category-item">
             <div class="icon-circle"><img src="/img/icons/basket.png" alt="Basket"></div>
             <span>Basket</span>
         </a>
-        <a href="/kategori/badminton" class="category-item">
+        <a href="/kategori?filter=badminton" class="category-item">
             <div class="icon-circle"><img src="/img/icons/badminton.png" alt="Badminton"></div>
             <span>Badminton</span>
         </a>
-        <a href="/kategori/voli" class="category-item">
+        <a href="/kategori?filter=voli" class="category-item">
             <div class="icon-circle"><img src="/img/icons/voli.png" alt="Voli"></div>
             <span>Voli</span>
         </a>
-        <a href="/kategori/tenis" class="category-item">
+        <a href="/kategori?filter=tenis" class="category-item">
             <div class="icon-circle"><img src="/img/icons/tenis.png" alt="Tenis"></div>
             <span>Tenis</span>
         </a>
@@ -188,6 +192,8 @@
     <h2 class="recommendation-title" style="margin-top: 40px;">
         Rekomendasi Lapangan
     </h2>
+
+    
 
     <div class="field-list">
         <?php if (!empty($fields)): ?>
