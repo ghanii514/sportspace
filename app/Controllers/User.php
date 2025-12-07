@@ -62,7 +62,7 @@ class User extends BaseController
         $img = $this->request->getFile('profile_picture');
         
         if ($img->isValid() && !$img->hasMoved()) {
-            $oldPicture = $oldUser['profile_picture'] ?? 'default.svg'; 
+            $oldPicture = $oldUser->profile_picture ?? 'default.svg'; 
 
             if ($oldPicture && $oldPicture != 'default.svg' && $oldPicture != 'default.jpg' && file_exists(ROOTPATH . 'public/img/users/' . $oldPicture)) {
                 unlink(ROOTPATH . 'public/img/users/' . $oldPicture);
