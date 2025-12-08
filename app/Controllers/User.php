@@ -36,10 +36,7 @@ class User extends BaseController
 
         $userId = user_id(); 
 
-<<<<<<< HEAD
        
-=======
->>>>>>> bca3344cbcec1ae11085a016de1ee129d58402ae
         $oldUser = $this->userModel->find($userId);
 
         $rules = [

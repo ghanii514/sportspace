@@ -7,18 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?= $title ?? 'SportSpace'; ?></title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaPpG1h5y2kB+Pv5jZnN9c8XG0qQp6BqXx4W2l5q7iCJv5zlj8v+0O8wS5m" crossorigin="anonymous">
 
-    <!-- Bootstrap Icons (opsional, untuk ikon) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css" />
 
     <style>
-        /* ===== NAVBAR UTAMA ===== */
         .navbar {
             display: flex;
             align-items: center;
@@ -29,7 +25,6 @@
             box-sizing: border-box;
         }
 
-        /* ===== LOGO AREA ===== */
         .logo-area {
             display: flex;
             align-items: center;
@@ -49,7 +44,6 @@
             white-space: nowrap;
         }
 
-        /* ===== SEARCH + MENU SECTION ===== */
         .search-nav-area {
             display: flex;
             flex-direction: column;
@@ -57,7 +51,6 @@
             gap: 8px;
         }
 
-        /* SEARCH BAR */
         .search-bar {
             position: relative;
             display: flex;
@@ -83,7 +76,6 @@
             color: #777;
         }
 
-        /* MENU NAVIGASI */
         .nav-menu {
             list-style: none;
             display: flex;
@@ -103,7 +95,6 @@
             color: #005900;
         }
 
-        /* ===== AUTH AREA ===== */
         .auth-area {
             display: flex;
             flex-direction: column;
@@ -126,7 +117,6 @@
 </head>
 
 <style>
-    /* ===== NAVBAR UTAMA ===== */
     .navbar {
         display: flex;
         align-items: center;
@@ -137,7 +127,6 @@
         box-sizing: border-box;
     }
 
-    /* ===== LOGO AREA ===== */
     .logo-area {
         display: flex;
         align-items: center;
@@ -157,7 +146,6 @@
         white-space: nowrap;
     }
 
-    /* ===== SEARCH + MENU SECTION ===== */
     .search-nav-area {
         display: flex;
         flex-direction: column;
@@ -165,7 +153,6 @@
         gap: 8px;
     }
 
-    /* SEARCH BAR */
     .search-bar {
         position: relative;
         display: flex;
@@ -211,7 +198,6 @@
         color: #005900;
     }
 
-    /* ===== AUTH AREA ===== */
     .auth-area {
         display: flex;
         flex-direction: column;
@@ -234,16 +220,13 @@
 
 <body>
     <nav class="navbar">
-        <!-- LOGO AREA -->
         <div class="logo-area">
             <img src="<?= base_url('LOGO_SS.png') ?>" alt="Logo">
             <span class="logo-text">SportSpace.com</span>
         </div>
 
-        <!-- SEARCH + MENU -->
         <div class="search-nav-area">
 
-            <!-- SEARCH BAR -->
             <form action="/search" method="get" class="search-bar">
                 <span class="search-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -256,7 +239,6 @@
                     value="<?= esc(service('request')->getGet('q')); ?>">
             </form>
 
-            <!-- MENU -->
             <ul class="nav-menu">
                 <li><a href="/">Beranda</a></li>
                 <li><a href="/promo">Promo</a></li>
@@ -265,7 +247,6 @@
             </ul>
         </div>
 
-        <!-- AUTH AREA -->
         <div class="auth-area">
             <?php if (logged_in()): ?>
                 <a href="/profile" class="signup-link">Hi, <?= esc(user()->username); ?></a>
@@ -284,30 +265,23 @@
     <?php if (logged_in()): ?>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                // 1. Siapkan data user yang sedang login saat ini
                 const currentUser = {
                     id: "<?= user()->id ?>",
                     username: "<?= esc(user()->username) ?>",
                     email: "<?= esc(user()->email) ?>",
-                    // Pastikan path gambarnya benar
                     image: "/img/user/<?= esc(user()->profile_picture ?? 'default_profile.jpg') ?>"
                 };
 
-                // 2. Ambil data lama dari memori browser
                 let accounts = JSON.parse(localStorage.getItem('sportspace_accounts') || '[]');
 
-                // 3. Cek apakah user ini sudah ada di daftar?
                 const existingIndex = accounts.findIndex(acc => acc.id == currentUser.id);
 
                 if (existingIndex > -1) {
-                    // Kalau sudah ada, UPDATE datanya (misal user baru ganti foto profil)
                     accounts[existingIndex] = currentUser;
                 } else {
-                    // Kalau belum ada, TAMBAHKAN ke daftar
                     accounts.push(currentUser);
                 }
 
-                // 4. Simpan kembali ke memori browser
                 localStorage.setItem('sportspace_accounts', JSON.stringify(accounts));
             });
         </script>
