@@ -10,9 +10,28 @@ $routes->get('/', 'Home::index');
 $routes->get('/', 'Home::index'); // Halaman utama
 $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1'); // Halaman detail lapangan
 
-$routes->get('/lapangan/tambah', 'Field::tambah'); // Rute untuk menampilkan form
+// Grup Route khusus Admin
+$routes->group('admin', ['filter' => 'role:admin'], function($routes) {
+    // Dashboard Utama Admin
+    $routes->get('/', 'Admin::index');
+    // === MANAJEMEN LAPANGAN ===
+    $routes->get('fields', 'Admin::fields'); // List Lapangan
+    $routes->get('fields/create', 'Admin::createField'); // Form Tambah
+    $routes->post('fields/save', 'Admin::saveField'); // Proses Simpan
+    $routes->get('fields/edit/(:num)', 'Admin::editField/$1');   // Menampilkan Form
+    $routes->post('fields/update/(:num)', 'Admin::updateField/$1'); // Proses Simpan
+    $routes->get('fields/delete/(:num)', 'Admin::deleteField/$1'); // Hapus
+    // === MANAJEMEN PROMO ===
+    $routes->get('promos', 'Admin::promos');
+    $routes->get('promos/create', 'Admin::createPromo');
+    $routes->post('promos/save', 'Admin::savePromo');
+    $routes->get('promos/delete/(:num)', 'Admin::deletePromo/$1');
+});
+
+$routes->get('/lapangan/hafizh', 'Field::tambah'); // Rute untuk menampilkan form
 $routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (menyimpan)
 
+$routes->get('kategori' , 'Home::filter');
 
 //==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
@@ -34,3 +53,8 @@ $routes->post('booking/save', 'Booking::save');
 $routes->get('/ganti-akun', 'GantiAkun::index');
 $routes->get('/ganti-akun/tambah', 'GantiAkun::tambah');
 $routes->get('/ganti-akun/switch', 'GantiAkun::switchAction');
+
+$routes->get('tentang' , function(){return view('pages/tentang');});
+$routes->get('bantuan' , function(){return view('pages/bantuan');});
+$routes->get('hubungi',function(){return view('pages/hubungi');});
+

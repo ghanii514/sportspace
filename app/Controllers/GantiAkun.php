@@ -10,7 +10,7 @@ class GantiAkun extends BaseController
     public function index()
     {
         helper(['auth']);
-        
+
         $data = [
             'title' => 'Ganti Akun',
             'currentUserId' => logged_in() ? user_id() : null
@@ -31,32 +31,36 @@ class GantiAkun extends BaseController
         return redirect()->to('/login');
     }
 
+
     public function switchAction()
     {
         $targetEmail = $this->request->getGet('email');
 
         if (!$targetEmail) {
-            return redirect()->back();
+            return redirect()->back()->with('error', 'Tidak ada email yang dipilih.');
         }
 
-        $userModel = new UserModel();
-        
-        $userData = $userModel->where('email', $targetEmail)->first();
+        $userModel = new \Myth\Auth\Models\UserModel();
 
-        if ($userData) {
-            $auth = service('authentication');
+        // Cari user berdasarkan email
+        $user = $userModel->where('email', $targetEmail)->first();
 
-            if ($auth->check()) {
-                $auth->logout();
-            }
-
-            $userEntity = new User($userData); 
-
-            $auth->login($userEntity);
-
-            return redirect()->to('/');
-        } else {
+        if (!$user) {
             return redirect()->to('/login')->with('error', 'Akun tidak ditemukan.');
         }
+
+        // Ambil layanan auth
+        $auth = service('authentication');
+
+        // Logout user yang aktif (jika ada)
+        if ($auth->check()) {
+            $auth->logout();
+        }
+
+        // Login menggunakan ID user — CARA BENAR di Myth/Auth
+        $auth->loginById($user->id);
+
+        return redirect()->to('/')->with('message', 'Berhasil berpindah akun.');
     }
+
 }
