@@ -3,7 +3,6 @@
 <?= $this->section('content'); ?>
 
 <style>
-    /* ====== MODAL BACKGROUND ====== */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -18,7 +17,6 @@
         z-index: 2000;
     }
 
-    /* ====== MODAL BOX ====== */
     .modal-box {
         width: 350px;
         background: #ffffff;
@@ -28,10 +26,8 @@
         animation: slideUp 0.4s ease forwards;
     }
 
-    /* ====== HEADER ====== */
     .modal-header {
         background: #33dd66;
-        /* WARNA HIJAU SPORTSPACE */
         padding: 14px;
         display: flex;
         justify-content: space-between;
@@ -52,7 +48,6 @@
         color: #000;
     }
 
-    /* ====== BODY ====== */
     .modal-body {
         padding: 20px;
         font-size: 15px;
@@ -60,7 +55,6 @@
         text-align: center;
     }
 
-    /* ====== FOOTER ====== */
     .modal-footer {
         padding: 10px 20px 18px;
         text-align: center;
@@ -68,7 +62,6 @@
 
     .modal-btn {
         background: #33dd66;
-        /* Hijau SportSpace */
         color: #000;
         border: none;
         padding: 10px 18px;
@@ -81,7 +74,6 @@
         background: #28c758;
     }
 
-    /* ====== ANIMASI ====== */
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -187,10 +179,9 @@
             <div class="icon-circle"><img src="/img/icons/tenis.png" alt="Tenis"></div>
             <span>Tenis</span>
         </a>
-        <a href="/kategori/sepak-bola" class="category-item">
+        <a href="/kategori?filter=sepak-bola" class="category-item">
             <div class="icon-circle">
-                <img src="/img/icons/bola.png" alt="Sepak Bola">
-            </div>
+                <img src="/img/icons/sepak-bola.png" alt="Sepak Bola"></div>
             <span>Sepak Bola</span>
         </a>
     </div>
@@ -251,7 +242,6 @@
             }
         }
 
-        // Optional: Auto-close setelah 3 detik
         setTimeout(() => {
             if (document.getElementById('successModal')) {
                 closeSuccessModal();

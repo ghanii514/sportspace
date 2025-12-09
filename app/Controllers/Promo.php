@@ -16,4 +16,19 @@ class Promo extends BaseController
         $data['promo'] = $this->PromoModel->findAll();
         return view('promo/index' , $data);
     }
+
+    public function detail($id)
+    {
+        $model = new PromoModel();
+        
+        // Ambil data promo berdasarkan ID
+        $data['promo'] = $model->find($id);
+
+        if (empty($data['promo'])) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Promo tidak ditemukan.");
+        }
+
+        return view('promo/promo_detail', $data);
+    }
 }
+

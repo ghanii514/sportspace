@@ -36,6 +36,7 @@ class User extends BaseController
 
         $userId = user_id(); 
 
+       
         $oldUser = $this->userModel->find($userId);
 
         $rules = [

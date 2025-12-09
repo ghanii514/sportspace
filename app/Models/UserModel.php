@@ -10,6 +10,11 @@ class UserModel extends Model
     protected $table = 'users';
     protected $primaryKey = 'id';
 
+    protected $allowedFields = ['username', 'email', 'password', 'verification_token', 'is_active', 'profile_picture'];
+
+    protected $useTimestamps = true;
+
+    protected $useSoftDeletes = false; 
     // Tambahkan 'profile_picture' ke dalam sini
     protected $allowedFields = [
         'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',

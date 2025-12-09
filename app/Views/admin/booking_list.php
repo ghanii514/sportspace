@@ -84,7 +84,11 @@
                         <td>
                             <?php if($row['status'] == 'Pending'): ?>
                                 <span class="badge bg-pending">Pending</span>
+<<<<<<< HEAD
                             <?php if($row['status'] == 'Success'): ?>
+=======
+                            <?php elseif($row['status'] == "Success"): ?>
+>>>>>>> c70fada92e87040ed9941abab8decfbb8eb3da40
                                 <span class="badge bg-paid">Success</span>
                             <?php else: ?>
                                 <span class="badge bg-cancelled">Batal</span>

@@ -1,4 +1,4 @@
-        <?= $this->include('layout/template') ?>
+<?= $this->include('layout/template') ?>
 
 <style>
     /* ===== PAGE CONTAINER ===== */

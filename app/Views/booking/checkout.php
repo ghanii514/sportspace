@@ -181,11 +181,23 @@
                         </div>
                         
                         <ul class="dropdown-menu">
-                            <li><input type="radio" name="gopay" id="gopay"><label for="gopay">GoPay</label></li>
-                            <li><input type="radio" name="ovo" id="ovo"><label for="ovo">OVO</label></li>
-                            <li><input type="radio" name="dana" id="dana"><label for="dana">Dana</label></li>
-                        <li><input type="radio" name="cash" id="cash"><label for="dana">Cash</label></li>
-                    </ul>
+                            <li>
+                                <input type="radio" name="pembayaran" id="gopay" value="gopay">
+                                <label for="gopay">GoPay</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="pembayaran" id="ovo" value="ovo">
+                                <label for="ovo">OVO</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="pembayaran" id="dana" value="dana">
+                                <label for="dana">Dana</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="pembayaran" id="cash" value="cash">
+                                <label for="cash">Cash</label>
+                            </li>
+                        </ul>
                 </li>
                 
             </ul>
@@ -239,5 +251,5 @@
         <p class="safe">Pembayaran aman dan terenkripsi</p>
     </div>
 </form>
-<!-- MAIN CONTENT -->
+
 <?= $this->include('layout/footer') ?>

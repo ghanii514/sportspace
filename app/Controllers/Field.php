@@ -11,6 +11,8 @@ class Field extends BaseController
     public function __construct()
     {
         $this->fieldModel = new FieldModel();
+
+        helper(['form', 'url']); 
         helper(['form', 'url']);
     }
 
@@ -59,6 +61,7 @@ class Field extends BaseController
         ];
 
         if (!$this->validate($rules)) {
+            
             session()->setFlashdata('errors', $this->validator->getErrors());
             return redirect()->to('/lapangan/tambah')->withInput();
         }
@@ -93,7 +96,14 @@ class Field extends BaseController
             'keyword' => $keyword,
             'fields' => null 
         ];
-
+    
+        if ($keyword) {
+            
+            $data['fields'] = $this->fieldModel
+                ->like('nama', $keyword) 
+                ->orLike('alamat', $keyword) 
+                ->findAll(); 
+            
         if ($keyword) {
             $data['fields'] = $this->fieldModel
                 ->like('nama', $keyword) 
@@ -103,4 +113,5 @@ class Field extends BaseController
 
         return view('field/search_results', $data);
     }
+}
 }
