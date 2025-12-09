@@ -82,8 +82,10 @@
                         </td>
                         
                         <td>
-                            <?php if($row['status'] == 'Success'): ?>
-                                <span class="badge bg-paid">Lunas</span>
+                            <?php if($row['status'] == 'Pending'): ?>
+                                <span class="badge bg-pending">Pending</span>
+                            <?php elseif($row['status'] == "Success"): ?>
+                                <span class="badge bg-paid">Success</span>
                             <?php else: ?>
                                 <span class="badge bg-cancelled">Batal</span>
                             <?php endif; ?>

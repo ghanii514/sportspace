@@ -49,6 +49,7 @@ $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1');
 $routes->post('booking/process', 'Booking::process');
 
 $routes->get('promo' , 'Promo::showPromo');
+$routes->get('promo/detail/(:num)', 'Promo::detail/$1');
 
 $routes->get('/riwayat', 'Riwayat::index');
 

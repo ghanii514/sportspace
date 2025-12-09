@@ -76,11 +76,11 @@ class Booking extends BaseController
             'start_time' => $time_start ,
             'end_time' => $time_end,
             'total_price' => $this->request->getPost('total') ,
-            'status' => "Success" ,
+            'status' => "Pending" ,
         ];
 
         $bookingModel->save($data);
 
-        return redirect()->to('/')->with('success', 'Pembayaran Berhasil! Booking telah dibuat.');
+        return redirect()->to('/')->with('success', 'Pemesanan berhasil, silahkan lanjut pembayaran di menu Riwayat');
     }
 }
