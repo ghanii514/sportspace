@@ -12,30 +12,30 @@ class Booking extends BaseController
         $name = $this->request->getPost("name");
         $venueId = $this->request->getPost('venue_id');
         $tanggal = $this->request->getPost('tanggal');
-        $jamMulai = $this->request->getPost('jam_mulai'); 
+        $jamMulai = $this->request->getPost('jam_mulai');
         if (!logged_in()) {
             session()->setFlashdata('error', 'Silakan login terlebih dahulu untuk melakukan booking.');
             return redirect()->to('/login');
         }
-        
+
         $name = $this->request->getPost("name");
         $venueId = $this->request->getPost('venue_id');
         $tanggal = $this->request->getPost('tanggal');
         $jamMulai = $this->request->getPost('jam_mulai');
-        $jamSelesai = $this->request->getPost('jam_selesai'); 
-        
+        $jamSelesai = $this->request->getPost('jam_selesai');
+
         $fieldModel = new FieldModel();
         $field = $fieldModel->find($venueId);
-       
+
         $start = strtotime($jamMulai);
         $end = strtotime($jamSelesai);
         $diff = $end - $start;
-        $durasi = $diff / (60 * 60); 
+        $durasi = $diff / (60 * 60);
 
-      
+
         $hargaSewa = $durasi * $field['harga'];
-        $biayaLayanan = 2000; 
-        $diskon = 0; 
+        $biayaLayanan = 2000;
+        $diskon = 0;
         $totalBayar = $hargaSewa + $biayaLayanan - $diskon;
 
         $data = [
@@ -69,18 +69,43 @@ class Booking extends BaseController
         $time_end = $this->request->getPost('selesai');
         $time_start = $this->request->getPost('mulai');
         $data = [
-            'name' => $this->request->getPost('username') ,
-            'user_id' => $this->request->getPost('id_user') ,
-            'venue_id' => $this->request->getPost('venue_id') ,
-            'booking_date' => $this->request->getPost('jadwal') ,
-            'start_time' => $time_start ,
+            'name' => $this->request->getPost('username'),
+            'user_id' => $this->request->getPost('id_user'),
+            'venue_id' => $this->request->getPost('venue_id'),
+            'booking_date' => $this->request->getPost('jadwal'),
+            'start_time' => $time_start,
             'end_time' => $time_end,
-            'total_price' => $this->request->getPost('total') ,
-            'status' => "Pending" ,
+            'total_price' => $this->request->getPost('total'),
+            'status' => "pending",
         ];
 
         $bookingModel->save($data);
 
         return redirect()->to('/')->with('success', 'Pemesanan berhasil, silahkan lanjut pembayaran di menu Riwayat');
+    }
+
+    public function batal($id)
+    {
+        $booking = new BookingModel();
+        $booking->delete($id);
+        return redirect()->to('/riwayat?tab=upcoming');
+    }
+
+    public function detail($id)
+    {
+        $riwayatData = new BookingModel();
+        $data = [
+            'title' => 'Detail Booking',
+            'booking' => $riwayatData->getBooking($id)
+        ];
+        return view('pages/detail-riwayat', $data);
+    }
+
+    public function bayar($id){
+        $riwayatData = new BookingModel();
+        $riwayatData->update($id, [
+            'status' => 'success'
+        ]);
+        return redirect()->to('/riwayat?=completed')->with('success' , 'Pembayaran Berhasil');
     }
 }

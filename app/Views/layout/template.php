@@ -243,7 +243,7 @@
                 <li><a href="/">Beranda</a></li>
                 <li><a href="/promo">Promo</a></li>
                 <li><a href="/chat">Chat</a></li>
-                <li><a href="/riwayat">Riwayat</a></li>
+                <li><a href="/riwayat?tab=upcoming">Riwayat</a></li>
             </ul>
         </div>
 

@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\BookingModel;
+
 class Riwayat extends BaseController
 {
     public function index()
@@ -11,10 +13,33 @@ class Riwayat extends BaseController
             return redirect()->to('/login');
         }
 
-        $data = [
-            'title' => 'Riwayat Booking | SportSpace',
-        ];
+        $riwayatData = new BookingModel();
+
+        $status = $this->request->getGet('tab');
+
+        if ($status == 'upcoming'){
+            $data = [
+                'title' => 'Riwayat Booking | SportSpace',
+                'riwayat' => $riwayatData->getBookingsLengkap()
+            ];
+            
+        }else if ($status == 'completed'){
+            
+            $data = [
+                'title' => 'Riwayat Booking | SportSpace',
+                'riwayat' => $riwayatData->getBookingsSuccess()
+            ];
+        }
+        else {
+            $data = [
+                'title' => 'Riwayat Booking | SportSpace',
+                'riwayat' => $riwayatData->getBookingsLengkap()
+            ];
+        }
+
 
         return view('pages/riwayat', $data);
     }
+
+
 }
