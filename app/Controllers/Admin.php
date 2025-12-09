@@ -4,20 +4,26 @@ namespace App\Controllers;
 
 use App\Models\FieldModel;
 use App\Models\PromoModel;
+use App\Models\BookingModel;
 
 class Admin extends BaseController
 {
     protected $fieldModel;
     protected $promoModel;
+    protected $bookingModel;
 
     public function __construct()
     {
         $this->fieldModel = new FieldModel();
         $this->promoModel = new PromoModel();
+        $this->bookingModel = new BookingModel();
+        
         helper(['form', 'url', 'auth']);
     }
 
-    // Halaman Utama Dashboard
+    // =========================================================================
+    // 1. DASHBOARD UTAMA
+    // =========================================================================
     public function index()
     {
         $data = [
@@ -28,7 +34,9 @@ class Admin extends BaseController
         return view('admin/index', $data);
     }
 
-    // === FITUR LAPANGAN ===
+    // =========================================================================
+    // 2. MANAJEMEN LAPANGAN (CRUD)
+    // =========================================================================
     public function fields()
     {
         $data = [
@@ -42,40 +50,32 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Tambah Lapangan',
-            'validation' => \Config\Services::validation() // Kirim validasi (opsional)
+            'validation' => \Config\Services::validation()
         ];
         return view('admin/field_create', $data);
     }
 
-    // 2. Proses Simpan Data
     public function saveField()
     {
-        // Validasi Input
         if (!$this->validate([
             'nama' => 'required',
             'harga' => 'required|numeric',
             'image' => 'uploaded[image]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]|max_size[image,2048]'
         ])) {
-            return redirect()->back()->withInput()->with('error', 'Cek kembali data inputan (terutama gambar).');
+            return redirect()->back()->withInput()->with('error', 'Cek kembali data inputan.');
         }
 
-        // Proses Upload Gambar
         $fileGambar = $this->request->getFile('image');
         
         if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
-            // Generate nama random
             $namaGambar = $fileGambar->getRandomName();
-            // Pindahkan ke folder public/img/fields
             $fileGambar->move('img/fields', $namaGambar);
         } else {
             $namaGambar = 'default.jpg';
         }
 
-        // Bikin Slug Otomatis (biar URL-nya cantik)
-        // Contoh: "Lapangan Futsal A" -> "lapangan-futsal-a"
         $slug = url_title($this->request->getPost('nama'), '-', true);
 
-        // Simpan ke Database
         $this->fieldModel->save([
             'nama'      => $this->request->getPost('nama'),
             'slug'      => $slug,
@@ -88,12 +88,12 @@ class Admin extends BaseController
 
         return redirect()->to('/admin/fields')->with('success', 'Lapangan berhasil ditambahkan!');
     }
-    
+
     public function editField($id)
     {
         $data = [
             'title' => 'Edit Lapangan',
-            'field' => $this->fieldModel->find($id) // Ambil data berdasarkan ID
+            'field' => $this->fieldModel->find($id)
         ];
 
         if (!$data['field']) {
@@ -103,10 +103,8 @@ class Admin extends BaseController
         return view('admin/field_edit', $data);
     }
 
-    // 4. Proses Update Data
     public function updateField($id)
     {
-        // Validasi simpel
         if (!$this->validate([
             'nama' => 'required',
             'harga' => 'required|numeric',
@@ -114,31 +112,24 @@ class Admin extends BaseController
             return redirect()->back()->withInput()->with('error', 'Data tidak valid.');
         }
 
-        // --- LOGIKA GANTI GAMBAR ---
+        // Logika Ganti Gambar
         $fileGambar = $this->request->getFile('image');
         
-        // Cek: Apakah admin upload gambar baru?
         if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
-            // 1. Generate nama baru
             $namaGambar = $fileGambar->getRandomName();
-            // 2. Pindahkan gambar baru
             $fileGambar->move('img/fields', $namaGambar);
             
-            // 3. (Opsional) Hapus gambar lama biar server gak penuh
+            // Hapus gambar lama
             $oldImage = $this->request->getPost('old_image');
             if ($oldImage != 'default.jpg' && file_exists('img/fields/' . $oldImage)) {
                 unlink('img/fields/' . $oldImage);
             }
         } else {
-            // Kalau tidak upload, pakai nama gambar lama
             $namaGambar = $this->request->getPost('old_image');
         }
-        // ---------------------------
 
-        // Update Slug biar sesuai nama baru
         $slug = url_title($this->request->getPost('nama'), '-', true);
 
-        // Simpan Perubahan
         $this->fieldModel->update($id, [
             'nama'      => $this->request->getPost('nama'),
             'slug'      => $slug,
@@ -146,7 +137,7 @@ class Admin extends BaseController
             'alamat'    => $this->request->getPost('alamat'),
             'deskripsi' => $this->request->getPost('deskripsi'),
             'harga'     => $this->request->getPost('harga'),
-            'image'     => $namaGambar // Simpan nama gambar (baru/lama)
+            'image'     => $namaGambar
         ]);
 
         return redirect()->to('/admin/fields')->with('success', 'Data lapangan berhasil diperbarui!');
@@ -154,11 +145,19 @@ class Admin extends BaseController
 
     public function deleteField($id)
     {
+        // Hapus file gambar fisik (Opsional)
+        $field = $this->fieldModel->find($id);
+        if ($field['image'] != 'default.jpg' && file_exists('img/fields/' . $field['image'])) {
+            unlink('img/fields/' . $field['image']);
+        }
+
         $this->fieldModel->delete($id);
         return redirect()->to('/admin/fields')->with('success', 'Lapangan dihapus');
     }
 
-    // === FITUR PROMO ===
+    // =========================================================================
+    // 3. MANAJEMEN PROMO
+    // =========================================================================
     public function promos()
     {
         $data = [
@@ -167,10 +166,87 @@ class Admin extends BaseController
         ];
         return view('admin/promos_list', $data);
     }
-    
-     public function deletePromo($id)
+
+    public function createPromo()
     {
+        $data = [
+            'title' => 'Tambah Promo Baru'
+        ];
+        return view('admin/promo_create', $data);
+    }
+
+    public function savePromo()
+    {
+        if (!$this->validate([
+            'promo' => 'required',
+            'promo_code' => 'required',
+            'image' => 'uploaded[image]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]|max_size[image,2048]'
+        ])) {
+            return redirect()->back()->withInput()->with('error', 'Cek kembali data inputan.');
+        }
+
+        $fileGambar = $this->request->getFile('image');
+        
+        if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
+            $namaGambar = $fileGambar->getRandomName();
+            $fileGambar->move('img/promo', $namaGambar);
+        } else {
+            $namaGambar = 'default.jpg';
+        }
+
+        $this->promoModel->save([
+            'promo'       => $this->request->getPost('promo'),
+            'promo_code'  => $this->request->getPost('promo_code'),
+            'deskripsi'   => $this->request->getPost('deskripsi'),
+            'image'       => $namaGambar
+        ]);
+
+        return redirect()->to('/admin/promos')->with('success', 'Promo berhasil ditambahkan!');
+    }
+
+    public function deletePromo($id)
+    {
+        // Hapus file gambar fisik
+        $promo = $this->promoModel->find($id);
+        if ($promo['image'] != 'default.jpg' && file_exists('img/promo/' . $promo['image'])) {
+            unlink('img/promo/' . $promo['image']);
+        }
+
         $this->promoModel->delete($id);
         return redirect()->to('/admin/promos')->with('success', 'Promo dihapus');
+    }
+
+    // =========================================================================
+    // 4. MANAJEMEN BOOKING (CEK PESANAN)
+    // =========================================================================
+    public function bookings()
+    {
+        // Menggunakan fungsi khusus join table yang ada di BookingModel
+        $data = [
+            'title' => 'Cek Booking',
+            'bookings' => $this->bookingModel->getBookingsLengkap()
+        ];
+        return view('admin/booking_list', $data);
+    }
+
+    // Aksi: Konfirmasi Pembayaran (Jadi Lunas)
+    public function confirmBooking($id)
+    {
+        $this->bookingModel->update($id, ['status' => 'paid']);
+        return redirect()->to('/admin/bookings')->with('success', 'Booking berhasil dikonfirmasi (Lunas).');
+    }
+
+    // Aksi: Batalkan Pesanan
+    public function cancelBooking($id)
+    {
+        $this->bookingModel->update($id, ['status' => 'cancelled']);
+        return redirect()->to('/admin/bookings')->with('success', 'Booking telah dibatalkan.');
+    }
+    
+    // Aksi: Hapus History
+    public function deleteBooking($id)
+    {
+        $this->bookingModel->delete($id);
+        return redirect()->to('/admin/bookings')->with('success', 'Data booking dihapus permanen.');
     }
 }
