@@ -83,6 +83,7 @@ class Admin extends BaseController
             'alamat'    => $this->request->getPost('alamat'),
             'deskripsi' => $this->request->getPost('deskripsi'),
             'harga'     => $this->request->getPost('harga'),
+            'nomor_telepon' => $this->request->getPost('nomor_telepon'),
             'image'     => $namaGambar
         ]);
 
@@ -137,6 +138,7 @@ class Admin extends BaseController
             'alamat'    => $this->request->getPost('alamat'),
             'deskripsi' => $this->request->getPost('deskripsi'),
             'harga'     => $this->request->getPost('harga'),
+            'nomor_telepon' => $this->request->getPost('nomor_telepon'),
             'image'     => $namaGambar
         ]);
 
@@ -216,15 +218,70 @@ class Admin extends BaseController
         return redirect()->to('/admin/promos')->with('success', 'Promo dihapus');
     }
 
+    public function edit($id)
+    {
+        $promoModel = new \App\Models\PromoModel();
+
+        // 1. Ambil data promo berdasarkan ID
+        $dataPromo = $promoModel->find($id);
+
+        // 2. Cek validasi: Kalau ID ngawur/tidak ditemukan, balikin ke list
+        if (empty($dataPromo)) {
+            return redirect()->to('/admin/promos');
+        }
+
+        // 3. Siapkan data untuk dikirim ke View
+        $data = [
+            'promo' => $dataPromo
+        ];
+
+        // 4. Panggil View promo_edit
+        return view('admin/promo_edit', $data);
+    }
+
+    public function updatePromo($id)
+    {
+        $promoModel = new \App\Models\PromoModel();
+        
+        $fileImage = $this->request->getFile('image');
+
+        // Cek apakah user upload gambar baru
+        if ($fileImage->getError() == 4) {
+            $namaImage = $this->request->getPost('old_image');
+        } else {
+            $namaImage = $fileImage->getRandomName();
+            $fileImage->move('img/promo', $namaImage);
+        }
+
+        $promoModel->save([
+            'id'            => $id,
+            'promo'         => $this->request->getPost('promo'),
+            'promo_code'    => $this->request->getPost('promo_code'),
+            'jumlah_diskon' => $this->request->getPost('jumlah_diskon'),
+            'deskripsi'     => $this->request->getPost('deskripsi'),
+            'image'         => $namaImage
+        ]);
+
+        return redirect()->to('/admin/promos')->with('success', 'Data berhasil diupdate!');
+    }
+
     // =========================================================================
     // 4. MANAJEMEN BOOKING (CEK PESANAN)
     // =========================================================================
     public function bookings()
     {
-        // Menggunakan fungsi khusus join table yang ada di BookingModel
         $data = [
             'title' => 'Cek Booking',
-            'bookings' => $this->bookingModel->getBookingsLengkap()
+            'bookings' => $this->bookingModel
+                // Ubah 'fields' jadi 'lapangan'
+                ->select('booking.*, users.username, users.email, lapangan.nama AS nama_lapangan')
+                ->join('users', 'users.id = booking.user_id')
+                
+                // INI YANG PENTING: Join ke tabel 'lapangan'
+                ->join('lapangan', 'lapangan.id = booking.venue_id') 
+                
+                ->orderBy('booking.id', 'DESC')
+                ->findAll()
         ];
         return view('admin/booking_list', $data);
     }
@@ -232,8 +289,33 @@ class Admin extends BaseController
     // Aksi: Konfirmasi Pembayaran (Jadi Lunas)
     public function confirmBooking($id)
     {
-        $this->bookingModel->update($id, ['status' => 'paid']);
-        return redirect()->to('/admin/bookings')->with('success', 'Booking berhasil dikonfirmasi (Lunas).');
+        // 1. Update status jadi success
+        $this->bookingModel->update($id, ['status' => 'success']);
+        
+        // 2. AMBIL DATA DULU (User & Lapangan)
+        $booking = $this->bookingModel
+            ->select('bookings.user_id, bookings.booking_date, bookings.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.nomor_telepon')
+            ->join('lapangan', 'lapangan.id = bookings.venue_id')
+            ->where('bookings.id', $id)
+            ->first();
+
+        if ($booking) {
+            // 3. RANCANG PESAN OTOMATIS
+            // Ini text broadcast-nya
+            $text  = "Halo kak, terima kasih sudah memesan " . $booking['nama'] . ".\n";
+            $text .= "Jadwal: " . date('d M Y', strtotime($booking['booking_date'])) . " jam " . substr($booking['start_time'], 0, 5) . ".\n\n";
+            $text .= "Ditunggu kedatangannya ya! Jika ada pertanyaan hubungi kami di WA: " . $booking['nomor_telepon'];
+
+            // 4. SIMPAN KE INBOX USER
+            $msgModel = new \App\Models\MessageModel();
+            $msgModel->save([
+                'user_id'  => $booking['user_id'],
+                'venue_id' => $booking['venue_id'],
+                'message'  => $text
+            ]);
+        }
+
+        return redirect()->to('/admin/bookings')->with('success', 'Booking Lunas & Pesan otomatis terkirim!');
     }
 
     // Aksi: Batalkan Pesanan

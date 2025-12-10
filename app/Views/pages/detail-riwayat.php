@@ -40,11 +40,32 @@
                     <div>Harga</div>
                 </div>
 
+                <?php 
+                    // LOGIKA HITUNG HARGA ASLI
+                    // Cek apakah kolom discount_amount ada isinya, kalau null anggap 0
+                    $diskon = isset($booking['discount_amount']) ? $booking['discount_amount'] : 0;
+                    
+                    // Harga Asli = Total Akhir + Diskon yang diberikan
+                    $hargaAsli = $booking['total_price'] + $diskon;
+                ?>
+
                 <div class="table-row">
                     <div>Sewa Lapangan</div>
                     <div>1</div>
-                    <div>Rp <?= number_format($booking['total_price'], 0, ',', '.') ?></div>
+                    <div>Rp <?= number_format($hargaAsli, 0, ',', '.') ?></div>
                 </div>
+
+                <?php if($diskon > 0): ?>
+                <div class="table-row" style="color: #00c853;"> <div>
+                        Promo Diskon 
+                        <?php if(!empty($booking['promo_code'])): ?>
+                            (Kode: <strong><?= esc($booking['promo_code']) ?></strong>)
+                        <?php endif; ?>
+                    </div>
+                    <div></div>
+                    <div>- Rp <?= number_format($diskon, 0, ',', '.') ?></div>
+                </div>
+                <?php endif; ?>
 
                 <div class="table-total">
                     Total Tagihan:

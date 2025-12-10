@@ -31,6 +31,7 @@
         label { display: block; font-weight: bold; margin-bottom: 8px; color: #334155; }
         
         input[type="text"], 
+        input[type="number"], /* Tambahan style buat input angka */
         textarea,
         input[type="file"] {
             width: 100%;
@@ -96,6 +97,11 @@
                     <input type="text" name="promo_code" placeholder="Contoh: MERDEKA45" required style="font-family: monospace; letter-spacing: 1px;">
                 </div>
 
+                <div class="form-group">
+                    <label>Jumlah Diskon (%)</label>
+                    <input type="number" name="discount_amount" placeholder="Contoh: 20" min="1" max="100" required>
+                    <small style="color: #64748b;">Masukkan angka persen (1-100). Contoh: ketik <b>20</b> untuk diskon 20%.</small>
+                </div>
                 <div class="form-group">
                     <label>Deskripsi Promo</label>
                     <textarea name="deskripsi" placeholder="Jelaskan detail promo, syarat, dan ketentuan..." required></textarea>

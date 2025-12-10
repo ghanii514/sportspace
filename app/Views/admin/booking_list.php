@@ -66,6 +66,13 @@
             <tbody>
                 <?php if(!empty($bookings)): ?>
                     <?php foreach($bookings as $row): ?>
+                    
+                    <?php 
+                        // Normalisasi status ke huruf kecil biar aman
+                        // Jadi 'Pending', 'pending', 'PENDING' dianggap sama
+                        $statusRaw = strtolower($row['status']); 
+                    ?>
+
                     <tr>
                         <td style="color:#888;">#<?= $row['id'] ?></td>
                         <td>
@@ -82,21 +89,17 @@
                         </td>
                         
                         <td>
-                            <?php if($row['status'] == 'Pending'): ?>
+                            <?php if($statusRaw == 'pending'): ?>
                                 <span class="badge bg-pending">Pending</span>
-<<<<<<< HEAD
-                            <?php if($row['status'] == 'Success'): ?>
-=======
-                            <?php elseif($row['status'] == "Success"): ?>
->>>>>>> c70fada92e87040ed9941abab8decfbb8eb3da40
+                            <?php elseif($statusRaw == 'success' || $statusRaw == 'paid'): ?>
                                 <span class="badge bg-paid">Success</span>
                             <?php else: ?>
                                 <span class="badge bg-cancelled">Batal</span>
                             <?php endif; ?>
                         </td>
+
                         <td>
-                            <?php if($row['status'] == 'pending'): ?>
-                                <a href="/admin/bookings/confirm/<?= $row['id'] ?>" class="btn-mini btn-acc" title="Verifikasi Lunas" onclick="return confirm('Konfirmasi pembayaran lunas?')">✔ ACC</a>
+                            <?php if($statusRaw == 'pending'): ?>
                                 <a href="/admin/bookings/cancel/<?= $row['id'] ?>" class="btn-mini btn-reject" title="Batalkan Booking" onclick="return confirm('Yakin batalkan pesanan ini?')">✖ Batal</a>
                             <?php else: ?>
                                 <a href="/admin/bookings/delete/<?= $row['id'] ?>" class="btn-mini btn-trash" onclick="return confirm('Hapus data ini permanen?')">Hapus</a>

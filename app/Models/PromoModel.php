@@ -7,7 +7,7 @@ class PromoModel extends Model
     protected $table = 'promo';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['promo', 'deskripsi', 'image', 'promo_code'];
+    protected $allowedFields = ['promo', 'deskripsi', 'image', 'promo_code', 'jumlah_diskon'];
 
     protected $useTimestamps = true;
 }

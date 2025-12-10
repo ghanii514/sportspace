@@ -5,6 +5,7 @@
 
     <div class="hero-box mb-5"></div>
     <h1>Tentang Kami</h1>
+    <img src="/img/fields/class="table-img" alt="Foto">
     <!-- Visi Misi -->
     <h3 class="fw-bold">Visi Misi</h3>
     <p class="mt-3">

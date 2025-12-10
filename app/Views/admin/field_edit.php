@@ -71,7 +71,7 @@
                             <option value="Badminton" <?= $field['kategori'] == 'Badminton' ? 'selected' : '' ?>>Badminton</option>
                             <option value="Voli" <?= $field['kategori'] == 'Voli' ? 'selected' : '' ?>>Voli</option>
                             <option value="Tenis" <?= $field['kategori'] == 'Tenis' ? 'selected' : '' ?>>Tenis</option>
-                            <option value="Sepak Bola" <?= $field['kategori'] == 'Sepak Bola' ? 'selected' : '' ?>>Sepak Bola</option>
+                            <option value="Sepak Bola" <?= $field['kategori'] == 'sepak-bola' ? 'selected' : '' ?>>Sepak Bola</option>
                         </select>
                     </div>
                     <div class="form-group" style="flex: 1;">
@@ -83,6 +83,12 @@
                 <div class="form-group">
                     <label>Alamat Lengkap</label>
                     <textarea name="alamat" required><?= esc($field['alamat']) ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Nomor WhatsApp Admin Lapangan</label>
+                    <input type="text" name="nomor_telepon" value="<?= esc($field['nomor_telepon']) ?>" placeholder="Contoh: 08123456789" required>
+                    <small style="color:#64748b;">Nomor ini akan diberikan ke penyewa setelah booking lunas.</small>
                 </div>
 
                 <div class="form-group">

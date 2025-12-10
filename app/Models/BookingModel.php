@@ -19,7 +19,9 @@ class BookingModel extends Model
         'end_time',      // Ganti jam_selesai -> end_time
         'total_price',   // Ganti total_bayar -> total_price
         'status',
-        'pembayaran'
+        'pembayaran',
+        'discount_amount', 
+        'promo_code'
     ];
 
     public function getBookingsLengkap()
