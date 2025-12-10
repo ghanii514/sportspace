@@ -84,7 +84,7 @@
         .btn-delete { background: #ef4444; color: white; }
         .btn-delete:hover { background: #dc2626; }
 
-        /* Badge Kode Promo (Unik untuk halaman ini) */
+        /* Badge Kode Promo */
         .code-badge {
             background: #e0f2fe;
             color: #0284c7;
@@ -93,6 +93,16 @@
             font-family: 'Courier New', monospace;
             font-weight: bold;
             border: 1px dashed #7dd3fc;
+            font-size: 0.9em;
+        }
+
+        /* Badge Diskon (Baru) */
+        .discount-badge {
+            background: #dcfce7;
+            color: #166534;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
             font-size: 0.9em;
         }
 
@@ -143,7 +153,7 @@
                     <th>Judul Promo</th>
                     <th>Deskripsi</th>
                     <th>Kode Promo</th>
-                    <th width="150">Aksi</th>
+                    <th>Diskon</th> <th width="150">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -164,15 +174,21 @@
                         <td>
                             <span class="code-badge"><?= esc($item['promo_code']) ?></span>
                         </td>
+                        
                         <td>
-                            <a href="#" class="btn btn-edit">Edit</a>
+                            <span class="discount-badge">
+                                <?= esc($item['jumlah_diskon']) ?>%
+                            </span>
+                        </td>
+                        <td>
+                            <a href="/admin/promos/edit/<?= $item['id'] ?>" class="btn btn-edit">Edit</a>
                             <a href="/admin/promos/delete/<?= $item['id'] ?>" class="btn btn-delete" onclick="return confirm('Yakin hapus promo ini?')">Hapus</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="5" style="text-align: center; padding: 30px; color: #94a3b8;">
+                        <td colspan="6" style="text-align: center; padding: 30px; color: #94a3b8;">
                             Belum ada data promo saat ini.
                         </td>
                     </tr>

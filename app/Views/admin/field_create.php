@@ -107,7 +107,7 @@
                             <option value="Badminton">Badminton</option>
                             <option value="Voli">Voli</option>
                             <option value="Tenis">Tenis</option>
-                            <option value="Tenis">Sepak Bola</option>
+                            <option value="Sepak Bola">Sepak Bola</option>
                         </select>
                     </div>
                     <div class="form-group" style="flex: 1;">
@@ -119,6 +119,12 @@
                 <div class="form-group">
                     <label>Alamat Lengkap</label>
                     <textarea name="alamat" placeholder="Masukkan alamat lengkap venue..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Nomor WhatsApp Admin Lapangan</label>
+                    <input type="text" name="nomor_telepon" placeholder="Contoh: 08123456789" required>
+                    <small style="color:#64748b;">Nomor ini akan diberikan ke penyewa setelah booking lunas.</small>
                 </div>
 
                 <div class="form-group">

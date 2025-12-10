@@ -18,7 +18,7 @@
             <div class="footer-col-social">
                 <span>Ikuti kami</span>
                 <br>
-                <a href="https://instagram.com"  class="bi bi-instagram"></a>
+                <a href="https://www.instagram.com/radaarr_/?next=%2F"  class="bi bi-instagram"></a>
                 <a href="https://facebook.com"  class="bi bi-facebook"></a>
             </div>
 

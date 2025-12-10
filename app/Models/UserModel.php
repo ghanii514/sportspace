@@ -9,14 +9,13 @@ class UserModel extends Model
 {
     protected $table = 'users';
     protected $primaryKey = 'id';
-
-    // Tambahkan 'profile_picture' ke dalam sini
+    protected $useTimestamps = true;
+    protected $useSoftDeletes = false; 
     protected $allowedFields = [
         'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',
         'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at',
-        'profile_picture' // <--- WAJIB DITAMBAHKAN!
+        'profile_picture'
     ];
-
-    protected $useTimestamps = true;
-    protected $returnType = User::class; // Agar returnnya Object (user()->name)
+    
+    protected $returnType = User::class;
 }

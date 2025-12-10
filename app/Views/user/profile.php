@@ -28,13 +28,12 @@
     <div class="profile-menu-section">
         <div class="menu-title">AKTIVITAS AKUN</div>
         <a href="/riwayat" class="menu-item">Riwayat Pemesanan</a>
-        <a href="#" class="menu-item">Lapangan Favorit</a>
     </div>
 
     <div class="profile-menu-section">
         <div class="menu-title">BANTUAN</div> 
         <a href="#" class="menu-item">Pusat Bantuan</a>
-        <a href="#" class="menu-item">Hubungi Kami</a>
+        <a href="https://www.instagram.com/radaarr_/?next=%2F" class="menu-item">Hubungi Kami</a>
     </div>
 
     <div class="profile-buttons">
