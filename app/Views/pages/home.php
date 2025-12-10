@@ -179,7 +179,7 @@
             <div class="icon-circle"><img src="/img/icons/tenis.png" alt="Tenis"></div>
             <span>Tenis</span>
         </a>
-        <a href="/kategori?filter=sepak-bola" class="category-item">
+        <a href="/kategori?filter=Sepak Bola" class="category-item">
             <div class="icon-circle">
                 <img src="/img/icons/sepak-bola.png" alt="Sepak Bola"></div>
             <span>Sepak Bola</span>
