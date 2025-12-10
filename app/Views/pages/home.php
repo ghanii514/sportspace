@@ -187,6 +187,12 @@
             <div class="icon-circle"><img src="/img/icons/tenis.png" alt="Tenis"></div>
             <span>Tenis</span>
         </a>
+        <a href="/kategori/sepak-bola" class="category-item">
+            <div class="icon-circle">
+                <img src="/img/icons/bola.png" alt="Sepak Bola">
+            </div>
+            <span>Sepak Bola</span>
+        </a>
     </div>
 
     <h2 class="recommendation-title" style="margin-top: 40px;">
