@@ -20,20 +20,20 @@ class Riwayat extends BaseController
         if ($status == 'upcoming'){
             $data = [
                 'title' => 'Riwayat Booking | SportSpace',
-                'riwayat' => $riwayatData->getBookingsLengkap()
+                'riwayat' => $riwayatData->getBookingsLengkap(user()->id)
             ];
             
         }else if ($status == 'completed'){
             
             $data = [
                 'title' => 'Riwayat Booking | SportSpace',
-                'riwayat' => $riwayatData->getBookingsSuccess()
+                'riwayat' => $riwayatData->getBookingsSuccess(user()->id)
             ];
         }
         else {
             $data = [
                 'title' => 'Riwayat Booking | SportSpace',
-                'riwayat' => $riwayatData->getBookingsLengkap()
+                'riwayat' => $riwayatData->getBookingsLengkap(user()->id)
             ];
         }
 

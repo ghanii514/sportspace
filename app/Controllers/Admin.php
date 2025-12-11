@@ -294,9 +294,9 @@ class Admin extends BaseController
         
         // 2. AMBIL DATA DULU (User & Lapangan)
         $booking = $this->bookingModel
-            ->select('bookings.user_id, bookings.booking_date, bookings.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.nomor_telepon')
-            ->join('lapangan', 'lapangan.id = bookings.venue_id')
-            ->where('bookings.id', $id)
+            ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.nomor_telepon')
+            ->join('lapangan', 'lapangan.id = booking.venue_id')
+            ->where('booking.id', $id)
             ->first();
 
         if ($booking) {
