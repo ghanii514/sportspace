@@ -19,7 +19,7 @@ class Home extends BaseController
 
             // 2. Jika yang login adalah Mitra -> Ke Dashboard Mitra
             if (in_groups('mitra')) {
-                return redirect()->to('/mitra');
+                return redirect()->to('/owner');
             }
 
             // 3. Jika User biasa, biarkan lanjut ke bawah (lihat Homepage)

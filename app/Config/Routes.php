@@ -78,9 +78,6 @@ $routes->get('/chat', 'Chat::index');
 $routes->get('chat/detail/(:num)', 'Chat::detail/$1');
 $routes->post('chat/send', 'Chat::send');
 
-// Route untuk Mitra Dashboard
-$routes->group('mitra', ['filter' => 'role:mitra'], function($routes) {
-    // Dashboard Mitra
-    $routes->get('/', 'Mitra::index');
-});
+$routes->get('/owner', 'Owner::index');
+
 
