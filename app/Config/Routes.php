@@ -62,6 +62,8 @@ $routes->post('booking/batal/(:any)' , 'Booking::batal/$1');
 $routes->get('booking/detail/(:any)', 'Booking::detail/$1');
 $routes->post('booking/bayar/(:any)', 'Booking::bayar/$1');
 $routes->post('booking/check-promo', 'Booking::check_promo');
+$routes->get('booking/payment/(:num)', 'Booking::payment/$1');
+$routes->post('booking/upload-bukti', 'Booking::uploadBukti');
 
 
 $routes->get('/ganti-akun', 'GantiAkun::index');

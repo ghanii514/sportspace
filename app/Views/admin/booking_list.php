@@ -97,12 +97,23 @@
                                 <span class="badge bg-cancelled">Batal</span>
                             <?php endif; ?>
                         </td>
-
                         <td>
                             <?php if($statusRaw == 'pending'): ?>
-                                <a href="/admin/bookings/cancel/<?= $row['id'] ?>" class="btn-mini btn-reject" title="Batalkan Booking" onclick="return confirm('Yakin batalkan pesanan ini?')">✖ Batal</a>
-                            <?php else: ?>
-                                <a href="/admin/bookings/delete/<?= $row['id'] ?>" class="btn-mini btn-trash" onclick="return confirm('Hapus data ini permanen?')">Hapus</a>
+                                
+                                <?php if(!empty($row['bukti_bayar'])): ?>
+                                    
+                                    <a href="/img/bukti/<?= $row['bukti_bayar'] ?>" target="_blank" class="btn-mini" style="background:#3b82f6; color:white;">📷 Bukti</a>
+                                    
+                                    <a href="/admin/bookings/confirm/<?= $row['id'] ?>" class="btn-mini btn-acc" onclick="return confirm('Bukti valid? Lunas?')">✔ ACC</a>
+                                    
+                                <?php else: ?>
+                                    <span style="color:orange; font-size:0.8em;">Belum Upload Bukti</span>
+                                <?php endif; ?>
+                                
+                                <a href="/admin/bookings/cancel/<?= $row['id'] ?>" class="btn-mini btn-reject">✖ Batal</a>
+                                
+                            <?php elseif($statusRaw == 'success'): ?>
+                                <span style="color:green;">✔ Selesai</span>
                             <?php endif; ?>
                         </td>
                     </tr>

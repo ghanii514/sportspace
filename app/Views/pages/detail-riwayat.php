@@ -17,7 +17,7 @@
         <!-- Invoice Header -->
         <div class="invoice-top">
             Invoice #: <?= $booking['nama_lapangan'] ?>
-        </div>
+        </div> 
         <!-- Venue Info -->
         <div class="invoice-body">
             <h4 class="venue-name"><?= esc($booking['nama_lapangan']) ?></h4>
@@ -113,20 +113,26 @@
 
             <div class="action-buttons">
                 <a href="/riwayat" class="btn-cancel">
-                    Batalkan
-</a>
+                    Kembali
+                </a>
 
                 <?php if ($booking['status'] === 'pending'): ?>
-                    <button type="button" class="btn-pay" onclick="openBayarModal()">
-                        Bayar Sekarang
-                    </button>
+                    
+                    <?php if (empty($booking['bukti_bayar'])): ?>
+                        <a href="<?= base_url('booking/payment/' . $booking['id']) ?>" class="btn-pay">
+                            Bayar Sekarang
+                        </a>
+
+                    <?php else: ?>
+                        <button type="button" class="btn-pay" style="background:#888; cursor:not-allowed;" disabled>
+                            Menunggu Verifikasi Admin
+                        </button>
+                    <?php endif; ?>
+
                 <?php endif; ?>
-
             </div>
-
         </div>
     </div>
-
 </div>
 
 <style>
@@ -324,17 +330,6 @@
         cursor: pointer;
     }
 </style>
-
-<script>
-    function openBayarModal() {
-        document.getElementById('bayarModal').style.display = 'flex';
-    }
-
-    function closeBayarModal() {
-        document.getElementById('bayarModal').style.display = 'none';
-    }
-</script>
-
 
 <?= $this->renderSection('content'); ?>
 

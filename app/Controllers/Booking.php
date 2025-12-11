@@ -115,13 +115,10 @@ class Booking extends BaseController
     {
         $bookingModel = new BookingModel();
 
-        // 1. Update Status Jadi Success (Lunas)
         $bookingModel->update($id, [
             'status' => 'success'
         ]);
 
-        // 2. LOGIKA CHAT BROADCAST OTOMATIS
-        // Ambil data detail booking + info lapangan (terutama nomor telepon)
         $booking = $bookingModel
             ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.nomor_telepon')
             ->join('lapangan', 'lapangan.id = booking.venue_id')
@@ -145,6 +142,46 @@ class Booking extends BaseController
         }
 
         return redirect()->to('/riwayat?tab=completed')->with('success', 'Pembayaran Berhasil! Cek menu Chat untuk info kontak lapangan.');
+    }
+
+    public function payment($id)
+    {
+        if (!logged_in()) { return redirect()->to('/login'); }
+
+        $bookingModel = new BookingModel();
+        $booking = $bookingModel->getBooking($id); 
+
+        if ($booking['user_id'] != user()->id) {
+            return redirect()->to('/');
+        }
+
+        $data = [
+            'title' => 'Pembayaran',
+            'booking' => $booking
+        ];
+
+        return view('booking/payment_page', $data);
+    }
+
+    public function uploadBukti()
+    {
+        $bookingModel = new BookingModel();
+        $id = $this->request->getPost('booking_id');
+
+        $fileGambar = $this->request->getFile('bukti_bayar');
+
+        if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
+            $namaGambar = $fileGambar->getRandomName();
+            $fileGambar->move('img/bukti', $namaGambar);
+
+            $bookingModel->update($id, [
+                'bukti_bayar' => $namaGambar,
+            ]);
+
+            return redirect()->to('/riwayat?tab=upcoming')->with('success', 'Bukti pembayaran berhasil diupload! Tunggu konfirmasi Admin ya.');
+        } else {
+            return redirect()->back()->with('error', 'Gagal upload gambar.');
+        }
     }
 
     public function check_promo()
