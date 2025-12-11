@@ -21,7 +21,9 @@ class BookingModel extends Model
         'status',
         'pembayaran',
         'discount_amount', 
-        'promo_code'
+        'promo_code',
+        'bukti_bayar'
+    
     ];
 
     public function getBookingsLengkap()
