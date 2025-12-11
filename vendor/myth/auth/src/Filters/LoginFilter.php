@@ -31,6 +31,7 @@ class LoginFilter extends BaseFilter implements FilterInterface
 
             return redirect($this->reservedRoutes['login']);
         }
+
     }
 
     /**
