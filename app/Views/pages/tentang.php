@@ -23,7 +23,7 @@
     <div class="hero-box mb-5"></div>
     <h1 style="text-align: center; ">Tentang Kami</h1>
     <div class="about">
-        <img src="/img/about/sportspace.jpeg" class="table-img" alt="Foto">
+        <img src="/img/about/ceo.jpg" class="table-img" alt="Foto">
     </div>
     <!-- Visi Misi -->
     <h3 class="fw-bold">Visi Misi</h3>
