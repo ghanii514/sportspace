@@ -104,7 +104,7 @@
     
     <aside class="sidebar">
         <div class="owner-profile">
-            <img src="/img/users/<?= user()->profile_picture ?? 'default.png' ?>" class="owner-img">
+            <img src="/img/users/<?= $user->profile_picture ?? 'default_profile.jpg' ?>" class="owner-img">
             <h4 style="margin:0;"><?= esc(user()->username) ?></h4>
             <span style="font-size:0.85em; color:#888;">Pemilik Lapangan</span>
         </div>

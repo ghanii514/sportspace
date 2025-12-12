@@ -146,6 +146,12 @@
         white-space: nowrap;
     }
 
+        .sidebar {
+            height: 100vh;
+            background: white;
+            border-right: 1px solid #ddd;
+        }
+
     .search-nav-area {
         display: flex;
         flex-direction: column;
@@ -216,6 +222,31 @@
         color: #333;
         text-decoration: none;
     }
+
+       .chat-list {
+            height: 100vh;
+            border-right: 1px solid #ddd;
+            background: white;
+        }
+        .chat-box {
+            height: 100vh;
+            background: #eae6df;
+            position: relative;
+        }
+        .chat-body {
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .chat-input {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #ddd;
+        }
+    
 </style>
 
 <body>

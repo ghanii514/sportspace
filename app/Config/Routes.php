@@ -36,7 +36,7 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
 });
 
 $routes->get('/lapangan/hafizh', 'Field::tambah'); // Rute untuk menampilkan form
-$routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (menyimpan)
+$routes->post('/lapangan/tambah', to: 'Field::save'); // Rute untuk memproses form (menyimpan)
 
 $routes->get('kategori', 'Home::filter');
 
@@ -84,6 +84,7 @@ $routes->get('chat/rooms/(:any)', function($routes){
     return view('pages/chat_list');
 });
 
+<<<<<<< HEAD
 $routes->get('chat/start/(:any)' , 'Chat::startChat/$1');
 
 $routes->group('owner', function ($routes) {
@@ -96,6 +97,13 @@ $routes->group('owner', function ($routes) {
     $routes->get('chat', 'Owner\Chat::index');
     $routes->get('chat/(:num)', 'Owner\Chat::room/$1');
     $routes->post('chat/send', 'Owner\Chat::send');
+=======
+$routes->get('/owner', 'Owner::index');
+$routes->get('owner/chat', 'OwnerChatController::index');
+$routes->group('owner' , function($routes){
+    $routes->get('' , 'Owner::index');
+    $routes->get('bookings' , 'Owner::bookings');
+>>>>>>> 70bc050689911def748f8ecaf4871550bb0d94d9
 });
 
 
