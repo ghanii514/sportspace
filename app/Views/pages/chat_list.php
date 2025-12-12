@@ -1,141 +1,135 @@
 <?= $this->include('layout/template'); ?>
+<?= $this->section('content'); ?>
 
 <style>
-    /* Container Utama */
     .chat-container {
-        width: 800px;
+        max-width: 900px;
         margin: 30px auto;
-        background: #fff;
-        min-height: 500px;
-        border-right: 1px solid #eee;
-        border-left: 1px solid #eee;
-    }
-
-    .chat-header {
-        padding: 20px;
-        border-bottom: 2px solid #f0f0f0;
-    }
-
-    .chat-header h1 {
-        margin: 0;
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: #000;
-    }
-
-    /* List Item Chat */
-    .chat-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .chat-item {
-        display: flex;
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-        cursor: pointer;
-        transition: background 0.2s;
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .chat-item:hover {
-        background-color: #f9f9f9;
-    }
-
-    /* Gambar Bulat */
-    .chat-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 20px;
-        border: 1px solid #ddd;
-    }
-
-    .chat-content {
-        flex: 1;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        height: 80vh;
     }
 
-    .chat-top {
+    /* Header */
+    .chat-header {
+        padding: 15px 20px;
+        background: #49e265;
+        color: white;
+        font-weight: 700;
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 5px;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
     }
 
-    .venue-name {
-        font-weight: bold;
-        font-size: 1.1rem;
-        color: #000;
+    .chat-header img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        object-fit: cover;
     }
 
-    .chat-date {
-        font-size: 0.85rem;
-        color: #666;
+    /* Messages */
+    .chat-body {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background: #f3f4f6;
     }
 
-    .chat-snippet {
-        color: #555;
-        font-size: 0.95rem;
-        /* Biar teks panjang jadi ... */
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    .msg {
+        max-width: 70%;
+        padding: 10px 15px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        font-size: 15px;
+        line-height: 1.4;
     }
 
-    .empty-chat {
-        text-align: center;
-        padding: 50px;
-        color: #999;
+    .msg-owner {
+        background: white;
+        align-self: flex-start;
+    }
+
+    .msg-user {
+        background: #d1fae5;
+        align-self: flex-end;
+    }
+
+    /* Form Input */
+    .chat-footer {
+        display: flex;
+        padding: 12px;
+        background: white;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .chat-footer input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+    }
+
+    .chat-footer button {
+        margin-left: 10px;
+        padding: 12px 25px;
+        background: #059669;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
     }
 </style>
 
 <div class="chat-container">
+
+    <!-- HEADER CHAT -->
     <div class="chat-header">
-        <h1>Chat Pihak Lapangan</h1>
+        <img src="/img/users/default.png">
+        Chat dengan Pemilik Lapangan
     </div>
 
-    <div class="chat-list">
-        <?php if(!empty($messages)): ?>
-            <?php foreach($messages as $msg): ?>
-                
-                <a href="/chat/detail/<?= $msg['id'] ?>" class="chat-item" style="text-decoration:none; color:inherit; display:flex;">
-                    <img src="/img/fields/<?= $msg['gambar_lapangan'] ?>" 
-                            class="chat-avatar" 
-                            onerror="this.src='https://via.placeholder.com/60'">
-                            
-                    <div class="chat-content">
-                        <div class="chat-top">
-                            <span class="venue-name"><?= esc($msg['nama_lapangan']) ?></span>
-                            <span class="chat-date"><?= date('d/m/y', strtotime($msg['created_at'])) ?></span>
-                        </div>
-                        <div class="chat-snippet">
-                            <?= esc($msg['message']) ?>
-                        </div>
-                    </div>    
-                </a>
-        </div>
+    <!-- AREA PESAN -->
+    <div class="chat-body" id="chatBox">
+
+        <?php if (!empty($messages)): ?>
+            <?php foreach ($messages as $m): ?>
+
+                <div class="msg <?= $m['sender'] == 'user' ? 'msg-user' : 'msg-owner' ?>">
+                    <?= esc($m['message']) ?>
+                </div>
 
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="empty-chat">
-                <p>Belum ada pesan masuk.</p>
-                <small>Pesan akan masuk otomatis saat booking dikonfirmasi.</small>
-            </div>
+
+            <p style="text-align:center; margin-top:40px; color:#777;">Belum ada pesan</p>
+
         <?php endif; ?>
+
     </div>
+
+    <!-- FORM INPUT -->
+    <form class="chat-footer" method="POST" action="/user/chat/send">
+        <input type="hidden" name="room_id" value="<?= $room['id']; ?>">
+
+        <input type="text" name="message" placeholder="Ketik pesan..." required>
+        <button type="submit">Kirim</button>
+    </form>
+
 </div>
 
+<!-- Auto scroll ke bawah -->
 <script>
-    function showDetail(nama, pesan) {
-        // Ganti baris baru (\n) jadi <br> buat SweetAlert atau Alert biasa
-        alert("Pesan dari: " + nama + "\n\n" + pesan);
-    }
+    let chatBox = document.getElementById("chatBox");
+    chatBox.scrollTop = chatBox.scrollHeight;
 </script>
 
-<?= $this->include('layout/footer'); ?>
+<?= $this->renderSection('content'); ?>

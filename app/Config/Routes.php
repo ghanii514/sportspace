@@ -11,7 +11,7 @@ $routes->get('/', 'Home::index'); // Halaman utama
 $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1'); // Halaman detail lapangan
 
 // Grup Route khusus Admin
-$routes->group('admin', ['filter' => 'role:admin'], function($routes) {
+$routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     // Dashboard Utama Admin
     $routes->get('/', 'Admin::index');
     // === MANAJEMEN LAPANGAN ===
@@ -38,7 +38,7 @@ $routes->group('admin', ['filter' => 'role:admin'], function($routes) {
 $routes->get('/lapangan/hafizh', 'Field::tambah'); // Rute untuk menampilkan form
 $routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (menyimpan)
 
-$routes->get('kategori' , 'Home::filter');
+$routes->get('kategori', 'Home::filter');
 
 //==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
@@ -50,15 +50,15 @@ $routes->get('/search', 'Field::search');
 $routes->get('/lapangan/detail/(:num)', 'Field::detail/$1');
 $routes->post('booking/process', 'Booking::process');
 
-$routes->get('promo' , 'Promo::showPromo');
+$routes->get('promo', 'Promo::showPromo');
 $routes->get('promo/detail/(:num)', 'Promo::detail/$1');
 
 $routes->get('/riwayat', 'Riwayat::index');
 
-$routes->post('booking/summary', 'Booking::summary'); 
+$routes->post('booking/summary', 'Booking::summary');
 $routes->post('booking/save', 'Booking::save');
 
-$routes->post('booking/batal/(:any)' , 'Booking::batal/$1');
+$routes->post('booking/batal/(:any)', 'Booking::batal/$1');
 $routes->get('booking/detail/(:any)', 'Booking::detail/$1');
 $routes->post('booking/bayar/(:any)', 'Booking::bayar/$1');
 $routes->post('booking/check-promo', 'Booking::check_promo');
@@ -70,16 +70,32 @@ $routes->get('/ganti-akun', 'GantiAkun::index');
 $routes->get('/ganti-akun/tambah', 'GantiAkun::tambah');
 $routes->get('/ganti-akun/switch', 'GantiAkun::switchAction');
 
-$routes->get('tentang' , function(){return view('pages/tentang');});
-$routes->get('bantuan' , function(){return view('pages/bantuan');});
+$routes->get('tentang', function () {
+    return view('pages/tentang');
+});
+$routes->get('bantuan', function () {
+    return view('pages/bantuan');
+});
 
-$routes->get('/chat', 'Chat::index');
+$routes->get('chat', 'Chat::selectOwner');
 $routes->get('chat/detail/(:num)', 'Chat::detail/$1');
 $routes->post('chat/send', 'Chat::send');
+$routes->get('chat/rooms/(:any)', function($routes){
+    return view('pages/chat_list');
+});
 
-$routes->group('owner' , function($routes){
-    $routes->get('' , 'Owner::index');
-    $routes->get('bookings' , 'Owner::bookings');
+$routes->get('chat/start/(:any)' , 'Chat::startChat/$1');
+
+$routes->group('owner', function ($routes) {
+    $routes->get('', 'Owner::index');
+    $routes->get('bookings', 'Owner::bookings');
+    $routes->get('chat', function () {
+        return view('owner/chat');
+    });
+
+    $routes->get('chat', 'Owner\Chat::index');
+    $routes->get('chat/(:num)', 'Owner\Chat::room/$1');
+    $routes->post('chat/send', 'Owner\Chat::send');
 });
 
 
