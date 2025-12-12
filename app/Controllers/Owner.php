@@ -9,14 +9,16 @@ class Owner extends BaseController
     public function index()
     {
         // 1. Cek Login & Role (Pastikan dia Owner)
-        if (!logged_in()) { return redirect()->to('/login'); }
+        if (!logged_in()) {
+            return redirect()->to('/login');
+        }
         // if (!in_groups('owner')) { return redirect()->to('/'); } // Aktifkan kalo udah setup role
 
         $bookingModel = new BookingModel();
         $db = \Config\Database::connect();
-        
+
         // Ambil ID User yang sedang login
-        $ownerId = user_id(); 
+        $ownerId = user_id();
 
         // --- HITUNG-HITUNGAN RINGKASAN ---
 
@@ -56,13 +58,43 @@ class Owner extends BaseController
 
         $data = [
             'title' => 'Dashboard Pemilik Lapangan',
-            'user'  => user(),
+            'user' => user(),
             'total_booking' => $totalBooking,
-            'need_confirm'  => $needConfirm,
-            'income'        => $income,
-            'recent'        => $recent
+            'need_confirm' => $needConfirm,
+            'income' => $income,
+            'recent' => $recent
         ];
 
         return view('owner/dashboard', $data);
     }
+
+    public function bookings()
+    {
+        if (!logged_in()) {
+            return redirect()->to('/login');
+        }
+
+        $bookingModel = new BookingModel();
+
+        $ownerId = user_id();
+
+        // Ambil semua booking untuk owner ini
+        $bookings = $bookingModel
+            ->select('booking.*, users.username as penyewa, lapangan.nama as lapangan')
+            ->join('users', 'users.id = booking.user_id')
+            ->join('lapangan', 'lapangan.id = booking.venue_id')
+            ->where('lapangan.owner_id', $ownerId)
+            ->orderBy('booking.id', 'DESC')
+            ->findAll();
+
+        $data = [
+            'title' => 'Daftar Booking',
+            'user' => user(),
+            'bookings' => $bookings
+        ];
+
+        return view('owner/bookings', $data);
+    }
+
+
 }
