@@ -72,13 +72,19 @@ $routes->get('/ganti-akun/switch', 'GantiAkun::switchAction');
 
 $routes->get('tentang' , function(){return view('pages/tentang');});
 $routes->get('bantuan' , function(){return view('pages/bantuan');});
-$routes->get('hubungi',function(){return view('pages/hubungi');});
 
 $routes->get('/chat', 'Chat::index');
 $routes->get('chat/detail/(:num)', 'Chat::detail/$1');
 $routes->post('chat/send', 'Chat::send');
 
+<<<<<<< HEAD
 $routes->get('/owner', 'Owner::index');
 $routes->get('owner/chat', 'OwnerChatController::index');
+=======
+$routes->group('owner' , function($routes){
+    $routes->get('' , 'Owner::index');
+    $routes->get('bookings' , 'Owner::bookings');
+});
+>>>>>>> 44f60e1686bd12f7e89993fb99075fb7b4b0a767
 
 
