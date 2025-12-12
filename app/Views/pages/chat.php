@@ -29,6 +29,7 @@
 
     .field-category {
         font-size: 0.9rem;
+        
         color: #6c757d;
     }
 
