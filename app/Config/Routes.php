@@ -36,7 +36,7 @@ $routes->group('admin', ['filter' => 'role:admin'], function($routes) {
 });
 
 $routes->get('/lapangan/hafizh', 'Field::tambah'); // Rute untuk menampilkan form
-$routes->post('/lapangan/tambah', 'Field::save'); // Rute untuk memproses form (menyimpan)
+$routes->post('/lapangan/tambah', to: 'Field::save'); // Rute untuk memproses form (menyimpan)
 
 $routes->get('kategori' , 'Home::filter');
 
