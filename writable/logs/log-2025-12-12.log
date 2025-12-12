@@ -714,3 +714,17 @@ DEBUG - 2025-12-12 16:11:50 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-12-12 16:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-12 16:12:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 >>>>>>> 44f60e1686bd12f7e89993fb99075fb7b4b0a767
+CRITICAL - 2025-12-12 16:14:47 --> ParseError: syntax error, unexpected token "<<", expecting end of file
+[Method: CLI, Route: serve]
+in APPPATH\Config\Routes.php on line 80.
+ 1 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\Boot.php(388): CodeIgniter\CLI\Console->run()
+ 3 SYSTEMPATH\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 4 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2025-12-12 16:14:54 --> ParseError: syntax error, unexpected token "<<", expecting end of file
+[Method: CLI, Route: serve]
+in APPPATH\Config\Routes.php on line 80.
+ 1 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\Boot.php(388): CodeIgniter\CLI\Console->run()
+ 3 SYSTEMPATH\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 4 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
