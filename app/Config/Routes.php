@@ -79,5 +79,6 @@ $routes->get('chat/detail/(:num)', 'Chat::detail/$1');
 $routes->post('chat/send', 'Chat::send');
 
 $routes->get('/owner', 'Owner::index');
+$routes->get('owner/chat', 'OwnerChatController::index');
 
 
