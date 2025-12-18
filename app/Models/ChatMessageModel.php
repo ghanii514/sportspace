@@ -12,7 +12,7 @@ class ChatMessageModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-protected $allowedFields = ['room_id', 'sender', 'message', 'created_at'];
+protected $allowedFields = ['room_id', 'type', 'message', 'created_at' , 'sender_id' , 'receiver_id'];
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

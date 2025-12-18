@@ -80,30 +80,14 @@ $routes->get('bantuan', function () {
 $routes->get('chat', 'Chat::selectOwner');
 $routes->get('chat/detail/(:num)', 'Chat::detail/$1');
 $routes->post('chat/send', 'Chat::send');
-$routes->get('chat/rooms/(:any)', function($routes){
-    return view('pages/chat_list');
-});
 
-<<<<<<< HEAD
+
 $routes->get('chat/start/(:any)' , 'Chat::startChat/$1');
 
-$routes->group('owner', function ($routes) {
-    $routes->get('', 'Owner::index');
-    $routes->get('bookings', 'Owner::bookings');
-    $routes->get('chat', function () {
-        return view('owner/chat');
-    });
-
-    $routes->get('chat', 'Owner\Chat::index');
-    $routes->get('chat/(:num)', 'Owner\Chat::room/$1');
-    $routes->post('chat/send', 'Owner\Chat::send');
-=======
-$routes->get('/owner', 'Owner::index');
-$routes->get('owner/chat', 'OwnerChatController::index');
 $routes->group('owner' , function($routes){
     $routes->get('' , 'Owner::index');
     $routes->get('bookings' , 'Owner::bookings');
->>>>>>> 70bc050689911def748f8ecaf4871550bb0d94d9
+    $routes->get('chat' , 'OwnerChatController::index');
 });
 
 

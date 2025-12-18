@@ -12,7 +12,7 @@ class ChatRoomModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-protected $allowedFields = ['user_id', 'owner_id', 'created_at'];
+protected $allowedFields = ['owner_id' , 'user_id'];
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

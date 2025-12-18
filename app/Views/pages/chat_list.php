@@ -34,12 +34,14 @@
         object-fit: cover;
     }
 
-    /* Messages */
+    /* Messages Area */
     .chat-body {
         flex: 1;
         padding: 20px;
         overflow-y: auto;
         background: #f3f4f6;
+        display: flex;
+        flex-direction: column; /* Penting untuk alignment bubble */
     }
 
     .msg {
@@ -49,16 +51,29 @@
         border-radius: 12px;
         font-size: 15px;
         line-height: 1.4;
+        position: relative;
     }
 
+    /* Bubble dari Owner (Kiri) */
     .msg-owner {
         background: white;
         align-self: flex-start;
+        border-bottom-left-radius: 2px;
     }
 
+    /* Bubble dari User/Anda (Kanan) */
     .msg-user {
         background: #d1fae5;
         align-self: flex-end;
+        border-bottom-right-radius: 2px;
+    }
+
+    .msg-time {
+        display: block;
+        font-size: 10px;
+        color: #888;
+        margin-top: 5px;
+        text-align: right;
     }
 
     /* Form Input */
@@ -75,6 +90,7 @@
         border-radius: 10px;
         border: 1px solid #ccc;
         font-size: 15px;
+        outline: none;
     }
 
     .chat-footer button {
@@ -91,45 +107,47 @@
 
 <div class="chat-container">
 
-    <!-- HEADER CHAT -->
     <div class="chat-header">
-        <img src="/img/users/default.png">
-        Chat dengan Pemilik Lapangan
+        <img src="/img/users/<?= $owner['profile_picture'] ?? 'default.png' ?>">
+        <div>
+            <div style="font-size: 16px;"><?= esc($owner['username']) ?></div>
+            <div style="font-size: 11px; font-weight: normal; opacity: 0.9;">Pemilik Lapangan</div>
+        </div>
     </div>
 
-    <!-- AREA PESAN -->
     <div class="chat-body" id="chatBox">
 
         <?php if (!empty($messages)): ?>
             <?php foreach ($messages as $m): ?>
-
-                <div class="msg <?= $m['sender'] == 'user' ? 'msg-user' : 'msg-owner' ?>">
+                <div class="msg <?= $m['type'] == 'user' ? 'msg-user' : 'msg-owner' ?>">
                     <?= esc($m['message']) ?>
+                    <span class="msg-time"><?= date('H:i', strtotime($m['created_at'])) ?></span>
                 </div>
-
             <?php endforeach; ?>
         <?php else: ?>
-
-            <p style="text-align:center; margin-top:40px; color:#777;">Belum ada pesan</p>
-
+            <div style="text-align:center; margin-top:40px; color:#777;">
+                <p>Belum ada percakapan.</p>
+                <small>Mulai kirim pesan untuk bertanya pada pemilik lapangan.</small>
+            </div>
         <?php endif; ?>
 
     </div>
 
-    <!-- FORM INPUT -->
-    <form class="chat-footer" method="POST" action="/user/chat/send">
-        <input type="hidden" name="room_id" value="<?= $room['id']; ?>">
+    <form class="chat-footer" method="POST" action="/chat/send">
+        <input type="hidden" name="room_id" value="<?= $owner['id']; ?>">
+        <input type="hidden" name="owner_id" value="<?= $owner['user_id']; ?>">
 
-        <input type="text" name="message" placeholder="Ketik pesan..." required>
+        <input type="text" name="message" placeholder="Ketik pesan..." required autocomplete="off">
         <button type="submit">Kirim</button>
     </form>
 
 </div>
 
-<!-- Auto scroll ke bawah -->
 <script>
+    // Auto scroll ke pesan paling bawah saat halaman dimuat
     let chatBox = document.getElementById("chatBox");
     chatBox.scrollTop = chatBox.scrollHeight;
 </script>
 
 <?= $this->renderSection('content'); ?>
+<?= $this->include('layout/footer') ?>
