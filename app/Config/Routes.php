@@ -83,11 +83,15 @@ $routes->post('chat/send', 'Chat::send');
 
 
 $routes->get('chat/start/(:any)' , 'Chat::startChat/$1');
+$routes->get('chat/api/messages/(:num)', 'Chat::apiGetMessages/$1');
 
 $routes->group('owner' , function($routes){
     $routes->get('' , 'Owner::index');
     $routes->get('bookings' , 'Owner::bookings');
     $routes->get('chat' , 'OwnerChatController::index');
+    $routes->get('chat/(:any)' , 'OwnerChatController::index/$1');
+    $routes->get('api/messages/(:num)', 'OwnerChatController::apiGetMessages/$1');
+    $routes->post('chat/send' ,'OwnerChatController::send');
 });
 
 
