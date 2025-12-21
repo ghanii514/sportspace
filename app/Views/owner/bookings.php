@@ -69,7 +69,7 @@
 </style>
 
 <div class="owner-container">
-    
+
     <!-- ==== SIDEBAR (PERTAHANKAN) ==== -->
     <aside class="sidebar">
         <div class="owner-profile">
@@ -118,7 +118,7 @@
                         <td><?= $no++ ?></td>
                         <td><?= esc($b['name']) ?></td>
                         <td><?= esc($b['penyewa']) ?></td>
-                        <td><?= esc($b['lapangan']) ?></td>
+                        <td><?= esc($b['nama_lapangan']) ?></td>
 
                         <td><?= esc($b['booking_date']) ?></td>
 

@@ -92,6 +92,9 @@ $routes->group('owner' , function($routes){
     $routes->get('chat/(:any)' , 'OwnerChatController::index/$1');
     $routes->get('api/messages/(:num)', 'OwnerChatController::apiGetMessages/$1');
     $routes->post('chat/send' ,'OwnerChatController::send');
+
+    $routes->get('approve/(:any)' , 'Owner::approve/$1');
+    $routes->get('reject/(:any)' , 'Owner::reject/$1');
 });
 
 
