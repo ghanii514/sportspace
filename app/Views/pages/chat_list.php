@@ -2,158 +2,206 @@
 <?= $this->section('content'); ?>
 
 <style>
-    /* Container Utama */
-    .chat-container {
-        max-width: 800px;
-        margin: 30px auto;
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        overflow: hidden;
+    /* === GLOBAL & VARIABLES === */
+    :root {
+        --primary-color: #10b981; /* Emerald Green */
+        --primary-dark: #059669;
+        --bg-color: #f3f4f6;
+        --chat-bg: #f0f2f5;
+        --text-dark: #1f2937;
+        --white: #ffffff;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-color);
+        margin: 0;
+    }
+
+    /* === CONTAINER UTAMA === */
+    .chat-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        height: 85vh; /* Tinggi Chat Window */
+    }
+
+    .chat-card {
+        width: 100%;
+        max-width: 600px; /* Lebar maksimal agar enak dilihat di PC */
+        background: var(--white);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         display: flex;
         flex-direction: column;
-        height: 80vh; /* Tinggi fix agar bisa scroll */
+        overflow: hidden;
         border: 1px solid #e5e7eb;
     }
 
-    /* Header Chat */
+    /* === HEADER === */
     .chat-header {
-        padding: 15px 20px;
-        background: #059669; /* Warna Hijau Tema */
-        color: white;
+        padding: 15px 25px;
+        background: var(--white);
+        border-bottom: 1px solid #e5e7eb;
         display: flex;
         align-items: center;
         gap: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         z-index: 10;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
 
     .chat-header img {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
-        border: 2px solid #fff;
         object-fit: cover;
+        border: 1px solid #eee;
     }
 
-    /* Area Pesan (Scrollable) */
+    .owner-info h4 {
+        margin: 0;
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .owner-info p {
+        margin: 0;
+        font-size: 0.8em;
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+
+    /* === BODY CHAT === */
     .chat-body {
         flex: 1;
-        padding: 20px;
+        padding: 25px;
         overflow-y: auto;
-        background-color: #e5ddd5; /* Background a la WhatsApp */
-        background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        background-color: var(--chat-bg);
+        /* Pola titik halus */
+        background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+        background-size: 20px 20px;
     }
 
-    /* Bubble Chat Base */
+    /* === BUBBLE CHAT === */
     .msg {
-        max-width: 75%;
-        padding: 10px 14px;
-        border-radius: 10px;
-        font-size: 15px;
-        line-height: 1.4;
+        max-width: 70%;
+        padding: 12px 18px;
+        border-radius: 18px;
+        margin-bottom: 8px;
+        font-size: 0.95em;
+        line-height: 1.5;
         position: relative;
         word-wrap: break-word;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        /* Animasi dihapus agar instan */
     }
 
     /* Bubble Owner (Kiri - Putih) */
     .msg-owner {
-        background: #ffffff;
-        align-self: flex-start; /* Kiri */
-        border-top-left-radius: 0;
-        color: #1f2937;
+        align-self: flex-start;
+        background: var(--white);
+        color: var(--text-dark);
+        border-bottom-left-radius: 4px; /* Aksen sudut */
     }
 
-    /* Bubble User / Saya (Kanan - Hijau Muda) */
+    /* Bubble User / Saya (Kanan - Hijau) */
     .msg-user {
-        background: #dcf8c6;
-        align-self: flex-end; /* Kanan */
-        border-top-right-radius: 0;
-        color: #1f2937;
+        align-self: flex-end;
+        background: var(--primary-color);
+        color: var(--white);
+        border-bottom-right-radius: 4px; /* Aksen sudut */
     }
 
     .msg-time {
         display: block;
-        font-size: 10px;
-        color: #6b7280;
+        font-size: 0.7em;
         margin-top: 4px;
         text-align: right;
+        opacity: 0.8;
     }
+    
+    .msg-owner .msg-time { color: #9ca3af; }
+    .msg-user .msg-time { color: #ecfdf5; }
 
-    /* Form Footer */
+    /* === FOOTER / FORM === */
     .chat-footer {
-        display: flex;
-        padding: 15px;
-        background: white;
+        padding: 20px;
+        background: var(--white);
         border-top: 1px solid #e5e7eb;
+        display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
     .chat-footer input[type="text"] {
         flex: 1;
-        padding: 12px 15px;
-        border-radius: 25px;
-        border: 1px solid #d1d5db;
-        font-size: 15px;
+        padding: 14px 20px;
+        border-radius: 30px;
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95em;
         outline: none;
-        transition: border-color 0.2s;
+        transition: 0.3s;
     }
 
     .chat-footer input[type="text"]:focus {
-        border-color: #059669;
+        background: #fff;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
     }
 
     .send-btn {
-        background: #059669;
+        background: var(--primary-color);
         color: white;
         border: none;
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: background 0.2s;
+        transition: 0.2s;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
     }
     
     .send-btn:hover {
-        background: #047857;
+        background: var(--primary-dark);
+        transform: scale(1.05);
     }
+
 </style>
 
-<div class="container" style="margin-top: 20px;">
-    <div class="chat-container">
+<div class="chat-wrapper">
+    <div class="chat-card">
 
         <div class="chat-header">
             <img src="/img/users/<?= $owner['profile_picture'] ?? 'default.png' ?>" alt="Owner">
-            <div>
-                <div style="font-weight: 700; font-size: 16px;"><?= esc($owner['username']) ?></div>
-                <div style="font-size: 12px; opacity: 0.9;">Pemilik Lapangan</div>
+            <div class="owner-info">
+                <h4><?= esc($owner['username']) ?></h4>
+                <p>Pemilik Lapangan</p>
             </div>
         </div>
 
         <div class="chat-body" id="chatBox">
-            <div style="text-align:center; margin-top:50px; color:#666;" id="loadingIndicator">
+            <div style="text-align:center; margin-top:50px; color:#9ca3af;" id="loadingIndicator">
                 <p>Memuat percakapan...</p>
             </div>
         </div>
 
         <form class="chat-footer" id="chatForm">
-            
             <input type="hidden" name="room_id" id="roomIdInput" value="<?= $roomId ?? '' ?>">
-            
             <input type="hidden" name="owner_id" value="<?= $owner['id'] ?>">
 
             <input type="text" name="message" id="messageInput" placeholder="Tulis pesan..." required autocomplete="off">
             
             <button type="submit" class="send-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             </button>
         </form>
 
@@ -166,23 +214,16 @@
     const messageInput = document.getElementById("messageInput");
     const roomIdInput = document.getElementById("roomIdInput");
     
-    // Ambil value room_id dari input hidden
     const roomId = roomIdInput ? roomIdInput.value : '';
 
-    // Cek di Console apakah roomId ada
-    console.log("Room ID:", roomId); 
-
-    // 1. Fungsi Scroll ke Bawah Otomatis
     function scrollToBottom() {
         if(chatBox) {
             chatBox.scrollTop = chatBox.scrollHeight;
         }
     }
 
-    // 2. Fungsi Fetch Pesan (Polling)
     function loadMessages() {
         if (!roomId) {
-            console.error("Room ID kosong! Tidak bisa mengambil pesan.");
             document.getElementById('loadingIndicator').innerHTML = "<p style='color:red'>Error: Room ID tidak ditemukan.</p>";
             return;
         }
@@ -197,12 +238,14 @@
                 
                 if (data.length === 0) {
                     html = `
-                        <div style="text-align:center; margin-top:40px; color:#888;">
-                            <p>Belum ada pesan.</p>
+                        <div style="text-align:center; margin-top:50px; color:#9ca3af;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.3; margin-bottom:10px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            <p style="margin:0;">Belum ada pesan.</p>
                             <small>Sapa pemilik lapangan sekarang!</small>
                         </div>`;
                 } else {
                     data.forEach(msg => {
+                        // msg-user = Saya (Kanan/Hijau), msg-owner = Dia (Kiri/Putih)
                         let bubbleClass = (msg.type === 'user') ? 'msg-user' : 'msg-owner';
                         
                         html += `
@@ -214,10 +257,12 @@
                     });
                 }
 
+                // Cek scroll user
                 const isScrolledToBottom = chatBox.scrollHeight - chatBox.scrollTop <= chatBox.clientHeight + 150;
                 
                 chatBox.innerHTML = html;
 
+                // Auto scroll jika di bawah atau load pertama
                 if (isScrolledToBottom || document.getElementById('loadingIndicator')) {
                     scrollToBottom();
                 }
@@ -225,7 +270,6 @@
             .catch(error => console.error('Gagal memuat pesan:', error));
     }
 
-    // 3. Fungsi Kirim Pesan (AJAX POST)
     chatForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -241,9 +285,7 @@
 
         fetch('<?= base_url('chat/send') ?>', {
             method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            },
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
             body: formData
         })
         .then(response => response.json())
@@ -269,10 +311,8 @@
             .replace(/'/g, "&#039;");
     }
 
-    // Jalankan Load Pertama Kali
+    // Load awal & Polling
     loadMessages();
-
-    // Jalankan Polling setiap 2 detik
     setInterval(loadMessages, 2000);
 
 </script>

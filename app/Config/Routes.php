@@ -42,8 +42,10 @@ $routes->get('kategori', 'Home::filter');
 
 //==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
-$routes->get('/profile', 'User::index');
-$routes->post('/profile/update-picture', 'User::updateProfilePicture');
+
+$routes->get('profile', 'User::index'); 
+$routes->get('profile/edit', 'User::edit');
+$routes->post('profile/update', 'User::update');
 
 $routes->get('/search', 'Field::search');
 
