@@ -48,13 +48,14 @@
     <br>
 
     <?php foreach ($owners as $o): ?>
-        <a href="/chat/start/<?= $o['id']; ?>" style="text-decoration:none; color:inherit;">
+      
+        <a href="/chat/start/<?= $o->user_id; ?>" style="text-decoration:none; color:inherit;">
             <div class="owner-card">
-                <img src="/img/fields/<?= $o['lapangan_foto'] ?? 'default.png'; ?>" alt="Foto">
+                <img src="/img/users/<?= $o->profile_picture ?? 'default.png'; ?>" alt="Foto">
                 
                 <div class="owner-info">
-                    <h4><?= esc($o['username']); ?></h4>
-                    <small><?= esc($o['nama_lapangan']); ?></small>
+                    <h4><?= esc($o->username); ?></h4>
+                    <small><?= esc($o->nama); ?></small>
                 </div>
             </div>
         </a>

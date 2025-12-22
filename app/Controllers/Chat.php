@@ -6,145 +6,131 @@ use App\Controllers\BaseController;
 use App\Models\ChatRoomModel;
 use App\Models\ChatMessageModel;
 use App\Models\OwnerModel;
+use Myth\Auth\Models\UserModel;
 
 class Chat extends BaseController
 {
     protected $roomModel;
-    protected $msgModel;
+    protected $chatMessageModel;
+    protected $ownerModel;
 
     public function __construct()
     {
         $this->roomModel = new ChatRoomModel();
-        $this->msgModel = new ChatMessageModel();
-    }
+        $this->chatMessageModel = new ChatMessageModel();
+        $this->ownerModel = new OwnerModel();
 
-    // =========================
-    // 1. HALAMAN CHAT UTAMA
-    // =========================
-    public function index()
-    {
-        $userId = user_id();
-
-        // Cek apakah user sudah punya room dengan owner
-        $room = $this->roomModel
-            ->where('user_id', $userId)
-            ->first();
-
-        if (!$room) {
-            // Jika tidak ada room, buat baru
-            $this->roomModel->insert([
-                'user_id' => $userId,
-                'owner_id' => 0, // owner default ID = 0 (jika banyak owner, sesuaikan)
-                'created_at' => date('Y-m-d H:i:s')
-            ]);
-
-            $room = $this->roomModel
-                ->where('user_id', $userId)
-                ->first();
-        }
-
-        // Ambil pesan dalam room ini
-        $messages = $this->msgModel
-            ->where('room_id', $room['id'])
-            ->orderBy('created_at', 'ASC')
-            ->findAll();
-
-        $data = [
-            'title' => 'Chat Dengan Pemilik',
-            'room' => $room,
-            'messages' => $messages
-        ];
-
-        return view('pages/chat_list', $data);
+        $this->userModel = new UserModel();
     }
 
     public function selectOwner()
     {
-        $ownerModel = new OwnerModel();
-        $data['owners'] = $ownerModel
-            ->select('owners.id, users.username, owners.lapangan, owners.photo , lapangan.nama AS nama_lapangan , lapangan.image AS lapangan_foto ')
-            ->join('users', 'users.id = owners.user_id')
-            ->join('lapangan', 'lapangan.id = owners.lapangan')
+        $data['owners'] = $this->userModel
+            ->select('users.* , lapangan.* , users.id AS user_id , lapangan.id AS id_lapangan')
+            ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+            ->join('lapangan' , 'lapangan.owner_id = users.id')
+            ->where('auth_groups_users.group_id', 2)
             ->findAll();
+
+        $data['title'] = 'Pilih Owner untuk Chat';
+
+
         return view('pages/select_owner', $data);
     }
 
     public function startChat($ownerId)
     {
-        $roomModel = new ChatRoomModel();
-        $ownerModel = new OwnerModel();
-        $chatMessageModel = new ChatMessageModel();
+        if (!user()) {
+            return redirect()->to('/login');
+        }
 
+        $userId = user()->id;
 
-        $full_data = $roomModel
-            ->select('chat_rooms.* , owners.* , users.* , chat_rooms.id AS id_room')
-            ->join('owners', 'owners.id = chat_rooms.owner_id')
-            ->join('users', 'users.id = owners.user_id')
-            ->where('chat_rooms.owner_id', $ownerId)
-            ->where('chat_rooms.user_id', user()->id)
+        $existingRoom = $this->roomModel
+            ->where('owner_id', $ownerId)
+            ->where('user_id', $userId)
             ->first();
 
-        $fullMessage = $chatMessageModel
-            ->select('chat_messages.* , users.username , users.id AS user_id')
-            ->join('users', 'users.id = chat_messages.sender_id')
-            ->where('chat_messages.sender_id', user()->id)
-            ->findAll();
-
-        if (!$full_data) {
-            $room = $roomModel->insert([
+        if ($existingRoom) {
+            $roomId = $existingRoom['id'];
+        } else {
+            $this->roomModel->insert([
                 'owner_id' => $ownerId,
-                'user_id' => user()->id
+                'user_id' => $userId,
             ]);
-
-            if ($room){
-                dd($room);
-                    session()->set([
-                    'room_id' => $room['id']
-                ]);
-            }
+            $roomId = $this->roomModel->getInsertID();
         }
 
-        if ($full_data) {
-            session()->set([
-                'room_id' => $full_data['id_room']
-            ]);
-        }
+        $ownerData = $this->roomModel
+            ->join('users', 'users.id = chat_rooms.owner_id')
+            ->where('users.id', $ownerId)
+            ->first();
 
         $data = [
-            'messages' => $fullMessage,
-            'owner' => $full_data
+            'title' => 'Chatting',
+            'roomId' => $roomId,   
+            'owner' => $ownerData, 
         ];
 
-        // dd($full_data);
-
-        // 7. Kembalikan view secara langsung
-        return view('pages/chat_list', $data); // Sesuaikan path folder view Anda
+        return view('pages/chat_list', $data);
     }
 
+    public function apiGetMessages($roomId)
+    {
+        if (!user()) {
+            return $this->response->setJSON([]);
+        }
 
-    // =========================
-    // 2. KIRIM PESAN DARI USER
-    // =========================
+        // Ambil pesan urut dari yang terlama ke terbaru
+        $messages = $this->chatMessageModel
+            ->where('room_id', $roomId)
+            ->orderBy('created_at', 'ASC')
+            ->findAll();
+
+        $data = [];
+        foreach ($messages as $msg) {
+            $data[] = [
+                'id' => $msg['id'],
+                'message' => $msg['message'],
+                'type' => $msg['type'], // 'user' atau 'owner' (dari database)
+                'time' => date('H:i', strtotime($msg['created_at']))
+            ];
+        }
+
+        return $this->response->setJSON($data);
+    }
+
+    // ==========================================
+    // 4. API: KIRIM PESAN (AJAX POST)
+    // ==========================================
     public function send()
     {
-        $chatMessageModel = new ChatMessageModel();
-        $roomId = session()->get('room_id');
-        $type = 'user';
+        // Validasi Request AJAX & Login
+        if (!user()) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Unauthorized']);
+        }
+
+        // Ambil Data dari FormData (Input Hidden di View)
+        $roomId = $this->request->getPost('room_id');
+        $ownerId = $this->request->getPost('owner_id');
         $message = $this->request->getPost('message');
+        $senderId = user()->id;
 
-        $sender = user()->id;
-        $receiver = $this->request->getPost('owner_id');
+        // Validasi Input Kosong
+        if (empty(trim($message)) || empty($roomId)) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Data tidak lengkap']);
+        }
 
-        $chatMessageModel->insert([
+        // Insert ke Database
+        $this->chatMessageModel->insert([
             'room_id' => $roomId,
-            'type' => $type,
+            'type' => 'user', // Karena yang ngirim User
             'message' => $message,
+            'sender_id' => $senderId,
+            'receiver_id' => $ownerId,
             'created_at' => date('Y-m-d H:i:s'),
-            'sender_id' => $sender,
-            'receiver_id' => $receiver
         ]);
 
-        return redirect()->to('chat/start/' . $roomId);
-
+        return $this->response->setJSON(['status' => 'success']);
     }
 }

@@ -8,9 +8,7 @@ class Home extends BaseController
 
     public function index()
     {
-        // =================================================================
         // LOGIKA REDIRECT USER BERDASARKAN ROLE (MYTH:AUTH)
-        // =================================================================
         if (logged_in()) {
             // 1. Jika yang login adalah Admin Web -> Ke Dashboard Admin
             if (in_groups('admin')) {
@@ -24,7 +22,6 @@ class Home extends BaseController
 
             // 3. Jika User biasa, biarkan lanjut ke bawah (lihat Homepage)
         }
-        // =================================================================
 
         $fieldModel = new FieldModel(); 
         $promoModel = new PromoModel();

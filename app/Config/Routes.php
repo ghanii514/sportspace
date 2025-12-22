@@ -42,8 +42,10 @@ $routes->get('kategori', 'Home::filter');
 
 //==================================== 
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
-$routes->get('/profile', 'User::index');
-$routes->post('/profile/update-picture', 'User::updateProfilePicture');
+
+$routes->get('profile', 'User::index'); 
+$routes->get('profile/edit', 'User::edit');
+$routes->post('profile/update', 'User::update');
 
 $routes->get('/search', 'Field::search');
 
@@ -64,6 +66,7 @@ $routes->post('booking/bayar/(:any)', 'Booking::bayar/$1');
 $routes->post('booking/check-promo', 'Booking::check_promo');
 $routes->get('booking/payment/(:num)', 'Booking::payment/$1');
 $routes->post('booking/upload-bukti', 'Booking::uploadBukti');
+$routes->get('booking/check-availability', 'Booking::checkAvailability');
 
 
 $routes->get('/ganti-akun', 'GantiAkun::index');
@@ -83,11 +86,18 @@ $routes->post('chat/send', 'Chat::send');
 
 
 $routes->get('chat/start/(:any)' , 'Chat::startChat/$1');
+$routes->get('chat/api/messages/(:num)', 'Chat::apiGetMessages/$1');
 
 $routes->group('owner' , function($routes){
     $routes->get('' , 'Owner::index');
     $routes->get('bookings' , 'Owner::bookings');
     $routes->get('chat' , 'OwnerChatController::index');
+    $routes->get('chat/(:any)' , 'OwnerChatController::index/$1');
+    $routes->get('api/messages/(:num)', 'OwnerChatController::apiGetMessages/$1');
+    $routes->post('chat/send' ,'OwnerChatController::send');
+
+    $routes->get('approve/(:any)' , 'Owner::approve/$1');
+    $routes->get('reject/(:any)' , 'Owner::reject/$1');
 });
 
 

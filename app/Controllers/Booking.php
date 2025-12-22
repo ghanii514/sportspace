@@ -6,6 +6,7 @@ use App\Models\BookingModel;
 use App\Models\FieldModel;
 use App\Models\PromoModel;
 use App\Models\MessageModel; // <--- TAMBAHAN: Panggil Model Pesan
+use App\Models\ChatRoomModel;
 
 class Booking extends BaseController
 {
@@ -63,35 +64,53 @@ class Booking extends BaseController
 
     public function save()
     {
-        // 1. Ambil data diskon dari form (kalau kosong, anggap 0)
         $inputDiskon = $this->request->getPost('discount_amount');
         if(empty($inputDiskon)) {
             $inputDiskon = 0;
         }
 
-        // 2. Siapkan data untuk disimpan
+        $userId  = $this->request->getPost('id_user');
+        $venueId = $this->request->getPost('venue_id');
+
         $data = [
-            'user_id'         => $this->request->getPost('id_user'),
-            'venue_id'        => $this->request->getPost('venue_id'),
+            'user_id'         => $userId,
+            'venue_id'        => $venueId,
             'booking_date'    => $this->request->getPost('jadwal'),
             'start_time'      => $this->request->getPost('mulai'),
             'end_time'        => $this->request->getPost('selesai'),
             'status'          => 'pending', 
             'pembayaran'      => $this->request->getPost('pembayaran'),
-
-            // Total Harga (ini harga SETELAH diskon)
             'total_price'     => $this->request->getPost('total'),
-
-            // Data Promo Baru
             'discount_amount' => $inputDiskon,
             'promo_code'      => $this->request->getPost('kodepromo'),
         ];
 
-        // 3. Simpan ke Database
         $bookingModel = new BookingModel();
         $bookingModel->save($data);
 
-        return redirect()->to('/riwayat?tab=upcoming')->with('success', 'Pemesanan berhasil, silakan lakukan pembayaran.');
+        $fieldModel = new FieldModel(); 
+        $lapangan   = $fieldModel->find($venueId);
+
+        if ($lapangan && !empty($lapangan['owner_id'])) {
+            $ownerId = $lapangan['owner_id'];
+            
+            $chatRoomModel = new ChatRoomModel();
+
+            $existingRoom = $chatRoomModel
+                ->where('user_id', $userId)
+                ->where('owner_id', $ownerId)
+                ->first();
+
+            if (!$existingRoom) {
+                $chatRoomModel->save([
+                    'user_id'  => $userId,
+                    'owner_id' => $ownerId
+                ]);
+            }
+        }
+
+        return redirect()->to('/riwayat?tab=upcoming')
+            ->with('success', 'Pemesanan berhasil! Silakan cek menu Chat untuk hubungi Owner.');
     }
 
     public function batal($id)
@@ -115,33 +134,36 @@ class Booking extends BaseController
     {
         $bookingModel = new BookingModel();
 
-        $bookingModel->update($id, [
-            'status' => 'success'
-        ]);
+        $bookingModel->update($id, ['status' => 'success']);
 
         $booking = $bookingModel
-            ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.nomor_telepon')
+            ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.owner_id, lapangan.nomor_telepon')
             ->join('lapangan', 'lapangan.id = booking.venue_id')
             ->where('booking.id', $id)
             ->first();
 
         if ($booking) {
-            // Rancang pesan otomatis
-            $text  = "Halo kak, Pembayaran untuk " . $booking['nama'] . " berhasil dikonfirmasi! ✅\n";
-            $text .= "Jadwal main: " . date('d M Y', strtotime($booking['booking_date'])) . " jam " . substr($booking['start_time'], 0, 5) . ".\n\n";
-            $text .= "Silakan datang tepat waktu ya! Jika butuh bantuan atau konfirmasi, hubungi WA Admin Lapangan: " . $booking['nomor_telepon'];
+            $chatRoomModel = new ChatRoomModel();
+            $room = $chatRoomModel
+                ->where('user_id', $booking['user_id'])
+                ->where('owner_id', $booking['owner_id'])
+                ->first();
 
-            // Simpan ke tabel messages
-            $msgModel = new MessageModel();
-            $msgModel->save([
-                'user_id'  => $booking['user_id'],
-                'venue_id' => $booking['venue_id'],
-                'message'  => $text,
-                'sender'   => 'admin'
-            ]);
+            if ($room) {
+                $text  = "Halo kak, Pembayaran untuk " . $booking['nama'] . " berhasil dikonfirmasi! ✅\n";
+                $text .= "Jadwal main: " . date('d M Y', strtotime($booking['booking_date'])) . " jam " . substr($booking['start_time'], 0, 5) . ".";
+
+                $chatMsgModel = new \App\Models\ChatMessageModel(); 
+                
+                $chatMsgModel->save([
+                    'room_id' => $room['id'], 
+                    'sender'  => 'admin',     
+                    'message' => $text,
+                ]);
+            }
         }
 
-        return redirect()->to('/riwayat?tab=completed')->with('success', 'Pembayaran Berhasil! Cek menu Chat untuk info kontak lapangan.');
+        return redirect()->to('/riwayat?tab=completed')->with('success', 'Pembayaran Berhasil! Cek chat untuk info tiket.');
     }
 
     public function payment($id)
@@ -208,5 +230,33 @@ class Booking extends BaseController
             'diskon_rupiah' => $nominalDiskon,
             'persen' => $persen
         ]);
+    }
+
+    public function checkAvailability()
+    {
+        $venueId = $this->request->getGet('venue_id');
+        $date    = $this->request->getGet('date');
+
+        $bookingModel = new \App\Models\BookingModel();
+
+        $bookings = $bookingModel
+            ->where('venue_id', $venueId)
+            ->where('booking_date', $date)
+            ->where('status !=', 'cancel') 
+            ->findAll();
+
+        $bookedSlots = [];
+
+        foreach ($bookings as $b) {
+            $start = intval(substr($b['start_time'], 0, 2));
+            $end   = intval(substr($b['end_time'], 0, 2));
+
+            // Loop untuk menandai slot yang terpakai
+            for ($i = $start; $i < $end; $i++) {
+                $bookedSlots[] = $i;
+            }
+        }
+
+        return $this->response->setJSON($bookedSlots);
     }
 }

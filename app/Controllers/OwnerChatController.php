@@ -103,11 +103,71 @@ class OwnerChatController extends BaseController
         ]);
     }
 
+    public function apiGetMessages($roomId)
+    {
+        $ownerId = user()->id;
+        
+        // Ambil semua pesan di room ini, urutkan dari lama ke baru
+        $rawMessages = $this->chatModel
+            ->where('room_id', $roomId)
+            ->orderBy('created_at', 'ASC')
+            ->findAll();
+
+        $data = [];
+        foreach ($rawMessages as $msg) {
+            $data[] = [
+                'id' => $msg['id'],
+                'text' => $msg['message'],
+                // Tentukan type berdasarkan sender_id
+                'type' => ($msg['sender_id'] == $ownerId) ? 'owner' : 'user', 
+                'time' => date('H:i', strtotime($msg['created_at']))
+            ];
+        }
+
+        return $this->response->setJSON($data);
+    }
+
     private function formatTime($datetime)
     {
         $timestamp = strtotime($datetime);
         return (date('Y-m-d', $timestamp) == date('Y-m-d')) 
                ? date('H:i', $timestamp) 
                : date('d/m/y', $timestamp);
+    }
+
+  public function send()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(400)->setBody('Bad Request');
+        }
+
+        $chatMessageModel = new ChatMessageModel();
+        
+        $roomId  = $this->request->getPost('room_id');
+        $message = $this->request->getPost('message');
+        $ownerId = user()->id;
+
+        if (!$roomId || empty(trim($message))) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Pesan kosong']);
+        }
+
+        // Cari Receiver (User)
+        $existingChat = $chatMessageModel->where('room_id', $roomId)->first();
+        if ($existingChat) {
+            $receiverId = ($existingChat['sender_id'] == $ownerId) ? $existingChat['receiver_id'] : $existingChat['sender_id'];
+        } else {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Room tidak valid']);
+        }
+
+        $chatMessageModel->insert([
+            'room_id'     => $roomId,
+            'type'        => 'owner',
+            'message'     => $message,
+            'sender_id'   => $ownerId,
+            'receiver_id' => $receiverId,
+            'created_at'  => date('Y-m-d H:i:s')
+        ]);
+
+        return $this->response->setJSON(['status' => 'success']);
     }
 }
