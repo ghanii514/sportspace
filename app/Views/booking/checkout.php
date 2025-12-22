@@ -302,8 +302,7 @@
     </div>
     
     <div class="pay-container">
-        <button class="pay-btn">Bayar Sekarang</button>
-        <p class="safe">🔒 Pembayaran aman dan terenkripsi</p>
+        <button class="pay-btn">Booking Sekarang</button>
     </div>
 
 </form>

@@ -11,7 +11,7 @@
                 <div class="link-row">
                     <a href="/tentang">Tentang kami</a>
                     <a href="/bantuan">Bantuan</a>
-                    <a href="https://wa.me/+6282226235099">Hubungi kami</a>
+                    <a href="https://wa.link/64ivyn">Hubungi kami</a>
                 </div>
             </div>
 

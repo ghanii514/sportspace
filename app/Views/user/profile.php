@@ -11,8 +11,6 @@
             <?= csrf_field(); ?>
             <div class="profile-pic-wrapper">
                 <img src="/img/users/<?= esc($user->profile_picture ?? 'default_profile.jpg'); ?>" alt="Foto Profil" class="profile-pic">
-                <label for="profile_picture_upload" class="profile-pic-edit">[Ubah]</label>
-                <input type="file" name="profile_picture" id="profile_picture_upload" style="display: none;" onchange="document.getElementById('profilePictureForm').submit();">
             </div>
         </form>
         <div class="profile-name"><?= esc($user->username); ?></div>
@@ -32,8 +30,8 @@
 
     <div class="profile-menu-section">
         <div class="menu-title">BANTUAN</div> 
-        <a href="#" class="menu-item">Pusat Bantuan</a>
-        <a href="https://www.instagram.com/radaarr_/?next=%2F" class="menu-item">Hubungi Kami</a>
+        <a href="/bantuan" class="menu-item">Pusat Bantuan</a>
+        <a href="https://wa.link/64ivyn" class="menu-item">Hubungi Kami</a>
     </div>
 
     <div class="profile-buttons">
