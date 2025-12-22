@@ -164,19 +164,16 @@ class Booking extends BaseController
                 ->where('owner_id', $booking['owner_id'])
                 ->first();
 
-            // Jika room ketemu, baru kirim pesan ke dalam room tersebut
             if ($room) {
                 $text  = "Halo kak, Pembayaran untuk " . $booking['nama'] . " berhasil dikonfirmasi! ✅\n";
                 $text .= "Jadwal main: " . date('d M Y', strtotime($booking['booking_date'])) . " jam " . substr($booking['start_time'], 0, 5) . ".";
 
-                // Gunakan ChatMessageModel (sesuai ChatController kamu), bukan MessageModel
                 $chatMsgModel = new \App\Models\ChatMessageModel(); 
                 
                 $chatMsgModel->save([
-                    'room_id' => $room['id'], // KUNCINYA DISINI: Pakai room_id
-                    'sender'  => 'admin',     // atau 'system'
+                    'room_id' => $room['id'], 
+                    'sender'  => 'admin',     
                     'message' => $text,
-                    // 'created_at' => date('Y-m-d H:i:s') // aktifkan jika perlu manual
                 ]);
             }
         }
@@ -248,5 +245,33 @@ class Booking extends BaseController
             'diskon_rupiah' => $nominalDiskon,
             'persen' => $persen
         ]);
+    }
+
+    public function checkAvailability()
+    {
+        $venueId = $this->request->getGet('venue_id');
+        $date    = $this->request->getGet('date');
+
+        $bookingModel = new \App\Models\BookingModel();
+
+        $bookings = $bookingModel
+            ->where('venue_id', $venueId)
+            ->where('booking_date', $date)
+            ->where('status !=', 'cancel') 
+            ->findAll();
+
+        $bookedSlots = [];
+
+        foreach ($bookings as $b) {
+            $start = intval(substr($b['start_time'], 0, 2));
+            $end   = intval(substr($b['end_time'], 0, 2));
+
+            // Loop untuk menandai slot yang terpakai
+            for ($i = $start; $i < $end; $i++) {
+                $bookedSlots[] = $i;
+            }
+        }
+
+        return $this->response->setJSON($bookedSlots);
     }
 }
