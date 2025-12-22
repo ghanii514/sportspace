@@ -191,6 +191,10 @@
         font-weight: bold;
         color: #f39c12;
     }
+    .status-cancelled {
+        font-weight: bold;
+        color: #e70000ff;
+    }
 
     .status-success {
         font-weight: bold;

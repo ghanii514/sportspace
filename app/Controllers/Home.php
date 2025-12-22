@@ -8,8 +8,26 @@ class Home extends BaseController
 
     public function index()
     {
-        $fieldModel = new \App\Models\FieldModel(); 
-        $promoModel = new \App\Models\PromoModel();
+        // =================================================================
+        // LOGIKA REDIRECT USER BERDASARKAN ROLE (MYTH:AUTH)
+        // =================================================================
+        if (logged_in()) {
+            // 1. Jika yang login adalah Admin Web -> Ke Dashboard Admin
+            if (in_groups('admin')) {
+                return redirect()->to('/admin');
+            }
+
+            // 2. Jika yang login adalah Mitra -> Ke Dashboard Mitra
+            if (in_groups('mitra')) {
+                return redirect()->to('/owner');
+            }
+
+            // 3. Jika User biasa, biarkan lanjut ke bawah (lihat Homepage)
+        }
+        // =================================================================
+
+        $fieldModel = new FieldModel(); 
+        $promoModel = new PromoModel();
 
         $data = [
             'title'  => 'Home | SportSpace',
@@ -21,16 +39,18 @@ class Home extends BaseController
         return view('pages/home', $data);
     }
 
-    public function filter(){
+    public function filter()
+    {
         $route = $this->request->getGet('filter');
         $field = new FieldModel();
         $promo = new PromoModel();
+        
         $data = [
-            'fields' => $field->like('kategori' , $route)->paginate(6) , 
-            'pager' => $field->pager,
-            'promos' => $promo->orderBy('id' , 'DESC')->findAll(3)
+            'fields' => $field->like('kategori', $route)->paginate(6), 
+            'pager'  => $field->pager,
+            'promos' => $promo->orderBy('id', 'DESC')->findAll(3)
         ];
 
-        return view('pages/home' , $data);
+        return view('pages/home', $data);
     }
 }

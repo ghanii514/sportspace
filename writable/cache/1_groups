@@ -1,1 +1,5 @@
-a:3:{s:4:"time";i:1765247584;s:3:"ttl";i:300;s:4:"data";a:1:{i:0;a:4:{s:8:"group_id";s:1:"1";s:7:"user_id";s:1:"1";s:4:"name";s:5:"admin";s:11:"description";s:13:"Administrator";}}}
+<<<<<<< HEAD
+a:3:{s:4:"time";i:1765468609;s:3:"ttl";i:300;s:4:"data";a:1:{i:0;a:4:{s:8:"group_id";s:1:"3";s:7:"user_id";s:1:"1";s:4:"name";s:4:"user";s:11:"description";s:4:"User";}}}
+=======
+a:3:{s:4:"time";i:1765469068;s:3:"ttl";i:300;s:4:"data";a:1:{i:0;a:4:{s:8:"group_id";s:1:"3";s:7:"user_id";s:1:"1";s:4:"name";s:4:"user";s:11:"description";s:4:"User";}}}
+>>>>>>> ea18b229e380c73c3deba8976ffd71a83a7220f1
