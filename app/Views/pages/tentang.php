@@ -25,22 +25,22 @@
     <div class="about">
         <img src="/img/about/ceo.jpg" class="table-img" alt="Foto">
     </div>
-    <!-- Visi Misi -->
-    <h3 class="fw-bold">Visi Misi</h3>
+    
+    <h3 class="fw-bold">Visi </h3>
     <p class="mt-3">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Menjadi platform digital terdepan yang memudahkan akses masyarakat dalam mencari dan memesan fasilitas olahraga, guna mendorong gaya hidup sehat
+        dan aktif.
     </p>
 
-    <!-- Tujuan -->
-    <h3 class="fw-bold mt-5">Tujuan</h3>
+    
+    <h3 class="fw-bold mt-5">Misi</h3>
     <p class="mt-3">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+       Menyediakan layanan pemesanan lapangan olahraga yang cepat, praktis, dan akurat dengan informasi ketersediaan realtime, menghadirkan sistem manajemen yang memudahkan pengelola lapangan, serta memberikan pengalaman pemesanan yang aman, nyaman, dan mendorong masyarakat untuk lebih aktif berolahraga.
+    </p>
+
+     <h3 class="fw-bold mt-5">Tujuan</h3>
+    <p class="mt-3">
+        SportSpace bertujuan untuk menghadirkan layanan pemesanan lapangan yang akan mempercepat proses booking, akan mempermudah pengguna dalam menemukan fasilitas olahraga terbaik, akan meningkatkan efisiensi pengelola dalam mengatur jadwal dan transaksi, serta akan membangun ekosistem olahraga digital yang mendukung aktivitas masyarakat secara berkelanjutan.
     </p>
 
 </div>

@@ -6,6 +6,7 @@ use App\Models\BookingModel;
 use App\Models\FieldModel;
 use App\Models\PromoModel;
 use App\Models\MessageModel; // <--- TAMBAHAN: Panggil Model Pesan
+use App\Models\ChatRoomModel;
 
 class Booking extends BaseController
 {
@@ -63,35 +64,65 @@ class Booking extends BaseController
 
     public function save()
     {
-        // 1. Ambil data diskon dari form (kalau kosong, anggap 0)
+        // --- LOGIKA LAMA (Menyiapkan Data Booking) ---
         $inputDiskon = $this->request->getPost('discount_amount');
         if(empty($inputDiskon)) {
             $inputDiskon = 0;
         }
 
-        // 2. Siapkan data untuk disimpan
+        $userId  = $this->request->getPost('id_user');
+        $venueId = $this->request->getPost('venue_id');
+
         $data = [
-            'user_id'         => $this->request->getPost('id_user'),
-            'venue_id'        => $this->request->getPost('venue_id'),
+            'user_id'         => $userId,
+            'venue_id'        => $venueId,
             'booking_date'    => $this->request->getPost('jadwal'),
             'start_time'      => $this->request->getPost('mulai'),
             'end_time'        => $this->request->getPost('selesai'),
             'status'          => 'pending', 
             'pembayaran'      => $this->request->getPost('pembayaran'),
-
-            // Total Harga (ini harga SETELAH diskon)
             'total_price'     => $this->request->getPost('total'),
-
-            // Data Promo Baru
             'discount_amount' => $inputDiskon,
             'promo_code'      => $this->request->getPost('kodepromo'),
         ];
 
-        // 3. Simpan ke Database
+        // Simpan Booking
         $bookingModel = new BookingModel();
         $bookingModel->save($data);
 
-        return redirect()->to('/riwayat?tab=upcoming')->with('success', 'Pemesanan berhasil, silakan lakukan pembayaran.');
+        // ==========================================================
+        //  LOGIKA BARU: BUAT CHAT ROOM OTOMATIS (USER <-> OWNER)
+        // ==========================================================
+        
+        // 1. Cari tahu siapa Owner dari lapangan ini
+        $fieldModel = new FieldModel(); 
+        $lapangan   = $fieldModel->find($venueId);
+
+        // Pastikan lapangan ketemu dan punya owner_id
+        if ($lapangan && !empty($lapangan['owner_id'])) {
+            $ownerId = $lapangan['owner_id'];
+            
+            $chatRoomModel = new ChatRoomModel();
+
+            // 2. Cek dulu, apakah User ini & Owner ini SUDAH punya room?
+            // (Kita gak mau double room untuk orang yang sama)
+            $existingRoom = $chatRoomModel
+                ->where('user_id', $userId)
+                ->where('owner_id', $ownerId)
+                ->first();
+
+            // 3. Jika BELUM ADA, buat room baru
+            if (!$existingRoom) {
+                $chatRoomModel->save([
+                    'user_id'  => $userId,
+                    'owner_id' => $ownerId
+                ]);
+            }
+        }
+        // ==========================================================
+
+        return redirect()->to('/riwayat?tab=upcoming')
+            ->with('success', 'Pemesanan berhasil! Silakan cek menu Chat untuk hubungi Owner.');
     }
 
     public function batal($id)
@@ -115,33 +146,42 @@ class Booking extends BaseController
     {
         $bookingModel = new BookingModel();
 
-        $bookingModel->update($id, [
-            'status' => 'success'
-        ]);
+        // Update status booking
+        $bookingModel->update($id, ['status' => 'success']);
 
+        // Ambil data booking lengkap dengan info lapangan
         $booking = $bookingModel
-            ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.nomor_telepon')
+            ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.owner_id, lapangan.nomor_telepon')
             ->join('lapangan', 'lapangan.id = booking.venue_id')
             ->where('booking.id', $id)
             ->first();
 
         if ($booking) {
-            // Rancang pesan otomatis
-            $text  = "Halo kak, Pembayaran untuk " . $booking['nama'] . " berhasil dikonfirmasi! ✅\n";
-            $text .= "Jadwal main: " . date('d M Y', strtotime($booking['booking_date'])) . " jam " . substr($booking['start_time'], 0, 5) . ".\n\n";
-            $text .= "Silakan datang tepat waktu ya! Jika butuh bantuan atau konfirmasi, hubungi WA Admin Lapangan: " . $booking['nomor_telepon'];
+            // 1. Cari Room ID yang valid antara User dan Owner ini
+            $chatRoomModel = new ChatRoomModel();
+            $room = $chatRoomModel
+                ->where('user_id', $booking['user_id'])
+                ->where('owner_id', $booking['owner_id'])
+                ->first();
 
-            // Simpan ke tabel messages
-            $msgModel = new MessageModel();
-            $msgModel->save([
-                'user_id'  => $booking['user_id'],
-                'venue_id' => $booking['venue_id'],
-                'message'  => $text,
-                'sender'   => 'admin'
-            ]);
+            // Jika room ketemu, baru kirim pesan ke dalam room tersebut
+            if ($room) {
+                $text  = "Halo kak, Pembayaran untuk " . $booking['nama'] . " berhasil dikonfirmasi! ✅\n";
+                $text .= "Jadwal main: " . date('d M Y', strtotime($booking['booking_date'])) . " jam " . substr($booking['start_time'], 0, 5) . ".";
+
+                // Gunakan ChatMessageModel (sesuai ChatController kamu), bukan MessageModel
+                $chatMsgModel = new \App\Models\ChatMessageModel(); 
+                
+                $chatMsgModel->save([
+                    'room_id' => $room['id'], // KUNCINYA DISINI: Pakai room_id
+                    'sender'  => 'admin',     // atau 'system'
+                    'message' => $text,
+                    // 'created_at' => date('Y-m-d H:i:s') // aktifkan jika perlu manual
+                ]);
+            }
         }
 
-        return redirect()->to('/riwayat?tab=completed')->with('success', 'Pembayaran Berhasil! Cek menu Chat untuk info kontak lapangan.');
+        return redirect()->to('/riwayat?tab=completed')->with('success', 'Pembayaran Berhasil! Cek chat untuk info tiket.');
     }
 
     public function payment($id)
