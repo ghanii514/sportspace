@@ -64,7 +64,6 @@ class Booking extends BaseController
 
     public function save()
     {
-        // --- LOGIKA LAMA (Menyiapkan Data Booking) ---
         $inputDiskon = $this->request->getPost('discount_amount');
         if(empty($inputDiskon)) {
             $inputDiskon = 0;
@@ -86,32 +85,22 @@ class Booking extends BaseController
             'promo_code'      => $this->request->getPost('kodepromo'),
         ];
 
-        // Simpan Booking
         $bookingModel = new BookingModel();
         $bookingModel->save($data);
 
-        // ==========================================================
-        //  LOGIKA BARU: BUAT CHAT ROOM OTOMATIS (USER <-> OWNER)
-        // ==========================================================
-        
-        // 1. Cari tahu siapa Owner dari lapangan ini
         $fieldModel = new FieldModel(); 
         $lapangan   = $fieldModel->find($venueId);
 
-        // Pastikan lapangan ketemu dan punya owner_id
         if ($lapangan && !empty($lapangan['owner_id'])) {
             $ownerId = $lapangan['owner_id'];
             
             $chatRoomModel = new ChatRoomModel();
 
-            // 2. Cek dulu, apakah User ini & Owner ini SUDAH punya room?
-            // (Kita gak mau double room untuk orang yang sama)
             $existingRoom = $chatRoomModel
                 ->where('user_id', $userId)
                 ->where('owner_id', $ownerId)
                 ->first();
 
-            // 3. Jika BELUM ADA, buat room baru
             if (!$existingRoom) {
                 $chatRoomModel->save([
                     'user_id'  => $userId,
@@ -119,7 +108,6 @@ class Booking extends BaseController
                 ]);
             }
         }
-        // ==========================================================
 
         return redirect()->to('/riwayat?tab=upcoming')
             ->with('success', 'Pemesanan berhasil! Silakan cek menu Chat untuk hubungi Owner.');
@@ -146,10 +134,8 @@ class Booking extends BaseController
     {
         $bookingModel = new BookingModel();
 
-        // Update status booking
         $bookingModel->update($id, ['status' => 'success']);
 
-        // Ambil data booking lengkap dengan info lapangan
         $booking = $bookingModel
             ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.owner_id, lapangan.nomor_telepon')
             ->join('lapangan', 'lapangan.id = booking.venue_id')
@@ -157,7 +143,6 @@ class Booking extends BaseController
             ->first();
 
         if ($booking) {
-            // 1. Cari Room ID yang valid antara User dan Owner ini
             $chatRoomModel = new ChatRoomModel();
             $room = $chatRoomModel
                 ->where('user_id', $booking['user_id'])
