@@ -40,8 +40,6 @@
 
     <h2 class="fw-bold mb-4">Pusat Bantuan</h2>
 
-    <input type="text" class="search-box mb-4" placeholder="Cari pertanyaan Anda....">
-
     <!-- Akun Saya -->
     <h5 class="fw-bold mt-4 mb-2">Akun Saya</h5>
 
@@ -89,7 +87,7 @@
     <div class="faq-item">
         <div class="faq-question">[ + ] Metode pembayaran apa saja yang diterima?</div>
         <div class="faq-answer">
-            Kami menerima pembayaran melalui DANA, OVO, Gopay, transfer bank, dan metode lainnya.
+            Kami menerima pembayaran melalui DANA, OVO, Gopay, dan Cash.
         </div>
     </div>
 
@@ -97,7 +95,7 @@
     <div class="mt-5">
         <h4 class="fw-bold">Tidak menemukan jawaban?</h4>
 
-        <a href="#" class="btn mt-4" style="
+        <a href="https://wa.link/64ivyn" class="btn mt-4" style="
             background:#49e265;
             border-radius:12px;
             padding:14px 60px;

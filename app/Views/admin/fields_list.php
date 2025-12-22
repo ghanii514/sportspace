@@ -105,7 +105,6 @@
         <a href="/admin/fields" class="menu-link active">Kelola Lapangan</a>
         
         <a href="/admin/promos" class="menu-link">Kelola Promo</a>
-        <a href="/admin/bookings" class="menu-link">Cek Booking</a>
         
         <a href="/" class="menu-link" style="margin-top: 30px; border-top: 1px solid #334155;">&larr; Lihat Website</a>
         <a href="/logout" class="menu-link logout-btn">Logout</a>

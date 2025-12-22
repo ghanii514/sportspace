@@ -60,7 +60,6 @@
         <a href="/admin" class="menu-link active">Dashboard</a>
         <a href="/admin/fields" class="menu-link">Kelola Lapangan</a>
         <a href="/admin/promos" class="menu-link">Kelola Promo</a>
-        <a href="/admin/bookings" class="menu-link">Cek Booking</a>
         
         <a href="/" class="menu-link" style="margin-top: 30px; border-top: 1px solid #334155;">&larr; Lihat Website</a>
         <a href="/logout" class="menu-link logout-btn">Logout</a>
@@ -79,9 +78,6 @@
                 <h3>Total Promo Aktif</h3>
                 <p class="number"><?= $total_promos ?></p>
             </div>
-            <div class="card">
-                <h3>Booking Masuk</h3>
-                <p class="number">0</p> </div>
         </div>
     </div>
 
