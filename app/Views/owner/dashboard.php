@@ -3,9 +3,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    /* === GLOBAL VARIABLES & RESET === */
     :root {
-        --primary-color: #10b981; /* Emerald Green */
+        --primary-color: #10b981; 
         --primary-dark: #059669;
         --bg-color: #f3f4f6;
         --text-dark: #1f2937;
@@ -15,7 +14,7 @@
     }
 
     body {
-        font-family: 'Poppins', sans-serif; /* Font Baru */
+        font-family: 'Poppins', sans-serif; 
         color: var(--text-dark);
         margin: 0;
         background-color: var(--bg-color);
@@ -26,7 +25,6 @@
         min-height: 100vh;
     }
 
-    /* === SIDEBAR === */
     .sidebar {
         width: var(--sidebar-width);
         background: #cbffd3ff;
@@ -88,7 +86,6 @@
         font-weight: 600;
     }
 
-    /* === MAIN CONTENT === */
     .main-content {
         flex: 1;
         padding: 40px;
@@ -101,7 +98,6 @@
         margin-bottom: 25px;
     }
 
-    /* Kartu Ringkasan */
     .stats-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -113,7 +109,7 @@
         background: var(--white);
         padding: 25px;
         border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Soft Shadow */
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
         border: 1px solid #f0f0f0;
         transition: transform 0.2s;
         position: relative;
@@ -140,7 +136,6 @@
         color: var(--text-dark);
     }
 
-    /* Tabel yang lebih cantik */
     .table-container {
         background: var(--white);
         padding: 30px;
@@ -151,7 +146,7 @@
 
     table {
         width: 100%;
-        border-collapse: separate; /* Penting untuk border-radius */
+        border-collapse: separate; 
         border-spacing: 0;
         margin-top: 20px;
     }
@@ -180,7 +175,6 @@
         border-bottom: none;
     }
 
-    /* Status Badges */
     .badge {
         padding: 6px 12px;
         border-radius: 50px;

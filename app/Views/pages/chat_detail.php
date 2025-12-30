@@ -55,7 +55,7 @@
         gap: 15px;
     }
 
-    /* Style Chat Kiri (Admin) */
+    
     .bubble-left {
         background-color: #fff;
         color: #1f2937;
@@ -68,7 +68,7 @@
         box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
 
-    /* Style Chat Kanan (User) */
+    
     .bubble-right {
         background-color: #dcfce7;
         color: #166534;
@@ -165,7 +165,7 @@
 </div>
 
 <script>
-    // Auto Scroll ke Bawah saat halaman dibuka
+    
     document.addEventListener("DOMContentLoaded", function() {
         scrollToBottom();
     });
@@ -189,20 +189,20 @@
 
         if (message.trim() !== "") {
             
-            // 1. Tampilkan Visual (Bubble Kanan)
+            
             var bubble = document.createElement("div");
             bubble.classList.add("bubble-right");
             var now = new Date();
             var time = now.getHours() + "." + String(now.getMinutes()).padStart(2, '0');
             
-            // Render text
+            
             bubble.innerHTML = message + '<span class="bubble-time" style="text-align:right; color:#14532d;">' + time + '</span>';
             
             container.appendChild(bubble);
             input.value = ""; 
             scrollToBottom();
 
-            // 2. Kirim ke Database
+            
             let formData = new FormData();
             formData.append('venue_id', venueId);
             formData.append('message', message);

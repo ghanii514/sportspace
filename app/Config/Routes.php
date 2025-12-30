@@ -7,40 +7,37 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 // app/Config/Routes.php
-$routes->get('/', 'Home::index'); // Halaman utama
-$routes->get('/lapangan/detail/(:num)', 'Field::detail/$1'); // Halaman detail lapangan
+$routes->get('/', 'Home::index'); 
+$routes->get('/lapangan/detail/(:num)', 'Field::detail/$1'); 
 
-// Grup Route khusus Admin
 $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
-    // Dashboard Utama Admin
+    
     $routes->get('/', 'Admin::index');
-    // === MANAJEMEN LAPANGAN ===
-    $routes->get('fields', 'Admin::fields'); // List Lapangan
-    $routes->get('fields/create', 'Admin::createField'); // Form Tambah
-    $routes->post('fields/save', 'Admin::saveField'); // Proses Simpan
-    $routes->get('fields/edit/(:num)', 'Admin::editField/$1');   // Menampilkan Form
-    $routes->post('fields/update/(:num)', 'Admin::updateField/$1'); // Proses Simpan
-    $routes->get('fields/delete/(:num)', 'Admin::deleteField/$1'); // Hapus
-    // === MANAJEMEN PROMO ===
+    $routes->get('fields', 'Admin::fields');
+    $routes->get('fields/create', 'Admin::createField'); 
+    $routes->post('fields/save', 'Admin::saveField'); 
+    $routes->get('fields/edit/(:num)', 'Admin::editField/$1');   
+    $routes->post('fields/update/(:num)', 'Admin::updateField/$1'); 
+    $routes->get('fields/delete/(:num)', 'Admin::deleteField/$1'); 
+    
     $routes->get('promos', 'Admin::promos');
     $routes->get('promos/create', 'Admin::createPromo');
     $routes->post('promos/save', 'Admin::savePromo');
     $routes->get('promos/delete/(:num)', 'Admin::deletePromo/$1');
     $routes->get('promos/edit/(:num)', 'Admin::edit/$1');
     $routes->post('promos/update/(:num)', 'Admin::updatePromo/$1');
-    // === ROUTE BOOKING ===
+    
     $routes->get('bookings', 'Admin::bookings');
     $routes->get('bookings/confirm/(:num)', 'Admin::confirmBooking/$1');
     $routes->get('bookings/cancel/(:num)', 'Admin::cancelBooking/$1');
     $routes->get('bookings/delete/(:num)', 'Admin::deleteBooking/$1');
 });
 
-$routes->get('/lapangan/hafizh', 'Field::tambah'); // Rute untuk menampilkan form
-$routes->post('/lapangan/tambah', to: 'Field::save'); // Rute untuk memproses form (menyimpan)
-
+$routes->get('/lapangan/hafizh', 'Field::tambah'); 
+$routes->post('/lapangan/tambah', to: 'Field::save'); 
 $routes->get('kategori', 'Home::filter');
 
-//==================================== 
+
 $routes->get('/verify/(:segment)', 'Auth::verify/$1');
 
 $routes->get('profile', 'User::index'); 

@@ -3,7 +3,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    /* === GLOBAL & RESET === */
     :root {
         --primary-color: #10b981; 
         --text-dark: #1f2937;
@@ -19,7 +18,6 @@
 
     .owner-container { display: flex; min-height: 100vh; }
 
-    /* === SIDEBAR (Sama dengan Dashboard agar konsisten) === */
     .sidebar {
         width: var(--sidebar-width);
         background: #cbffd3ff;
@@ -29,12 +27,12 @@
         display: flex; flex-direction: column;
         box-shadow: 2px 0 5px rgba(0,0,0,0.02);
     }
+
     .owner-profile { text-align: center; padding-bottom: 25px; border-bottom: 1px solid #f3f4f6; margin-bottom: 25px; }
     .owner-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--primary-color); padding: 2px; }
     .menu-link { display: block; padding: 14px 18px; margin-bottom: 8px; color: #6b7280; text-decoration: none; border-radius: 12px; font-weight: 500; transition: 0.3s; }
     .menu-link:hover, .menu-link.active { background-color: #ecfdf5; color: #059669; font-weight: 600; }
 
-    /* === CONTENT === */
     .main-content { flex: 1; padding: 40px; overflow-x: auto; }
 
     .table-container {
@@ -46,14 +44,14 @@
     }
 
     table { width: 100%; border-collapse: separate; border-spacing: 0; }
-    
+
     th {
         text-align: left; padding: 16px; 
         background: #f9fafb; color: #6b7280; 
         font-size: 0.8em; font-weight: 700; text-transform: uppercase;
         border-bottom: 2px solid #e5e7eb;
     }
-    
+
     td {
         padding: 16px; border-bottom: 1px solid #f3f4f6;
         font-size: 0.9em; vertical-align: middle;
@@ -61,7 +59,6 @@
 
     tr:hover td { background-color: #f9fafb; }
 
-    /* Badges & Buttons */
     .badge { padding: 6px 12px; border-radius: 50px; font-size: 0.75em; font-weight: 600; display: inline-block; white-space: nowrap; }
     .bg-pending { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
     .bg-success { background: #ecfdf5; color: #047857; border: 1px solid #d1fae5; }
@@ -75,7 +72,6 @@
     .btn-danger:hover { background: #dc2626; }
     .link-blue { color: #2563eb; font-weight: 500; text-decoration: none; }
     .link-blue:hover { text-decoration: underline; }
-
 </style>
 
 <div class="owner-container">
@@ -153,15 +149,15 @@
                             <?php if ($b['bukti_bayar']): ?>
                                 <a href="<?= base_url('img/bukti/' . $b['bukti_bayar']) ?>" target="_blank" class="link-blue">Lihat Bukti ↗</a>
                             <?php else: ?>
-                                <span class="text-muted" style="color:#ccc;">-</span>
+                                <span style="color:#ccc;">-</span>
                             <?php endif; ?>
                         </td>
 
                         <td>
                             <?php if ($b['status'] == 'pending' && $b['bukti_bayar']): ?>
                                 <div style="display:flex; gap:5px;">
-                                    <a href="/owner/approve/<?= $b['id'] ?>" class="btn btn-sm btn-success" title="Terima">✔</a>
-                                    <a href="/owner/reject/<?= $b['id'] ?>" class="btn btn-sm btn-danger" title="Tolak">✖</a>
+                                    <a href="/owner/approve/<?= $b['id'] ?>" class="btn btn-sm btn-success">✔</a>
+                                    <a href="/owner/reject/<?= $b['id'] ?>" class="btn btn-sm btn-danger">✖</a>
                                 </div>
                             <?php else: ?>
                                 <span style="color:#ccc;">-</span>

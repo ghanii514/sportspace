@@ -14,7 +14,6 @@
         width: 96%;
     }
 
-    /* FAQ BOX */
     .faq-item {
         border: 1px solid #000;
         border-radius: 8px;
@@ -40,7 +39,6 @@
 
     <h2 class="fw-bold mb-4">Pusat Bantuan</h2>
 
-    <!-- Akun Saya -->
     <h5 class="fw-bold mt-4 mb-2">Akun Saya</h5>
 
     <div class="faq-item">
@@ -64,7 +62,6 @@
         </div>
     </div>
 
-    <!-- Booking -->
     <h5 class="fw-bold mt-4 mb-2">Booking dan Pemesanan</h5>
 
     <div class="faq-item">
@@ -81,7 +78,6 @@
         </div>
     </div>
 
-    <!-- Pembayaran -->
     <h5 class="fw-bold mt-4 mb-2">Pembayaran</h5>
 
     <div class="faq-item">
@@ -91,7 +87,6 @@
         </div>
     </div>
 
-    <!-- Hubungi kami -->
     <div class="mt-5">
         <h4 class="fw-bold">Tidak menemukan jawaban?</h4>
 
@@ -109,7 +104,6 @@
 
 </div>
 
-<!-- === SCRIPT DROPDOWN FAQ === -->
 <script>
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', function() {

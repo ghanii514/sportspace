@@ -1,7 +1,7 @@
 <?= $this->include("layout/template") ?>
 
 <style>
-    /* --- GLOBAL STYLE --- */
+    
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background: #ffffff;
@@ -16,7 +16,7 @@
         color: #1e293b;
     }
 
-    /* --- LAYOUT UTAMA --- */
+   
     .container {
         display: flex;
         gap: 30px;
@@ -26,7 +26,7 @@
         align-items: flex-start;
     }
 
-    /* --- BOX HIJAU --- */
+    
     .box {
         background: #c8ffd0;
         padding: 30px;
@@ -47,7 +47,7 @@
         padding-bottom: 8px;
     }
 
-    /* --- USER INFO --- */
+    
     .user-info {
         background: rgba(255,255,255, 0.5);
         padding: 15px;
@@ -57,7 +57,7 @@
         line-height: 1.6;
     }
 
-    /* --- LIST PEMBAYARAN --- */
+   
     ul.payment-list {
         list-style: none;
         padding: 0;
@@ -90,7 +90,7 @@
         font-weight: 500;
     }
 
-    /* --- PROMO CODE --- */
+    
     .promo-box {
         display: flex;
         gap: 10px;
@@ -120,7 +120,7 @@
     
     .promo-box button:hover { background: #0d6efd; }
 
-    /* --- KANAN: SUMMARY --- */
+    
     .field-image {
         width: 100%; 
         height: 160px; 
@@ -162,7 +162,7 @@
         color: #000;
     }
 
-    /* --- TOMBOL BAYAR --- */
+   
     .pay-container {
         text-align: center;
         margin-top: 30px;
@@ -350,7 +350,7 @@ document.getElementById('btn-pakai').addEventListener('click', function() {
 
             document.getElementById('display-total').innerText = "Rp " + formatRupiah(totalBaru);
             
-            // UPDATE INPUT HIDDEN
+            
             document.getElementById('input-total').value = totalBaru;
             document.getElementById('input-diskon').value = data.diskon_rupiah;
 

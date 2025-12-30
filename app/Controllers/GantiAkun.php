@@ -49,15 +49,15 @@ class GantiAkun extends BaseController
             return redirect()->to('/login')->with('error', 'Akun tidak ditemukan.');
         }
 
-        // Ambil layanan auth
+        
         $auth = service('authentication');
 
-        // Logout user yang aktif (jika ada)
+        
         if ($auth->check()) {
             $auth->logout();
         }
 
-        // Login menggunakan ID user — CARA BENAR di Myth/Auth
+        
         $auth->loginById($user->id);
 
         return redirect()->to('/')->with('message', 'Berhasil berpindah akun.');

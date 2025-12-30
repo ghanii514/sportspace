@@ -8,19 +8,19 @@ class Home extends BaseController
 
     public function index()
     {
-        // LOGIKA REDIRECT USER BERDASARKAN ROLE (MYTH:AUTH)
+        
         if (logged_in()) {
-            // 1. Jika yang login adalah Admin Web -> Ke Dashboard Admin
+            
             if (in_groups('admin')) {
                 return redirect()->to('/admin');
             }
 
-            // 2. Jika yang login adalah Mitra -> Ke Dashboard Mitra
+            
             if (in_groups('mitra')) {
                 return redirect()->to('/owner');
             }
 
-            // 3. Jika User biasa, biarkan lanjut ke bawah (lihat Homepage)
+            
         }
 
         $fieldModel = new FieldModel(); 

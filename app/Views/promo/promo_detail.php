@@ -1,6 +1,5 @@
 <?= $this->include('layout/template') ?>
     <style>
-        /* Container dibuat mirip kertas folio/desain mobile */
         .container { max-width: 500px; margin: 40px auto; padding: 0 20px; }
         .page-title { font-size: 2rem; margin-bottom: 20px; font-weight: 800; }
         
@@ -43,7 +42,7 @@
                     Berlaku hingga 
                     <b>
                         <?php 
-                           // Contoh logika: berlaku 30 hari sejak dibuat
+                           
                            if($promo['created_at']) {
                                echo date('d F Y', strtotime($promo['created_at'] . ' + 30 days'));
                            } else {

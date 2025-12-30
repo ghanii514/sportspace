@@ -53,7 +53,7 @@ class Booking extends BaseController
                 'total_bayar' => $totalBayar
             ],
             'user' => [
-                'nama' => user()->username, // Update biar dinamis
+                'nama' => user()->username, 
                 'email' => user()->email,
                 'phone' => '-'
             ]
@@ -251,7 +251,7 @@ class Booking extends BaseController
             $start = intval(substr($b['start_time'], 0, 2));
             $end   = intval(substr($b['end_time'], 0, 2));
 
-            // Loop untuk menandai slot yang terpakai
+            
             for ($i = $start; $i < $end; $i++) {
                 $bookedSlots[] = $i;
             }

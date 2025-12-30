@@ -113,14 +113,14 @@ class Admin extends BaseController
             return redirect()->back()->withInput()->with('error', 'Data tidak valid.');
         }
 
-        // Logika Ganti Gambar
+        
         $fileGambar = $this->request->getFile('image');
         
         if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
             $namaGambar = $fileGambar->getRandomName();
             $fileGambar->move('img/fields', $namaGambar);
             
-            // Hapus gambar lama
+           
             $oldImage = $this->request->getPost('old_image');
             if ($oldImage != 'default.jpg' && file_exists('img/fields/' . $oldImage)) {
                 unlink('img/fields/' . $oldImage);
@@ -147,7 +147,7 @@ class Admin extends BaseController
 
     public function deleteField($id)
     {
-        // Hapus file gambar fisik (Opsional)
+        
         $field = $this->fieldModel->find($id);
         if ($field['image'] != 'default.jpg' && file_exists('img/fields/' . $field['image'])) {
             unlink('img/fields/' . $field['image']);
@@ -208,7 +208,7 @@ class Admin extends BaseController
 
     public function deletePromo($id)
     {
-        // Hapus file gambar fisik
+        
         $promo = $this->promoModel->find($id);
         if ($promo['image'] != 'default.jpg' && file_exists('img/promo/' . $promo['image'])) {
             unlink('img/promo/' . $promo['image']);
@@ -222,20 +222,20 @@ class Admin extends BaseController
     {
         $promoModel = new \App\Models\PromoModel();
 
-        // 1. Ambil data promo berdasarkan ID
+        
         $dataPromo = $promoModel->find($id);
 
-        // 2. Cek validasi: Kalau ID ngawur/tidak ditemukan, balikin ke list
+        
         if (empty($dataPromo)) {
             return redirect()->to('/admin/promos');
         }
 
-        // 3. Siapkan data untuk dikirim ke View
+        
         $data = [
             'promo' => $dataPromo
         ];
 
-        // 4. Panggil View promo_edit
+        
         return view('admin/promo_edit', $data);
     }
 
@@ -245,7 +245,7 @@ class Admin extends BaseController
         
         $fileImage = $this->request->getFile('image');
 
-        // Cek apakah user upload gambar baru
+        
         if ($fileImage->getError() == 4) {
             $namaImage = $this->request->getPost('old_image');
         } else {
@@ -273,11 +273,11 @@ class Admin extends BaseController
         $data = [
             'title' => 'Cek Booking',
             'bookings' => $this->bookingModel
-                // Ubah 'fields' jadi 'lapangan'
+                
                 ->select('booking.*, users.username, users.email, lapangan.nama AS nama_lapangan')
                 ->join('users', 'users.id = booking.user_id')
                 
-                // INI YANG PENTING: Join ke tabel 'lapangan'
+                
                 ->join('lapangan', 'lapangan.id = booking.venue_id') 
                 
                 ->orderBy('booking.id', 'DESC')
@@ -286,13 +286,13 @@ class Admin extends BaseController
         return view('admin/booking_list', $data);
     }
 
-    // Aksi: Konfirmasi Pembayaran (Jadi Lunas)
+    
     public function confirmBooking($id)
     {
-        // 1. Update status jadi success
+        
         $this->bookingModel->update($id, ['status' => 'success']);
         
-        // 2. AMBIL DATA DULU (User & Lapangan)
+        
         $booking = $this->bookingModel
             ->select('booking.user_id, booking.booking_date, booking.start_time, lapangan.id as venue_id, lapangan.nama, lapangan.nomor_telepon')
             ->join('lapangan', 'lapangan.id = booking.venue_id')
@@ -300,13 +300,12 @@ class Admin extends BaseController
             ->first();
 
         if ($booking) {
-            // 3. RANCANG PESAN OTOMATIS
-            // Ini text broadcast-nya
+            
             $text  = "Halo kak, terima kasih sudah memesan " . $booking['nama'] . ".\n";
             $text .= "Jadwal: " . date('d M Y', strtotime($booking['booking_date'])) . " jam " . substr($booking['start_time'], 0, 5) . ".\n\n";
             $text .= "Ditunggu kedatangannya ya! Jika ada pertanyaan hubungi kami di WA: " . $booking['nomor_telepon'];
 
-            // 4. SIMPAN KE INBOX USER
+            
             $msgModel = new \App\Models\MessageModel();
             $msgModel->save([
                 'user_id'  => $booking['user_id'],
@@ -318,14 +317,14 @@ class Admin extends BaseController
         return redirect()->to('/admin/bookings')->with('success', 'Booking Lunas & Pesan otomatis terkirim!');
     }
 
-    // Aksi: Batalkan Pesanan
+    
     public function cancelBooking($id)
     {
         $this->bookingModel->update($id, ['status' => 'cancelled']);
         return redirect()->to('/admin/bookings')->with('success', 'Booking telah dibatalkan.');
     }
     
-    // Aksi: Hapus History
+    
     public function deleteBooking($id)
     {
         $this->bookingModel->delete($id);

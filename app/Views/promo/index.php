@@ -1,7 +1,6 @@
 <?= $this->include('layout/template') ?>
 
 <style>
-    /* ===== PAGE CONTAINER ===== */
     .promo-page-container {
         max-width: 1000px;
         margin: 30px auto;
@@ -9,7 +8,6 @@
 
     }
 
-    /* TITLE */
     .promo-title {
         font-size: 34px;
         font-weight: 800;
@@ -17,18 +15,17 @@
         color: #000;
     }
 
-    /* ===== PROMO CARD ===== */
     .promo-card {
         display: flex;
         background: linear-gradient(90deg,
                 #e8fff0 0%,
-                /* sangat terang (kiri) */
+                
                 #d4ffe0 35%,
-                /* soft green */
+                
                 #c6ffd0 70%,
-                /* green pastel */
+                
                 #b1ffb6 100%
-                /* hijau lebih pekat (kanan) */
+                
             );
         border-radius: 12px;
         overflow: hidden;
@@ -42,7 +39,6 @@
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
     }
 
-    /* LEFT IMAGE */
     .promo-image {
         width: 35%;
         min-width: 200px;
@@ -54,34 +50,29 @@
         object-fit: cover;
     }
 
-    /* RIGHT CONTENT */
     .promo-content {
         padding: 20px 25px;
         width: 65%;
     }
 
-    /* TITLE (DISKON 20% dst) */
     .promo-header {
         font-size: 22px;
         font-weight: 800;
         margin-bottom: 8px;
     }
 
-    /* DESCRIPTION */
     .promo-desc {
         font-size: 15px;
         color: #333;
         margin-bottom: 10px;
     }
 
-    /* VALID TILL */
     .promo-valid {
         color: #444;
         font-size: 14px;
         margin-bottom: 15px;
     }
 
-    /* BUTTON */
     .promo-btn {
         display: inline-block;
         background: #1bd43e;
@@ -105,12 +96,10 @@
         <?php foreach ($promo as $row): ?>
             <div class="promo-card">
 
-                <!-- IMAGE -->
                 <div class="promo-image">
                     <img src="/img/promo/<?= esc($row['image']) ?>" alt="<?= esc($row['promo']) ?>">
                 </div>
 
-                <!-- TEXT AREA -->
                 <div class="promo-content">
 
                     <h2 class="promo-header">

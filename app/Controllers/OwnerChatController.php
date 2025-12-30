@@ -151,7 +151,6 @@ class OwnerChatController extends BaseController
             return $this->response->setJSON(['status' => 'error', 'message' => 'Pesan kosong']);
         }
 
-        // Cari Receiver (User)
         $existingChat = $chatMessageModel->where('room_id', $roomId)->first();
         if ($existingChat) {
             $receiverId = ($existingChat['sender_id'] == $ownerId) ? $existingChat['receiver_id'] : $existingChat['sender_id'];
