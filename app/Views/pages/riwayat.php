@@ -95,19 +95,16 @@
 </div>
 
 <style>
-    /* Container */
     .riwayat-container {
         padding-top: 30px;
     }
 
-    /* Title */
     .riwayat-title {
         font-size: 28px;
         font-weight: 700;
         margin-bottom: 20px;
     }
 
-    /* Tabs */
     .riwayat-tabs {
         display: flex;
         gap: 15px;
@@ -144,7 +141,7 @@
         border: none;
         background: #d4f7df;
         font-weight: bold;
-        text-decoration: none; /* Tambahan biar <a> ga ada garis bawah */
+        text-decoration: none; 
         color: #000;
     }
 
@@ -153,7 +150,6 @@
         color: white;
     }
 
-    /* Card */
     .riwayat-card {
         background: white;
         border: 2px solid #e0e0e0;
@@ -165,7 +161,6 @@
         align-items: center;
     }
 
-    /* Left section */
     .lapangan-nama {
         font-size: 18px;
         font-weight: 700;
@@ -177,7 +172,6 @@
         font-size: 14px;
     }
 
-    /* Right section */
     .riwayat-right {
         text-align: right;
     }
@@ -201,7 +195,6 @@
         color: #02b131ff;
     }
 
-    /* Buttons */
     .riwayat-btn-group {
         display: flex;
         gap: 10px;
@@ -217,8 +210,8 @@
         font-weight: 500;
         text-decoration: none;
         color: #000;
-        cursor: pointer; /* Tambahan */
-        display: inline-block; /* Tambahan */
+        cursor: pointer; 
+        display: inline-block; 
     }
 
     .btn-outline:hover {
@@ -233,10 +226,10 @@
         border-radius: 10px;
         text-decoration: none;
         font-weight: 600;
-        border: none; /* Tambahan */
-        font-size: 14px; /* Tambahan biar match sama button asli */
-        cursor: pointer; /* Tambahan */
-        display: inline-block; /* Tambahan */
+        border: none; 
+        font-size: 14px; 
+        cursor: pointer; 
+        display: inline-block; 
     }
 
 </style>

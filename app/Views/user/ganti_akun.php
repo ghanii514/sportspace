@@ -186,7 +186,7 @@
 
     function handleSwitch(e, isActive) {
         if(isActive) {
-            e.preventDefault(); // Jangan refresh kalau klik akun sendiri
+            e.preventDefault(); 
         }
     }
 </script>

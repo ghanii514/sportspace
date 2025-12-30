@@ -89,7 +89,7 @@ class User extends BaseController
     {
         $data = [
             'title' => 'Edit Profil',
-            'user'  => $this->userModel->find(user_id()) // Ambil data user yang sedang login
+            'user'  => $this->userModel->find(user_id()) 
         ];
 
         return view('user/edit_profile', $data);
@@ -99,7 +99,7 @@ class User extends BaseController
     {
         $id = user_id();
 
-        // 1. Validasi Input
+        
         if (!$this->validate([
             'username' => [
                 'rules'  => "required|alpha_numeric_space|min_length[3]|is_unique[users.username,id,{$id}]",
@@ -120,23 +120,20 @@ class User extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // 2. Siapkan data update (Username saja, Email tidak)
         $data = [
             'username' => $this->request->getPost('username'),
         ];
 
-        // 3. Cek apakah user upload foto baru? (Opsional, tapi biasanya Edit Profil butuh ini)
         $fileFoto = $this->request->getFile('foto');
         if ($fileFoto && $fileFoto->isValid() && !$fileFoto->hasMoved()) {
-            // Generate nama random
+
             $namaFoto = $fileFoto->getRandomName();
-            // Pindahkan file ke folder img/users
+
             $fileFoto->move('img/users', $namaFoto);
-            // Masukkan nama foto ke database
+
             $data['profile_picture'] = $namaFoto;
         }
 
-        // 4. Update Database
         $this->userModel->update($id, $data);
 
         return redirect()->to('/profile')->with('message', 'Profil berhasil diperbarui!');

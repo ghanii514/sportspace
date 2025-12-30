@@ -81,7 +81,7 @@ class Chat extends BaseController
             return $this->response->setJSON([]);
         }
 
-        // Ambil pesan urut dari yang terlama ke terbaru
+        
         $messages = $this->chatMessageModel
             ->where('room_id', $roomId)
             ->orderBy('created_at', 'ASC')
@@ -92,7 +92,7 @@ class Chat extends BaseController
             $data[] = [
                 'id' => $msg['id'],
                 'message' => $msg['message'],
-                'type' => $msg['type'], // 'user' atau 'owner' (dari database)
+                'type' => $msg['type'], 
                 'time' => date('H:i', strtotime($msg['created_at']))
             ];
         }
@@ -105,26 +105,26 @@ class Chat extends BaseController
     // ==========================================
     public function send()
     {
-        // Validasi Request AJAX & Login
+       
         if (!user()) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'Unauthorized']);
         }
 
-        // Ambil Data dari FormData (Input Hidden di View)
+        
         $roomId = $this->request->getPost('room_id');
         $ownerId = $this->request->getPost('owner_id');
         $message = $this->request->getPost('message');
         $senderId = user()->id;
 
-        // Validasi Input Kosong
+        
         if (empty(trim($message)) || empty($roomId)) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'Data tidak lengkap']);
         }
 
-        // Insert ke Database
+        
         $this->chatMessageModel->insert([
             'room_id' => $roomId,
-            'type' => 'user', // Karena yang ngirim User
+            'type' => 'user', 
             'message' => $message,
             'sender_id' => $senderId,
             'receiver_id' => $ownerId,

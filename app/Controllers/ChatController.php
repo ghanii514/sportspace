@@ -20,8 +20,7 @@ class ChatController extends BaseController
         $this->userModel = new UserModel();
     }
 
-    // LIST USER CHAT
-    public function index()
+        public function index()
     {
         $ownerId = user()->id;
 
@@ -41,19 +40,19 @@ class ChatController extends BaseController
         ]);
     }
 
-    // OPEN CHAT WITH SPECIFIC USER
+    
     public function room($userId)
     {
         $ownerId = user()->id;
 
-        // Cek apakah room sudah ada
+       
         $room = $this->roomModel
             ->where([
                 'user_id'  => $userId,
                 'owner_id' => $ownerId
             ])->first();
 
-        // Jika belum ada, buat baru
+        
         if (!$room) {
             $roomId = $this->roomModel->insert([
                 'user_id' => $userId,
@@ -63,16 +62,16 @@ class ChatController extends BaseController
             $room = $this->roomModel->find($roomId);
         }
 
-        // Ambil user
+        
         $user = $this->userModel->find($userId);
 
-        // Ambil pesan
+        
         $messages = $this->msgModel
             ->where('room_id', $room['id'])
             ->orderBy('id', 'ASC')
             ->findAll();
 
-        // Ambil daftar chat user
+        
         $chatUsers = $this->roomModel
             ->select('chat_rooms.id AS room_id, users.id AS user_id, users.username, users.profile_picture,
                       (SELECT created_at FROM chat_messages WHERE room_id = chat_rooms.id ORDER BY id DESC LIMIT 1) 
@@ -90,7 +89,7 @@ class ChatController extends BaseController
         ]);
     }
 
-    // SEND MESSAGE
+    
     public function send()
     {
         $roomId = $this->request->getPost('room_id');
