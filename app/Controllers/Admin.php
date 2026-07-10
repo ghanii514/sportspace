@@ -5,18 +5,21 @@ namespace App\Controllers;
 use App\Models\FieldModel;
 use App\Models\PromoModel;
 use App\Models\BookingModel;
+use App\Models\UserModel;
 
 class Admin extends BaseController
 {
     protected $fieldModel;
     protected $promoModel;
     protected $bookingModel;
+    protected $userModel;
 
     public function __construct()
     {
         $this->fieldModel = new FieldModel();
         $this->promoModel = new PromoModel();
         $this->bookingModel = new BookingModel();
+        $this->userModel = new UserModel();
         
         helper(['form', 'url', 'auth']);
     }
@@ -329,5 +332,112 @@ class Admin extends BaseController
     {
         $this->bookingModel->delete($id);
         return redirect()->to('/admin/bookings')->with('success', 'Data booking dihapus permanen.');
+    }
+
+    // =========================================================================
+    // 5. EDIT PROFIL ADMIN
+    // =========================================================================
+    public function profile()
+    {
+        $data = [
+            'title' => 'Edit Profil',
+            'user'  => user()
+        ];
+        return view('admin/profile_edit', $data);
+    }
+
+    public function updateProfile()
+    {
+        $id = user_id();
+
+        if (!$this->validate([
+            'username' => [
+                'rules'  => "required|alpha_numeric_space|min_length[3]|is_unique[users.username,id,{$id}]",
+                'errors' => [
+                    'required'    => 'Username wajib diisi.',
+                    'is_unique'   => 'Username sudah dipakai orang lain.',
+                    'min_length'  => 'Username minimal 3 karakter.'
+                ]
+            ],
+            'email' => [
+                'rules'  => "required|valid_email|is_unique[users.email,id,{$id}]",
+                'errors' => [
+                    'required'    => 'Email wajib diisi.',
+                    'valid_email' => 'Format email tidak valid.',
+                    'is_unique'   => 'Email sudah dipakai orang lain.'
+                ]
+            ],
+            'profile_picture' => [
+                'rules' => 'is_image[profile_picture]|mime_in[profile_picture,image/jpg,image/jpeg,image/png]|max_size[profile_picture,1024]',
+                'errors' => [
+                    'is_image' => 'File harus berupa gambar.',
+                    'mime_in'  => 'Format harus JPG/JPEG/PNG.',
+                    'max_size' => 'Ukuran gambar maksimal 1MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'username' => $this->request->getPost('username'),
+            'email'    => $this->request->getPost('email'),
+        ];
+
+        $file = $this->request->getFile('profile_picture');
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $old = user()->profile_picture ?? 'default.png';
+            if ($old != 'default.png' && $old != 'default.jpg' && $old != 'default.svg' && file_exists(ROOTPATH . 'public/img/users/' . $old)) {
+                unlink(ROOTPATH . 'public/img/users/' . $old);
+            }
+            $newName = $file->getRandomName();
+            $file->move(ROOTPATH . 'public/img/users', $newName);
+            $data['profile_picture'] = $newName;
+        }
+
+        $this->userModel->update($id, $data);
+
+        return redirect()->to('/admin/profile')->with('success', 'Profil berhasil diperbarui!');
+    }
+
+    public function updateProfilePicture()
+    {
+        $id = user_id();
+
+        $rules = [
+            'profile_picture' => 'uploaded[profile_picture]|max_size[profile_picture,1024]|is_image[profile_picture]|mime_in[profile_picture,image/jpg,image/jpeg,image/png]'
+        ];
+        $errors = [
+            'profile_picture' => [
+                'uploaded' => 'Anda harus memilih gambar.',
+                'max_size' => 'Ukuran gambar terlalu besar (Maks 1MB).',
+                'is_image' => 'File yang diupload bukan gambar.',
+                'mime_in'  => 'Format file tidak didukung. Harap upload .jpg, .jpeg, atau .png.'
+            ]
+        ];
+
+        $validation = \Config\Services::validation();
+        $validation->setRules($rules, $errors);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            session()->setFlashdata('errors', $validation->getErrors());
+            return redirect()->to('/admin/profile');
+        }
+
+        $img = $this->request->getFile('profile_picture');
+        if ($img->isValid() && !$img->hasMoved()) {
+            $oldPicture = user()->profile_picture ?? 'default.png';
+            if ($oldPicture != 'default.png' && $oldPicture != 'default.jpg' && $oldPicture != 'default.svg' && file_exists(ROOTPATH . 'public/img/users/' . $oldPicture)) {
+                unlink(ROOTPATH . 'public/img/users/' . $oldPicture);
+            }
+            $newName = $img->getRandomName();
+            $img->move(ROOTPATH . 'public/img/users', $newName);
+            $this->userModel->update($id, ['profile_picture' => $newName]);
+            session()->setFlashdata('success', 'Foto profil berhasil diperbarui!');
+            return redirect()->to('/admin/profile');
+        }
+
+        session()->setFlashdata('error', 'Gagal mengupload foto profil.');
+        return redirect()->to('/admin/profile');
     }
 }

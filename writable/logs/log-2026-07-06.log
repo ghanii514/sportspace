@@ -1,0 +1,1606 @@
+DEBUG - 2026-07-06 09:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-07-06 09:28:25 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 09:28:25 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 12:28:43 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 12:28:43 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 12:43:59 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 12:43:59 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 12:51:29 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 12:51:29 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:01:03 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:01:03 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:08:09 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:08:09 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:09:01 --> TypeError: Myth\Auth\Models\GroupModel::addUserToGroup(): Argument #2 ($groupId) must be of type int, string given, called in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\AuthApi.php on line 98
+[Method: POST, Route: api/auth/register]
+in VENDORPATH\myth\auth\src\Models\GroupModel.php on line 41.
+ 1 APPPATH\Controllers\Api\AuthApi.php(98): Myth\Auth\Models\GroupModel->addUserToGroup(12, 'user')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->register()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:11:27 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:11:27 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:14:55 --> TypeError: Myth\Auth\Models\GroupModel::addUserToGroup(): Argument #2 ($groupId) must be of type int, string given, called in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\AuthApi.php on line 98
+[Method: POST, Route: api/auth/register]
+in VENDORPATH\myth\auth\src\Models\GroupModel.php on line 41.
+ 1 APPPATH\Controllers\Api\AuthApi.php(98): Myth\Auth\Models\GroupModel->addUserToGroup(13, 'user')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->register()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:15:11 --> TypeError: Myth\Auth\Models\GroupModel::addUserToGroup(): Argument #2 ($groupId) must be of type int, string given, called in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\AuthApi.php on line 98
+[Method: POST, Route: api/auth/register]
+in VENDORPATH\myth\auth\src\Models\GroupModel.php on line 41.
+ 1 APPPATH\Controllers\Api\AuthApi.php(98): Myth\Auth\Models\GroupModel->addUserToGroup(14, 'user')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->register()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:16:41 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:16:41 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:17:29 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:17:29 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:21:14 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:21:14 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:26:06 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:26:06 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2026-07-06 13:27:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-07-06 13:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-07-06 13:27:17 --> DomainException: Provided key is too short
+[Method: POST, Route: api/auth/login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 685.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(264): Firebase\JWT\JWT::validateHmacKeyLength('sportspace_secret_key_2025', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(232): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG9ydHNwYWNlIiwiaWF0IjoxNzgzMzQ0NDM3LCJleHAiOjE3ODM5NDkyMzcsInN1YiI6IjE3IiwiZW1haWwiOiJyYWZpZmRhZmZhMDMzNkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InJhZmlmZGFmZmEwMyIsImdyb3VwcyI6WyJ1c2VyIl19', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Api\AuthApi.php(63): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->login()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:28:12 --> DomainException: Provided key is too short
+[Method: POST, Route: api/auth/login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 685.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(264): Firebase\JWT\JWT::validateHmacKeyLength('sportspace_secret_key_2025', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(232): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG9ydHNwYWNlIiwiaWF0IjoxNzgzMzQ0NDkyLCJleHAiOjE3ODM5NDkyOTIsInN1YiI6IjE3IiwiZW1haWwiOiJyYWZpZmRhZmZhMDMzNkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InJhZmlmZGFmZmEwMyIsImdyb3VwcyI6WyJ1c2VyIl19', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Api\AuthApi.php(63): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->login()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:28:29 --> DomainException: Provided key is too short
+[Method: POST, Route: api/auth/login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 685.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(264): Firebase\JWT\JWT::validateHmacKeyLength('sportspace_secret_key_2025', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(232): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG9ydHNwYWNlIiwiaWF0IjoxNzgzMzQ0NTA5LCJleHAiOjE3ODM5NDkzMDksInN1YiI6IjE3IiwiZW1haWwiOiJyYWZpZmRhZmZhMDMzNkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InJhZmlmZGFmZmEwMyIsImdyb3VwcyI6WyJ1c2VyIl19', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Api\AuthApi.php(63): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->login()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:30:20 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:30:20 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:30:34 --> DomainException: Provided key is too short
+[Method: POST, Route: api/auth/login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 685.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(264): Firebase\JWT\JWT::validateHmacKeyLength('sportspace_secret_key_2025', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(232): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG9ydHNwYWNlIiwiaWF0IjoxNzgzMzQ0NjM0LCJleHAiOjE3ODM5NDk0MzQsInN1YiI6IjE3IiwiZW1haWwiOiJyYWZpZmRhZmZhMDMzNkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InJhZmlmZGFmZmEwMyIsImdyb3VwcyI6WyJ1c2VyIl19', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Api\AuthApi.php(63): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->login()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:36:08 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:36:08 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:40:42 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:40:42 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:42:12 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:42:12 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:46:42 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:46:42 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:50:54 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:50:54 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:51:27 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:51:27 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 13:54:44 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 13:54:45 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:02:25 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:02:25 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:03:12 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:03:12 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:05:16 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:05:16 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:08:28 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:08:28 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:10:22 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:10:22 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:15:59 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:15:59 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:17:47 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:17:47 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:21:16 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:21:16 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2026-07-06 14:21:27 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:21:29 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:21:31 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/auth/profile]
+in SYSTEMPATH\BaseModel.php on line 1861.
+ 1 SYSTEMPATH\BaseModel.php(1861): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(994): CodeIgniter\BaseModel->transformDataToArray([], 'update')
+ 3 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], Object(Myth\Auth\Entities\User))
+ 4 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->update('17', Object(Myth\Auth\Entities\User))
+ 5 APPPATH\Controllers\Api\AuthApi.php(159): CodeIgniter\BaseModel->save(Object(Myth\Auth\Entities\User))
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\AuthApi->updateProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\AuthApi))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:23:02 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:23:02 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2026-07-06 14:23:14 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:23:16 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:23:25 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:23:25 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:25:07 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:25:07 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2026-07-06 14:25:19 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:25:21 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:25:31 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:25:34 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:30:06 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:30:06 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:35:18 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:35:18 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2026-07-06 14:36:16 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:39:36 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:39:36 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2026-07-06 14:39:55 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:39:57 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile/photo', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:40:05 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:40:05 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-07-06 14:42:54 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:42:54 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2026-07-06 14:43:01 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:43:04 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile/photo', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:45:19 --> ValueError: Path cannot be empty
+[Method: GET, Route: api/partner-logo/dynamix]
+in APPPATH\Controllers\Api\PartnerLogoApi.php on line 63.
+ 1 APPPATH\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, resource (stream-context))
+ 2 APPPATH\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+CRITICAL - 2026-07-06 14:45:19 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Type is not supported in C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:47
+Stack trace:
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(47): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(347): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\API\ResponseTrait.php(106): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(85): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(ValueError), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ValueError))
+#6 {main}
+  thrown
+【Previous Exception】
+ValueError
+Path cannot be empty
+#0 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(63): file_get_contents('', false, Resource id #144)
+#1 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\app\Controllers\Api\PartnerLogoApi.php(28): App\Controllers\Api\PartnerLogoApi->fetchUrl('')
+#2 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Api\PartnerLogoApi->serve('dynamix')
+#3 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\PartnerLogoApi))
+#4 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#7 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#8 C:\xampp\htdocs\PROJECT-SPORTSPACE\sportspace\sportspace\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+[Method: GET, Route: api/partner-logo/dynamix]
+in SYSTEMPATH\Format\JSONFormatter.php on line 47.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2026-07-06 14:45:30 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')
+WARNING - 2026-07-06 14:45:33 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$user is deprecated in APPPATH\Filters\JwtAuth.php on line 29.
+ 1 SYSTEMPATH\Filters\Filters.php(241): App\Filters\JwtAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('api/auth/profile/photo', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PROJECT-SPORTSPACE\\sportspace\\sportspace\\public\\index.php')

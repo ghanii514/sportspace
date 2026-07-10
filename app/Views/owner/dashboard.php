@@ -192,18 +192,18 @@
     
     <aside class="sidebar">
         <div class="owner-profile">
-            <img src="/img/users/<?= $user->profile_picture ?? 'default_profile.jpg' ?>" class="owner-img">
-            <h4 style="margin:0;"><?= esc(user()->username) ?></h4>
+            <img src="/img/fields/<?= $venue_image ?>" class="owner-img">
+            <h4 style="margin:0;"><?= esc($venue_names) ?></h4>
             <span style="font-size:0.85em; color:#888;">Pemilik Lapangan</span>
         </div>
 
         <nav>
-            <a href="/owner" class="menu-link active">📊 Dashboard Utama</a>
-            <a href="/owner/bookings" class="menu-link">📅 Daftar Booking</a>
-            <a href="/owner/chat" class="menu-link">💬 Chat User</a>
-            
+            <a href="/owner" class="menu-link active">Dashboard Utama</a>
+            <a href="/owner/bookings" class="menu-link">Daftar Booking</a>
+            <a href="/owner/chat" class="menu-link">Chat User</a>
+
             <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
-            <a href="/logout" class="menu-link" style="color:#ef4444;">🚪 Keluar</a>
+            <a href="/logout" class="menu-link" style="color:#ef4444;">Keluar</a>
         </nav>
     </aside>
 
@@ -221,7 +221,7 @@
                 <h3><?= $need_confirm ?></h3>
                 <?php if($need_confirm > 0): ?>
                     <div style="margin-top:5px; font-size:0.8rem; color:#d97706; background:#fffbeb; padding:5px 10px; border-radius:6px; display:inline-block;">
-                        ⚠️ Segera cek menu Booking!
+                        Segera cek menu Booking!
                     </div>
                 <?php endif; ?>
             </div>

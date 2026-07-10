@@ -31,6 +31,10 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->get('bookings/confirm/(:num)', 'Admin::confirmBooking/$1');
     $routes->get('bookings/cancel/(:num)', 'Admin::cancelBooking/$1');
     $routes->get('bookings/delete/(:num)', 'Admin::deleteBooking/$1');
+    
+    $routes->get('profile', 'Admin::profile');
+    $routes->post('profile/update', 'Admin::updateProfile');
+    $routes->post('profile/update-photo', 'Admin::updateProfilePicture');
 });
 
 $routes->get('/lapangan/hafizh', 'Field::tambah'); 
@@ -91,10 +95,57 @@ $routes->group('owner' , function($routes){
     $routes->get('chat' , 'OwnerChatController::index');
     $routes->get('chat/(:any)' , 'OwnerChatController::index/$1');
     $routes->get('api/messages/(:num)', 'OwnerChatController::apiGetMessages/$1');
+    $routes->get('api/chat-list', 'OwnerChatController::apiGetChatList');
     $routes->post('chat/send' ,'OwnerChatController::send');
 
     $routes->get('approve/(:any)' , 'Owner::approve/$1');
     $routes->get('reject/(:any)' , 'Owner::reject/$1');
+
+});
+
+// --------------------------------------------------------------------
+// REST API routes (for Flutter mobile app)
+// --------------------------------------------------------------------
+$routes->group('api', function ($routes) {
+    // CORS preflight
+    $routes->options('(:any)', static function () {
+        $response = service('response');
+        $response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Max-Age', '7200');
+        return $response;
+    });
+
+    // Public
+    $routes->get('about', 'Api\AboutApi::index');
+    $routes->post('auth/login', 'Api\AuthApi::login');
+    $routes->post('auth/register', 'Api\AuthApi::register');
+    $routes->post('auth/forgot-password', 'Api\AuthApi::forgotPassword');
+    $routes->get('fields', 'Api\FieldApi::index');
+    $routes->get('fields/(:num)', 'Api\FieldApi::detail/$1');
+    $routes->get('partner-logo/(:any)', 'Api\PartnerLogoApi::serve/$1');
+    $routes->get('image/promo/(:any)', 'Api\ImageApi::servePromo/$1');
+    $routes->get('image/profile/(:any)', 'Api\ImageApi::serveProfile/$1');
+    $routes->get('image/about/(:any)', 'Api\ImageApi::serveAbout/$1');
+    $routes->get('image/(:any)', 'Api\ImageApi::serve/$1');
+    $routes->get('promos', 'Api\PromoApi::index');
+    $routes->get('promos/(:num)', 'Api\PromoApi::detail/$1');
+    $routes->get('booking/check-availability', 'Api\BookingApi::checkAvailability');
+    $routes->post('booking/check-promo', 'Api\BookingApi::checkPromo');
+
+    // Protected (JWT)
+    $routes->get('auth/me', 'Api\AuthApi::me', ['filter' => 'jwt']);
+    $routes->put('auth/profile', 'Api\AuthApi::updateProfile', ['filter' => 'jwt']);
+    $routes->post('auth/profile/photo', 'Api\AuthApi::updateProfilePhoto', ['filter' => 'jwt']);
+    $routes->post('booking', 'Api\BookingApi::create', ['filter' => 'jwt']);
+    $routes->get('booking', 'Api\BookingApi::index', ['filter' => 'jwt']);
+    $routes->get('booking/(:num)', 'Api\BookingApi::detail/$1', ['filter' => 'jwt']);
+    $routes->post('booking/(:num)/upload-bukti', 'Api\BookingApi::uploadBukti/$1', ['filter' => 'jwt']);
+    $routes->post('booking/(:num)/cancel', 'Api\BookingApi::cancel/$1', ['filter' => 'jwt']);
+    $routes->get('chat/rooms', 'Api\ChatApi::rooms', ['filter' => 'jwt']);
+    $routes->get('chat/rooms/(:num)/messages', 'Api\ChatApi::messages/$1', ['filter' => 'jwt']);
+    $routes->post('chat/send', 'Api\ChatApi::send', ['filter' => 'jwt']);
 });
 
 

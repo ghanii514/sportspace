@@ -78,18 +78,18 @@
 
     <aside class="sidebar">
         <div class="owner-profile">
-            <img src="/img/users/<?= user()->profile_picture ?? 'default.png' ?>" class="owner-img">
-            <h4 style="margin:0;"><?= esc(user()->username) ?></h4>
+            <img src="/img/fields/<?= $venue_image ?>" class="owner-img">
+            <h4 style="margin:0;"><?= esc($venue_names) ?></h4>
             <span style="font-size:0.85em; color:#888;">Pemilik Lapangan</span>
         </div>
 
         <nav>
-            <a href="/owner" class="menu-link">📊 Dashboard Utama</a>
-            <a href="/owner/bookings" class="menu-link active">📅 Daftar Booking</a>
-            <a href="/owner/chat" class="menu-link">💬 Chat User</a>
+            <a href="/owner" class="menu-link">Dashboard Utama</a>
+            <a href="/owner/bookings" class="menu-link active">Daftar Booking</a>
+            <a href="/owner/chat" class="menu-link">Chat User</a>
 
             <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
-            <a href="/logout" class="menu-link" style="color:#ef4444;">🚪 Keluar</a>
+            <a href="/logout" class="menu-link" style="color:#ef4444;">Keluar</a>
         </nav>
     </aside>
 
@@ -156,8 +156,8 @@
                         <td>
                             <?php if ($b['status'] == 'pending' && $b['bukti_bayar']): ?>
                                 <div style="display:flex; gap:5px;">
-                                    <a href="/owner/approve/<?= $b['id'] ?>" class="btn btn-sm btn-success">✔</a>
-                                    <a href="/owner/reject/<?= $b['id'] ?>" class="btn btn-sm btn-danger">✖</a>
+                                    <a href="/owner/approve/<?= $b['id'] ?>" class="btn btn-sm btn-success">Setujui</a>
+                                    <a href="/owner/reject/<?= $b['id'] ?>" class="btn btn-sm btn-danger">Tolak</a>
                                 </div>
                             <?php else: ?>
                                 <span style="color:#ccc;">-</span>

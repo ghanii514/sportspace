@@ -31,9 +31,11 @@ class BookingModel extends Model
         return $this->select('booking.*, users.username, users.email, lapangan.nama as nama_lapangan')
                     ->join('users', 'users.id = booking.user_id')
                     ->join('lapangan', 'lapangan.id = booking.venue_id')
-                    ->where('booking.user_id' , $userId)
-                    ->where('booking.status' , 'cancelled')
-                    ->orWhere('booking.status' , 'pending')
+                    ->where('booking.user_id', $userId)
+                    ->groupStart()
+                        ->where('booking.status', 'cancelled')
+                        ->orWhere('booking.status', 'pending')
+                    ->groupEnd()
                     ->orderBy('booking.id', 'DESC')
                     ->findAll();
     }

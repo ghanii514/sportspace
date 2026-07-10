@@ -37,6 +37,7 @@ class Filters extends BaseFilters
         'login'         => \Myth\Auth\Filters\LoginFilter::class,
         'role'          => \Myth\Auth\Filters\RoleFilter::class,
         'permission'    => \Myth\Auth\Filters\PermissionFilter::class,
+        'jwt'           => \App\Filters\JwtAuth::class,
     ];
 
     /**
@@ -109,5 +110,7 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        'cors' => ['before' => ['api/*'], 'after' => ['api/*']],
+    ];
 }

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ChatMessageModel;
+use App\Models\FieldModel;
 
 class OwnerChatController extends BaseController
 {
@@ -15,25 +16,17 @@ class OwnerChatController extends BaseController
 
     public function index($active_room_id = null)
     {
-        $ownerId = user()->id; // ID Owner yang sedang login
+        $ownerId = user()->id;
+        $fieldModel = new FieldModel();
+
+        $venues = $fieldModel
+            ->where('owner_id', $ownerId)
+            ->findAll();
+        $venueNames = !empty($venues) ? implode(', ', array_column($venues, 'nama')) : '-';
+        $venueImage = !empty($venues) ? $venues[0]['image'] : 'default.jpg';
 
         // 1. DAFTAR CHAT (SIDEBAR)
-        // Join dua kali ke tabel users: satu untuk pengirim, satu untuk penerima
-        $rawChatList = $this->chatModel
-            ->select('chat_messages.*, 
-                      u_sender.username as sender_name, u_sender.profile_picture as sender_pic,
-                      u_target.username as target_name, u_target.profile_picture as target_pic')
-            ->join('users u_sender', 'u_sender.id = chat_messages.sender_id')
-            ->join('users u_target', 'u_target.id = chat_messages.receiver_id')
-            ->whereIn('chat_messages.id', function($builder) use ($ownerId) {
-                return $builder->select('MAX(id)')
-                               ->from('chat_messages')
-                               ->where('receiver_id', $ownerId)   // Chat yang masuk ke owner
-                               ->orWhere('sender_id', $ownerId) // Chat yang dikirim oleh owner
-                               ->groupBy('room_id');
-            })
-            ->orderBy('chat_messages.created_at', 'DESC')
-            ->findAll();
+        $rawChatList = $this->getChatListRaw($ownerId);
 
         if ($active_room_id === null && !empty($rawChatList)) {
             $active_room_id = $rawChatList[0]['room_id'];
@@ -95,7 +88,9 @@ class OwnerChatController extends BaseController
         }
 
         return view('owner/chat_view', [
-            'chatList'   => $chatList,
+            'chatList'    => $chatList,
+            'venue_names' => $venueNames,
+            'venue_image' => $venueImage,
             'activeChat' => [
                 'user'     => $activeUser,
                 'messages' => $messages
@@ -125,6 +120,49 @@ class OwnerChatController extends BaseController
         }
 
         return $this->response->setJSON($data);
+    }
+
+    public function apiGetChatList()
+    {
+        $ownerId = user()->id;
+        $rawChatList = $this->getChatListRaw($ownerId);
+
+        $chatList = [];
+        foreach ($rawChatList as $chat) {
+            $isOwnerSender = ($chat['sender_id'] == $ownerId);
+            $userName      = $isOwnerSender ? $chat['target_name'] : $chat['sender_name'];
+            $userPic       = $isOwnerSender ? $chat['target_pic'] : $chat['sender_pic'];
+
+            $chatList[] = [
+                'room_id'      => (int) $chat['room_id'],
+                'name'         => $userName,
+                'venue'        => '[Sport Center]',
+                'last_message' => $chat['message'],
+                'time'         => $this->formatTime($chat['created_at']),
+                'avatar'       => '/img/users/' . ($userPic ?? 'default.png'),
+            ];
+        }
+
+        return $this->response->setJSON($chatList);
+    }
+
+    private function getChatListRaw($ownerId)
+    {
+        return $this->chatModel
+            ->select('chat_messages.*, 
+                      u_sender.username as sender_name, u_sender.profile_picture as sender_pic,
+                      u_target.username as target_name, u_target.profile_picture as target_pic')
+            ->join('users u_sender', 'u_sender.id = chat_messages.sender_id')
+            ->join('users u_target', 'u_target.id = chat_messages.receiver_id')
+            ->whereIn('chat_messages.id', function($builder) use ($ownerId) {
+                return $builder->select('MAX(id)')
+                               ->from('chat_messages')
+                               ->where('receiver_id', $ownerId)
+                               ->orWhere('sender_id', $ownerId)
+                               ->groupBy('room_id');
+            })
+            ->orderBy('chat_messages.created_at', 'DESC')
+            ->findAll();
     }
 
     private function formatTime($datetime)

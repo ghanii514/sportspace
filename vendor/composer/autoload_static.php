@@ -33,6 +33,7 @@ class ComposerStaticInit657ac079313fab046eb8c29fe1d6992b
         ),
         'F' => 
         array (
+            'Firebase\\JWT\\' => 13,
             'Faker\\' => 6,
         ),
         'D' => 
@@ -75,6 +76,10 @@ class ComposerStaticInit657ac079313fab046eb8c29fe1d6992b
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-escaper/src',
         ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
@@ -108,15 +113,24 @@ class ComposerStaticInit657ac079313fab046eb8c29fe1d6992b
     );
 
     public static $classMap = array (
-        'App\\Controllers\\Auth' => __DIR__ . '/../..' . '/app/Controllers/Auth.php',
+        'App\\Controllers\\Admin' => __DIR__ . '/../..' . '/app/Controllers/Admin.php',
         'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Controllers/BaseController.php',
         'App\\Controllers\\Booking' => __DIR__ . '/../..' . '/app/Controllers/Booking.php',
+        'App\\Controllers\\Chat' => __DIR__ . '/../..' . '/app/Controllers/Chat.php',
         'App\\Controllers\\Field' => __DIR__ . '/../..' . '/app/Controllers/Field.php',
+        'App\\Controllers\\GantiAkun' => __DIR__ . '/../..' . '/app/Controllers/GantiAkun.php',
         'App\\Controllers\\Home' => __DIR__ . '/../..' . '/app/Controllers/Home.php',
+        'App\\Controllers\\Owner' => __DIR__ . '/../..' . '/app/Controllers/Owner.php',
+        'App\\Controllers\\OwnerChatController' => __DIR__ . '/../..' . '/app/Controllers/OwnerChatController.php',
+        'App\\Controllers\\Promo' => __DIR__ . '/../..' . '/app/Controllers/Promo.php',
         'App\\Controllers\\Riwayat' => __DIR__ . '/../..' . '/app/Controllers/Riwayat.php',
         'App\\Controllers\\User' => __DIR__ . '/../..' . '/app/Controllers/User.php',
         'App\\Models\\BookingModel' => __DIR__ . '/../..' . '/app/Models/BookingModel.php',
+        'App\\Models\\ChatMessageModel' => __DIR__ . '/../..' . '/app/Models/ChatMessageModel.php',
+        'App\\Models\\ChatModel' => __DIR__ . '/../..' . '/app/Models/ChatModel.php',
+        'App\\Models\\ChatRoomModel' => __DIR__ . '/../..' . '/app/Models/ChatRoomModel.php',
         'App\\Models\\FieldModel' => __DIR__ . '/../..' . '/app/Models/FieldModel.php',
+        'App\\Models\\OwnerModel' => __DIR__ . '/../..' . '/app/Models/OwnerModel.php',
         'App\\Models\\PromoModel' => __DIR__ . '/../..' . '/app/Models/PromoModel.php',
         'App\\Models\\UserModel' => __DIR__ . '/../..' . '/app/Models/UserModel.php',
         'CodeIgniter\\API\\ResponseTrait' => __DIR__ . '/..' . '/codeigniter4/framework/system/API/ResponseTrait.php',
@@ -1093,6 +1107,14 @@ class ComposerStaticInit657ac079313fab046eb8c29fe1d6992b
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
+        'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
+        'Firebase\\JWT\\CachedKeySet' => __DIR__ . '/..' . '/firebase/php-jwt/src/CachedKeySet.php',
+        'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
+        'Firebase\\JWT\\JWK' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWK.php',
+        'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
+        'Firebase\\JWT\\JWTExceptionWithPayloadInterface' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWTExceptionWithPayloadInterface.php',
+        'Firebase\\JWT\\Key' => __DIR__ . '/..' . '/firebase/php-jwt/src/Key.php',
+        'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
         'Laminas\\Escaper\\Escaper' => __DIR__ . '/..' . '/laminas/laminas-escaper/src/Escaper.php',
         'Laminas\\Escaper\\EscaperInterface' => __DIR__ . '/..' . '/laminas/laminas-escaper/src/EscaperInterface.php',
         'Laminas\\Escaper\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/laminas/laminas-escaper/src/Exception/ExceptionInterface.php',

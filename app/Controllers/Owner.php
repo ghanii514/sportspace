@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\BookingModel;
+use App\Models\FieldModel;
 
 class Owner extends BaseController
 {
@@ -14,10 +15,16 @@ class Owner extends BaseController
         }
 
         $bookingModel = new BookingModel();
+        $fieldModel = new FieldModel();
         $db = \Config\Database::connect();
 
         $ownerId = user_id();
 
+        $venues = $fieldModel
+            ->where('owner_id', $ownerId)
+            ->findAll();
+        $venueNames = !empty($venues) ? implode(', ', array_column($venues, 'nama')) : '-';
+        $venueImage = !empty($venues) ? $venues[0]['image'] : 'default.jpg';
 
         $totalBooking = $bookingModel
             ->join('lapangan', 'lapangan.id = booking.venue_id')
@@ -51,6 +58,8 @@ class Owner extends BaseController
         $data = [
             'title' => 'Dashboard Pemilik Lapangan',
             'user' => user(),
+            'venue_names' => $venueNames,
+            'venue_image' => $venueImage,
             'total_booking' => $totalBooking,
             'need_confirm' => $needConfirm,
             'income' => $income,
@@ -62,29 +71,34 @@ class Owner extends BaseController
 
     public function bookings()
     {
-        // 1. Cek Login
         if (!logged_in()) {
             return redirect()->to('/login');
         }
 
         $bookingModel = new BookingModel();
+        $fieldModel = new FieldModel();
 
-        // 2. Ambil ID Owner yang sedang login
         $ownerId = user_id();
 
-        // 3. Query Database
-        // Logika: Ambil Booking -> Sambungkan ke Lapangan -> Cek apakah Lapangan itu punya Owner ID ini
+        $venues = $fieldModel
+            ->where('owner_id', $ownerId)
+            ->findAll();
+        $venueNames = !empty($venues) ? implode(', ', array_column($venues, 'nama')) : '-';
+        $venueImage = !empty($venues) ? $venues[0]['image'] : 'default.jpg';
+
         $bookings = $bookingModel
             ->select('booking.*, users.username as penyewa, lapangan.nama as nama_lapangan, lapangan.owner_id')
-            ->join('users', 'users.id = booking.user_id')          // Ambil data User penyewa
-            ->join('lapangan', 'lapangan.id = booking.venue_id')   // Ambil data Lapangan (venue_id di booking = id di lapangan)
-            ->where('lapangan.owner_id', $ownerId)                 // <--- INI KUNCINYA (Filter hanya lapangan milik owner ini)
-            ->orderBy('booking.id', 'DESC')                        // Urutkan dari booking terbaru
+            ->join('users', 'users.id = booking.user_id')
+            ->join('lapangan', 'lapangan.id = booking.venue_id')
+            ->where('lapangan.owner_id', $ownerId)
+            ->orderBy('booking.id', 'DESC')
             ->findAll();
 
         $data = [
             'title' => 'Daftar Booking Masuk',
             'user' => user(),
+            'venue_names' => $venueNames,
+            'venue_image' => $venueImage,
             'bookings' => $bookings
         ];
 
