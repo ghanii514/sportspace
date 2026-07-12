@@ -239,6 +239,58 @@ class BookingApi extends BaseController
         return json_response(['bukti_bayar' => $newName], 200, 'Bukti pembayaran berhasil diupload');
     }
 
+    public function applyPromo($id)
+    {
+        if (!$this->request->user) {
+            return json_response(null, 401, 'Unauthorized');
+        }
+
+        $input = $this->getInput();
+        $kodePromo = $input['promo_code'] ?? null;
+
+        if (!$kodePromo) {
+            return json_response(null, 400, 'promo_code wajib diisi');
+        }
+
+        $bookingModel = new BookingModel();
+        $booking = $bookingModel->find($id);
+
+        if (!$booking) {
+            return json_response(null, 404, 'Booking tidak ditemukan');
+        }
+
+        if ($booking['user_id'] != $this->request->user->sub) {
+            return json_response(null, 403, 'Akses ditolak');
+        }
+
+        $promo = (new PromoModel())->where('promo_code', $kodePromo)->first();
+        if (!$promo) {
+            return json_response(null, 404, 'Kode promo tidak valid');
+        }
+
+        $field = (new FieldModel())->find($booking['venue_id']);
+        if (!$field) {
+            return json_response(null, 404, 'Lapangan tidak ditemukan');
+        }
+
+        $start      = strtotime($booking['start_time']);
+        $end        = strtotime($booking['end_time']);
+        $durasi     = ($end - $start) / 3600;
+        $hargaSewa  = $durasi * $field['harga'];
+        $biayaLayanan = 2000;
+        $diskon     = ($hargaSewa * $promo['jumlah_diskon']) / 100;
+        $totalBayar = $hargaSewa + $biayaLayanan - $diskon;
+
+        $bookingModel->update($id, [
+            'total_price'     => $totalBayar,
+            'discount_amount' => $diskon,
+            'promo_code'      => $kodePromo,
+        ]);
+
+        $updated = $bookingModel->getBooking($id);
+        return json_response($updated, 200, 'Promo berhasil diterapkan');
+    }
+
     public function cancel($id)
     {
         if (!$this->request->user) {

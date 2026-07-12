@@ -143,6 +143,7 @@ $routes->group('api', function ($routes) {
     $routes->get('booking/(:num)', 'Api\BookingApi::detail/$1', ['filter' => 'jwt']);
     $routes->post('booking/(:num)/upload-bukti', 'Api\BookingApi::uploadBukti/$1', ['filter' => 'jwt']);
     $routes->post('booking/(:num)/cancel', 'Api\BookingApi::cancel/$1', ['filter' => 'jwt']);
+    $routes->post('booking/(:num)/apply-promo', 'Api\BookingApi::applyPromo/$1', ['filter' => 'jwt']);
     $routes->get('chat/rooms', 'Api\ChatApi::rooms', ['filter' => 'jwt']);
     $routes->get('chat/rooms/(:num)/messages', 'Api\ChatApi::messages/$1', ['filter' => 'jwt']);
     $routes->post('chat/send', 'Api\ChatApi::send', ['filter' => 'jwt']);

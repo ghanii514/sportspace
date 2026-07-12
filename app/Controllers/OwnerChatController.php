@@ -43,9 +43,9 @@ class OwnerChatController extends BaseController
             $chatList[] = [
                 'id'           => $chat['room_id'],
                 'name'         => $userName,
-                'venue'        => '[Sport Center]',
+                'venue'        => '',
                 'last_message' => $chat['message'],
-                'time'         => $this->formatTime($chat['created_at']),
+                'time'         => strtotime($chat['created_at']),
                 'avatar'       => '/img/users/' . ($userPic ?? 'default.png'),
                 'active'       => ($chat['room_id'] == $active_room_id)
             ];
@@ -61,13 +61,13 @@ class OwnerChatController extends BaseController
                 ->orderBy('created_at', 'ASC')
                 ->findAll();
 
-            foreach ($rawMessages as $msg) {
-                $messages[] = [
-                    'type' => ($msg['type'] === 'owner') ? 'admin' : 'user', // Sesuai enum 'type'
-                    'text' => $msg['message'],
-                    'time' => date('H:i', strtotime($msg['created_at']))
-                ];
-            }
+        foreach ($rawMessages as $msg) {
+            $messages[] = [
+                'type' => ($msg['type'] === 'owner') ? 'admin' : 'user',
+                'text' => $msg['message'],
+                'time' => date('H:i', strtotime($msg['created_at']))
+            ];
+        }
 
             // Cari identitas lawan bicara (User) untuk header
             // Kita ambil satu pesan dari room ini yang bertipe 'user'
@@ -81,7 +81,7 @@ class OwnerChatController extends BaseController
             if ($userData) {
                 $activeUser = [
                     'name'   => $userData['username'],
-                    'venue'  => '[Sport Center]',
+                    'venue'  => '',
                     'avatar' => '/img/users/' . ($userData['profile_picture'] ?? 'default.png')
                 ];
             }
@@ -113,9 +113,8 @@ class OwnerChatController extends BaseController
             $data[] = [
                 'id' => $msg['id'],
                 'text' => $msg['message'],
-                // Tentukan type berdasarkan sender_id
-                'type' => ($msg['sender_id'] == $ownerId) ? 'owner' : 'user', 
-                'time' => date('H:i', strtotime($msg['created_at']))
+                'type' => ($msg['sender_id'] == $ownerId) ? 'owner' : 'user',
+                'time' => strtotime($msg['created_at'])
             ];
         }
 
@@ -136,9 +135,9 @@ class OwnerChatController extends BaseController
             $chatList[] = [
                 'room_id'      => (int) $chat['room_id'],
                 'name'         => $userName,
-                'venue'        => '[Sport Center]',
+                'venue'        => '',
                 'last_message' => $chat['message'],
-                'time'         => $this->formatTime($chat['created_at']),
+                'time'         => strtotime($chat['created_at']),
                 'avatar'       => '/img/users/' . ($userPic ?? 'default.png'),
             ];
         }

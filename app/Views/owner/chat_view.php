@@ -312,10 +312,9 @@ body {
                             <img src="<?= $chat['avatar'] ?>" class="chat-item-avatar" onerror="this.src='/img/users/default.png'">
                             <div style="flex:1; min-width:0;">
                                 <div class="chat-name"><?= esc($chat['name']) ?></div>
-                                <span class="venue-tag"><?= esc($chat['venue']) ?></span>
                                 <div style="font-size:0.8em; color:#9ca3af; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"><?= esc($chat['last_message']) ?></div>
                             </div>
-                            <div style="font-size:0.7em; color:#9ca3af; white-space:nowrap; margin-left:8px;"><?= $chat['time'] ?></div>
+                            <div style="font-size:0.7em; color:#9ca3af; white-space:nowrap; margin-left:8px;" class="chat-list-time" data-ts="<?= $chat['time'] ?>"><?= $chat['time'] ?></div>
                         </a>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -333,7 +332,6 @@ body {
                     <img src="<?= $activeChat['user']['avatar'] ?>" onerror="this.src='/img/users/default.png'">
                     <div>
                         <h4><?= esc($activeChat['user']['name']) ?></h4>
-                        <p><?= esc($activeChat['user']['venue']) ?></p>
                     </div>
                 </div>
 
@@ -431,10 +429,12 @@ function loadMessages() {
             } else {
                 data.forEach(msg => {
                     const type = msg.type === 'owner' ? 'owner' : 'user';
+                    const date = new Date(msg.time * 1000);
+                    const jam = date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
                     html += `
                         <div class="message-bubble ${type}">
                             ${escapeHtml(msg.text)}
-                            <div class="msg-time">${msg.time}</div>
+                            <div class="msg-time">${jam}</div>
                         </div>
                     `;
                 });
@@ -444,6 +444,22 @@ function loadMessages() {
             scrollToBottom();
         });
 }
+
+function formatChatTime(ts) {
+    const date = new Date(ts * 1000);
+    const now = new Date();
+    const isToday = date.toDateString() === now.toDateString();
+    if (isToday) {
+        return date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    }
+    return `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getFullYear()).slice(-2)}`;
+}
+
+// Format all initial chat list timestamps on page load
+document.querySelectorAll('.chat-list-time[data-ts]').forEach(el => {
+    const ts = parseInt(el.getAttribute('data-ts'));
+    if (!isNaN(ts)) el.textContent = formatChatTime(ts);
+});
 
 function escapeHtml(text) {
     if (!text) return '';
@@ -475,10 +491,9 @@ function loadChatList() {
                         <img src="${escapeHtml(chat.avatar)}" class="chat-item-avatar" onerror="this.src='/img/users/default.png'">
                         <div style="flex:1; min-width:0;">
                             <div class="chat-name">${escapeHtml(chat.name)}</div>
-                            <span class="venue-tag">${escapeHtml(chat.venue)}</span>
                             <div style="font-size:0.8em; color:#9ca3af; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(chat.last_message)}</div>
                         </div>
-                        <div style="font-size:0.7em; color:#9ca3af; white-space:nowrap; margin-left:8px;">${escapeHtml(chat.time)}</div>
+                        <div style="font-size:0.7em; color:#9ca3af; white-space:nowrap; margin-left:8px;">${formatChatTime(chat.time)}</div>
                     </a>
                 `;
             });

@@ -64,13 +64,29 @@ class Booking extends BaseController
 
     public function save()
     {
-        $inputDiskon = $this->request->getPost('discount_amount');
-        if(empty($inputDiskon)) {
-            $inputDiskon = 0;
-        }
-
         $userId  = $this->request->getPost('id_user');
         $venueId = $this->request->getPost('venue_id');
+
+        $fieldModel = new FieldModel();
+        $field = $fieldModel->find($venueId);
+
+        $start = strtotime($this->request->getPost('mulai'));
+        $end   = strtotime($this->request->getPost('selesai'));
+        $durasi = ($end - $start) / 3600;
+
+        $hargaSewa    = $durasi * $field['harga'];
+        $biayaLayanan = 2000;
+        $kodePromo    = $this->request->getPost('kodepromo');
+        $diskon       = 0;
+
+        if (!empty($kodePromo)) {
+            $promo = (new PromoModel())->where('promo_code', $kodePromo)->first();
+            if ($promo) {
+                $diskon = ($hargaSewa * $promo['jumlah_diskon']) / 100;
+            }
+        }
+
+        $totalBayar = $hargaSewa + $biayaLayanan - $diskon;
 
         $data = [
             'user_id'         => $userId,
@@ -78,22 +94,19 @@ class Booking extends BaseController
             'booking_date'    => $this->request->getPost('jadwal'),
             'start_time'      => $this->request->getPost('mulai'),
             'end_time'        => $this->request->getPost('selesai'),
-            'status'          => 'pending', 
+            'status'          => 'pending',
             'pembayaran'      => $this->request->getPost('pembayaran'),
-            'total_price'     => $this->request->getPost('total'),
-            'discount_amount' => $inputDiskon,
-            'promo_code'      => $this->request->getPost('kodepromo'),
+            'total_price'     => $totalBayar,
+            'discount_amount' => $diskon,
+            'promo_code'      => $kodePromo,
         ];
 
         $bookingModel = new BookingModel();
         $bookingModel->save($data);
 
-        $fieldModel = new FieldModel(); 
-        $lapangan   = $fieldModel->find($venueId);
+        if ($field && !empty($field['owner_id'])) {
+            $ownerId = $field['owner_id'];
 
-        if ($lapangan && !empty($lapangan['owner_id'])) {
-            $ownerId = $lapangan['owner_id'];
-            
             $chatRoomModel = new ChatRoomModel();
 
             $existingRoom = $chatRoomModel
